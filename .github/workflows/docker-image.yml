@@ -1,0 +1,37 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - uses: actions/download-artifact@v3
+          with:
+            name: algolia-indexes
+        - uses: montudor/action-zip@v1
+          with:
+            args: unzip -qq algolia-indexes-HP.zip -d algolia-indexes
+        - run: |
+        env "algolia-key=${{env.ALGOLIA_KEY}}" java -jar /opt/builder/help-publication-agent.jar \
+        update-index \
+        --application-name ${{env.ALGOLIA_APP_NAME}} \
+        --index-name ${{env.ALGOLIA_INDEX_NAME}} \
+        --product ${{env.CONFIG_JSON_PRODUCT}} \
+        --version ${{env.CONFIG_JSON_VERSION}} \
+        --index-directory algolia-indexes/ \
+        2>&1 | tee algolia-update-index-log.txt
+        
+        env:
+          ALGOLIA_APP_NAME: TGW4GIW73X
+          ALGOLIA_INDEX_NAME: pd-index
+          ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
+          CONFIG_JSON_PRODUCT: /plugin-developers/
+          CONFIG_JSON_VERSION: main
