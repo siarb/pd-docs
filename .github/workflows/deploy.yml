@@ -11,7 +11,13 @@ on:
 
 env:
   PRODUCT: stardust-help/pd
-  ARTIFACT: webHelpPD2-all.zip
+  DOC_ARTIFACT: webHelpPD2-all.zip
+  ALGOLIA_ARTIFACT: algolia-indexes-PD.zip
+  ALGOLIA_APP_NAME: TGW4GIW73X
+  ALGOLIA_INDEX_NAME: pd-index
+  ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
+  CONFIG_JSON_PRODUCT: plugin-developers
+  CONFIG_JSON_VERSION: main
 
 jobs:
   build-job:
@@ -21,9 +27,40 @@ jobs:
         uses: actions/checkout@v3
       - name: Build Writerside docs using Docker
         uses: JetBrains/writerside-github-action@v2
-      - name: Upload artifact
+      - name: Upload documentation
         uses: actions/upload-artifact@v3
         with:
           name: help
-          path: artifacts/${{ env.ARTIFACT }}
+          path: artifacts/${{ env.DOC_ARTIFACT }}
           retention-days: 7
+      - name: Upload algolia-indexes
+        uses: actions/upload-artifact@v3
+        with:
+          name: algolia-indexes
+          path: artifacts/${{ env.ALGOLIA_ARTIFACT }}
+          retention-days: 7
+
+  publish-indexes:
+  # Requires the build-job results
+    needs: build-job
+    runs-on: ubuntu-latest
+    container:
+      image: registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-2
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: algolia-indexes
+      - uses: montudor/action-zip@v1
+        with:
+          args: unzip -qq algolia-indexes-PD.zip -d algolia-indexes
+      - run: |
+          env "algolia-key=${{env.ALGOLIA_KEY}}" java -jar /opt/builder/help-publication-agent.jar \
+          update-index \
+          --application-name ${{env.ALGOLIA_APP_NAME}} \
+          --index-name ${{env.ALGOLIA_INDEX_NAME}} \
+          --product ${{env.CONFIG_JSON_PRODUCT}} \
+          --version ${{env.CONFIG_JSON_VERSION}} \
+          --index-directory algolia-indexes/ \
+          2>&1 | tee algolia-update-index-log.txt
