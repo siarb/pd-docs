@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage a documentation project"
+       id="Manage_project">
+
+    <p id="about_project">
+        A documentation project in %product% is a separate <a href="https://www.jetbrains.com/help/idea/creating-and-managing-modules.html">IDE module</a>.
+        You can have a dedicated documentation project with just this one module,
+        or add a separate module in a larger IDE project with the source code of your product.
+        This means that you can decide whether you want to keep your documentation sources separate from the product sources.
+    </p>
+
+    <p>For information about creating a new documentation project, see <a href="About_Writerside.topic" anchor="create-new-project"/>.</p>
+
+    <p>
+        To add a documentation project as a module for an existing IDE project,
+        open the <control>Writerside</control> tool window
+        and add a new help instance as described in <a href="Create_an_instance.topic"/>.
+    </p>
+</topic>

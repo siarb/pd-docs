@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Place redirects"
+       id="Place_redirects">
+
+    <p>
+        When you rework and restructure content and <a href="Delete_a_topic.topic">remove topics</a> from a help instance,
+        you need to place redirects from the corresponding URLs so that users who have an old link don't land on the 404 error page.
+    </p>
+    <p>
+        When you remove a topic using the <a href="Delete_a_topic.topic">Delete refactoring</a>, you can select
+        the new target for the removed topic's URL and %product% automatically creates a redirection rule for you and references it
+        from the <code>toc-element</code> that should serve as the new target for the invalid URL.
+    </p>
+    <p>
+        Redirection rules are stored in the <path>redirection-rules.xml</path> file and have the following
+        syntax:
+    </p>
+    <code-block lang="XML">
+        <![CDATA[
+    <rule id="36921bf6">
+        <description>Created after removal of "Introduction" from Writerside</description>
+        <accepts>introduction.html</accepts>
+    </rule>
+        ]]>
+    </code-block>
+    <p>
+        The <code>accepts-web-file-names</code> attribute is added to the <code>toc-element</code> that you select as a target:
+    </p>
+    <code-block lang="XML">
+        <![CDATA[
+    <toc-element topic="Topics.topic" accepts-web-file-names-ref="36921bf6">
+
+    </rule>                    ]]>
+    </code-block>
+    <p>
+        Sometimes, you need to add redirects manually, for example, if you
+        <a href="Changing_topic_title.topic" anchor="change-file-name">change a topic's
+        filename and ID</a> as page URLs are generated from IDs and the old link will no longer be valid.
+    </p>
+
+    <chapter title="Set a redirect manually">
+    <include from="lib.topic" element-id="place-redirects"/>
+    </chapter>
+    <chapter title="Set up a redirect to an external link">
+   <procedure>
+        <p>When you remove a topic, you can place a redirect to an external resource if there's no existing
+            topic that you want readers to land on. For example, this can be a knowledge base article, a blog post, or a page
+            in your learning center.</p>
+        <step>
+            Place the link to the external resource into the <code>target-for-accepts-web-file-names</code> attribute of the toc-element.
+            <code-block lang="XML">
+                <![CDATA[
+                    <toc-element toc-title="Get started" target-for-accept-web-file-names="https://www.example.com/learning-center/">
+                ]]>
+            </code-block>
+        </step>
+    </procedure>
+    </chapter>
+</topic>

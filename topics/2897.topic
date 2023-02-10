@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="2022.11.2897" id="2897">
+
+    <chapter title="Support the latest IntelliJ version">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-790">WRS-790</a> Migrate to 2022.3 platform
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Projects, instances, and topics">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-984">WRS-984</a> Topics disappear in first project if
+                second project opens in new window, is not possible to link topics
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-999">WRS-999</a> Newly created project is empty when
+                created from the window 'File - New - Project...' of previously created project
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1001">WRS-1001</a> An exception is thrown when the
+                last instance is removed and user returns to Writerside tab
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-791">WRS-791</a> An exception is thrown when the last
+                instance is removed
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-491">WRS-491</a> Child topics aren't displayed in TOC
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-954">WRS-954</a> Show confirmation after saving a
+                topic as template
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-885">WRS-885</a> Switch to the first topic in Editor
+                when new Instance is created
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Collapsed titles">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-863">WRS-863</a> MD: Render title as first line of the
+                code block if not existing line is specified in collapsed-title-line-number attribute
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Markdown">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-951">WRS-951</a> Remove automatically inserted legacy
+                markup for titles (interpreted as comments)
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-952">WRS-952</a> Remove automatically inserted legacy
+                markup for titles from file templates
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-924">WRS-924</a> Curly bracket should be automatically
+                closed in Markdown
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-911">WRS-911</a> MD: Attributes are suggested instead
+                of values after the opening quote if a user types the whole attribute manually
+                (does not choose a suggestion) and opens quote
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-912">WRS-912</a> Wrong completion of markdown attribute
+                value when there is some prefix
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Issues with filters">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-325">WRS-325</a> MD: Filter `!a,!c` is not
+                highlighted as problematic
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Inspections">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-893">WRS-893</a> The scope of "Replace all delimiters
+                with underscores" intention should be narrowed
+            </li>
+        </list>
+    </chapter>
+</topic>
+

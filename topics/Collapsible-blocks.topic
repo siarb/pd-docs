@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="Collapsible blocks" id="Collapsible-blocks" help-id="Collabsible-blocks">
+
+    <p>
+        In %product% you can make pieces of content collapsible using the <code>collapsible="true"</code> attribute.
+    </p>
+    <p>
+        These blocks are rendered with the <img alt="collapse-expand plus icon" src="collapse-expand.png" height="14"/> icon that collapses or expands the content inside this element.
+    </p>
+    <p>
+        You can add the <code>collapsible</code> atribute to a <a href="Structural_elements.topic" anchor="chapter-collapsible">chapter</a>, a <a href="Structural_elements.topic" anchor="procedure-collapsible">procedure</a>,
+        a <a href="Code_blocks_semantic.topic" anchor="code-block-collapsible">code block</a>, or a <a href="Definition_lists.topic" anchor="deflist-collapsible">definition list</a>.
+    </p>
+    <note>
+        Keep in mind that users won't be able to use
+        <shortcut>Ctrl/Cmd+F</shortcut> to search for information in collapsed sections,
+        so don't hide important information.</note>
+    <p>
+        You can also define the default state for the collapsible element with the <code>default-state</code> attribute,
+        which defaults to collapsed. You can set it to expanded when a large block of content is important,
+        but you want users to be able to collapse it if it is irrelevant for them.
+    </p>
+    <chapter title="Chapter">
+        <chapter title="Chapter's title" collapsible="true">
+            <p>Some content.</p>
+        </chapter>
+
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="xml">
+                <code-block lang="xml">
+                    <![CDATA[
+                <chapter title="Chapter's title" collapsible="true">
+                    <p>Some content.</p>
+                </chapter>
+                ]]>
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="md">
+                <code-block lang="plain text">
+                    <![CDATA[
+                    ## Chapter's title {collapsible="true"}
+
+                    The content.
+                    ]]>
+                </code-block>
+            </tab>
+        </tabs>
+    </chapter>
+
+    <chapter title="Procedure">
+
+        <procedure title="Procedure's title" collapsible="true">
+            <step>Step 1.</step>
+            <step>Step 2.</step>
+        </procedure>
+
+    <tabs group="markup">
+        <tab title="Semantic markup" group-key="xml">
+            <code-block lang="xml">
+                <![CDATA[
+                <procedure title="Procedure's title" collapsible="true">
+                    <step>Step 1.</step>
+                    <step>Step 2.</step>
+                </procedure>
+                ]]>
+            </code-block>
+        </tab>
+    </tabs>
+    </chapter>
+    <chapter title="Code block">
+
+        <code-block lang="java" collapsible="true" collapsed-title="Another title">
+            a code snippet
+        </code-block>
+
+    <tabs group="markup">
+        <tab title="Semantic markup" group-key="xml">
+            <code-block lang="xml">
+                <![CDATA[
+                <code-block collapsible="true" lang="kotlin" collapsed-title="Person.kt">
+                    class Person(val name: String) {
+                    val children: MutableList<Person> = mutableListOf()
+
+                    constructor(name: String, parent: Person) : this(name) {
+                    parent.children.add(this)
+                    }
+                    }
+                </code-block>
+                ]]>
+            </code-block>
+        </tab>
+        <tab title="Markdown" group-key="md">
+            <code-block lang="plain text">
+                <![CDATA[
+                ```kotlin
+                class Person(val name: String) {
+                val children: MutableList<Person> = mutableListOf()
+
+                constructor(name: String, parent: Person) : this(name) {
+                parent.children.add(this)
+                }
+                }
+                ```
+                ]]>{collapsible="true" collapsed-title="Person.kt"}
+            </code-block>
+        </tab>
+    </tabs>
+    </chapter>
+
+    <chapter title="Definition list">
+
+        <deflist collapsible="true">
+            <def title="Expanded by default" default-state="expanded">
+                This is the definition of the first term.
+            </def>
+            <def title="Collapsed by default" default-state="collapsed">
+                This is the definition of the second term.
+            </def>
+        </deflist>
+
+    <tabs group="markup">
+        <tab title="Semantic markup" group-key="xml">
+            <code-block lang="xml">
+                <![CDATA[
+                <deflist collapsible="true">
+                    <def title="Expanded by default" collapsible="true" default-state="expanded">
+                    This is the definition of the first term.
+                    </def>
+                    <def title="Collapsed by default" collapsible="true" default-state="collapsed">
+                    This is the definition of the second term.
+                    </def>
+                </deflist>
+                ]]>
+            </code-block>
+        </tab>
+        <tab title="Markdown" group-key="md">
+            <code-block lang="plain text">
+                {collapsible="true"}
+                Expanded by default
+                {collapsible="true" default-state="expanded"}
+                : This is the definition of the first term.
+
+                Collapsed by default
+                {collapsible="true" default-state="collapsed"}
+                : This is the definition of the second term.
+            </code-block>
+        </tab>
+    </tabs>
+    </chapter>
+</topic>

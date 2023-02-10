@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="Use-live-templates-for-markup-elements"
+       title="Use live templates for markup elements">
+    <p>
+        %product% already has a bunch of built-in live templates for frequently used markup fragments,
+        like tabs, tables, lists, procedures, and more. They made you write some more complex markup fragments quicker.
+        They work in both <path>.md</path> and <path>.topic</path> files.
+    </p>
+    <p>We provide two types of templates:</p>
+    <list style="bullet">
+        <li>live templates: use them to create a markup element with predefined structure, for example, a 3x3 table.</li>
+        <li>emmets: use them to specify a number of list elements or table rows and columns at the time of creation.</li>
+    </list>
+    <p>
+        To check all available templates and customize them for your needs, go to <ui-path>Settings/Preferences | Editor | Live Templates | Writerside</ui-path>.
+    </p>
+    <p>
+        To restore a modified one to the default view, go to Settings/Preferences dialog, right-click the template which you want to restore and click <control>Restore default</control>.
+    </p>
+    <p>
+        To use a live template, type the corresponding template abbreviation and press <shortcut key="EditorChooseLookupItemReplace"/>.
+        Keep pressing <shortcut key="EditorChooseLookupItemReplace"/> to jump from one <a href="https://www.jetbrains.com/help/idea/template-variables.html">variable</a> in the template to the next one.
+        Press <shortcut key="EditorUnindentSelection"/> to move to the previous variable.
+    </p>
+    <img src="use-live-template.gif" alt="Use live template"/>
+    <!--TODO: Describe how to change the template scope-->
+    <p>Read how to create your own live templates for frequently used markup fragments
+        in this <a href="Live-templates.topic">tutorial</a>.
+    </p>
+</topic>
+
+

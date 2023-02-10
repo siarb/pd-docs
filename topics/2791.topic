@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="2791"
+       title="2022.09.2791">
+
+
+    <p>
+        %product% version 2022.09.2791 contains the following fixes and improvements.
+    </p>
+
+    <chapter title="TOC management">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-865">WRS-865</a> Generated from md-file "Copy of this article
+                in XML format" cannot be added to TOC-area due to incorrect dtd url
+
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-821">WRS-821</a> Top-level toc elements with
+                `target-for-accepts-web-file-names=` attributes are missing in the rendered TOCs
+
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-822">WRS-822</a> For inner toc-element's, attribute
+                `target-for-accept-web-file-names` renders disabled link
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-796">WRS-796</a> "Link Topic Files to TOC..." action
+                unsuccessfully tries to link files from jars in the class path
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-654">WRS-654</a> Do not allow including topics from
+                the current instance in Include from Another Product
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-532">WRS-532</a> Add error if the "Start-page"
+                attribute in "instance-profile" tag is empty
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-779">WRS-779</a> UNDO doesn't work for drag-n-drop moving
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-523">WRS-523</a> Undo for wrong tree action
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Usability improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-737">WRS-737</a> No ability to search for the topic's
+                title in the Set redirect field of the Remove topic from TOC window
+
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-811">WRS-811</a> No labels in the New Topic dialog
+
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-856">WRS-856</a> Remove external quotation marks in notification
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-744">WRS-744</a> Pre-fill ID while creating new
+                Instance after filling name
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-762">WRS-762</a> First underscore (_) is not visible in
+                "Go to TOC Element in ..." menu option
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-802">WRS-802</a> Width of "Remove TOC element" window is
+                too large (depends on longest name of topic for redirect)
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-823">WRS-823</a> It's very hard to resize the preview window
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-745">WRS-745</a> Switch to a newly created/added topic in the TOC tree
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Performance">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-869">WRS-869</a> Freezes in case of writerside plugin is
+                dynamic and installed from scratch
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Code Samples">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-868">WRS-868</a> Code snippets from external files
+                delimited by lines or symbols don't render properly
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Issues with images">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-861">WRS-861</a> Exception is thrown when image used
+                in topic moved to another folder
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-778">WRS-778</a> Image from NOT images folder is
+                suggested for autocomplete, but has no preview
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-755">WRS-755</a> Completion for images into markdown is broken
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Issues with topics management">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-795">WRS-795</a> "Create article" quick fix adds an
+                excess file extension
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-788">WRS-788</a> It is not possible to create new topic
+                after the last topic has been removed in the TOC
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-787">WRS-787</a> There is no window asking about file
+                deletion when user deletes SML-topic
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Preview improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-785">WRS-785</a> Preview of Topic file 'Tutorial' created from
+                'Topic from template' is not loaded
+            </li>
+        </list>
+    </chapter>
+</topic>
+

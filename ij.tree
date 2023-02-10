@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
+
+<instance-profile id="ij"
+                 name="IntelliJIDEA"
+                 start-page="IntelliJIDEA-default.topic">
+
+    <toc-element topic="IntelliJIDEA-default.topic" />
+    <toc-element topic="Suggestions.md"/>
+    <toc-element topic="How_to_combine_SML_with_Markdown.md"/>
+</instance-profile>

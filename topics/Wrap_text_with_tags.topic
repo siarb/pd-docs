@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Wrap text with tags"
+       id="Wrap_text_with_tags">
+
+    <procedure title="Wrap your text with tags" id="wrap-text-with-tags">
+        <step>
+            Select a block of code, then press
+            <shortcut key="SurroundWith"/>
+            to open the <control>Surround With</control> popup.
+        </step>
+        <step>
+            Select <control>Surround with &lt;tag&gt;&lt;/tag&gt;</control> or press <shortcut>T</shortcut> to wrap the
+            selection with a pair of tags, then enter the tag's name.
+        </step>
+    </procedure>
+    <video src="wrap-with-tags.mp4" width="402" title="The Surround With popup" preview-src="wrap-with-tags.png"/>
+
+</topic>

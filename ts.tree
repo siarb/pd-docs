@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
+
+<instance-profile id="ts"
+                 name="toc-snippet"
+                 start-page="Semantic-Markup.topic">
+
+        <toc-element topic="Semantic-Markup.topic" id="markup-ref">
+            <toc-element topic="Structural_elements.topic"/>
+            <toc-element topic="Paragraphs.topic"/>
+            <toc-element topic="Collapsible-blocks.topic"/>
+            <toc-element topic="TL-DR-blocks.topic"/>
+            <toc-element topic="Admonition-blocks.topic"/>
+            <toc-element topic="Links_and_references.topic"/>
+            <toc-element topic="Visual_elements.topic"/>
+            <toc-element topic="Lists.topic"/>
+            <toc-element topic="Definition_lists.topic"/>
+            <toc-element topic="Tables.topic"/>
+            <toc-element topic="Tabs.topic"/>
+            <toc-element topic="Code_blocks_semantic.topic"/>
+            <toc-element topic="Tooltips.topic"/>
+            <toc-element topic="Summary_elements.topic"/>
+            <toc-element topic="Switchable_content.topic"/>
+            <toc-element topic="Section_starting_page.topic"/>
+            <toc-element topic="Table_of_contents_elements.topic"/>
+        </toc-element>
+</instance-profile>

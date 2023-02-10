@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Preview the single-sourced content"
+       id="Previewing_the_single-sourced_content">
+    <p>When you preview the topic with reused content, %product% displays it to look for the end-user:
+        it exposes all includes, inlines all variables, and applies all filters.
+        Therefore, you see the final version of the topic with all the content in place. </p>
+    <p>Also, you can navigate from the source of the included piece using
+        <shortcut key="GotoDeclaration"/> on the
+        <code>element-id</code> value of the
+        <code>include</code> element.
+    </p>
+</topic>

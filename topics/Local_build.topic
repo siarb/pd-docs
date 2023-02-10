@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Local build"
+       id="Local_build">
+    <title>Build an instance locally</title>
+
+    <p>Now when you finished writing some content, let's make your first local build of the docs. </p>
+    <p>A local build is handy if you want to run the static site on a local host using some local web server or deploy
+        it by placing static HTML files to a hosting.</p>
+    <p>
+        %product% lets you build ZIP archives with HTML files and images locally.
+    </p>
+    <tip>Use live preview (<img src="inlayGlobe.png" alt="Globe icon" height="16"/> Open in Browser) to check everything before building a web site.</tip>
+    <procedure title="Build locally">
+        <step>Right-click the instance name in the %product% tool window and select <ui-path>Generate website | Save as ZIP Archive</ui-path>.
+        </step>
+        <step>If needed, change the configuration name, by default it is the <control>Instance name (ZIP)</control>.
+            A local build action will be available under this name.</step>
+        <step><p>By default, the archive will be saved to the help directory.
+            If you need to specify another one, in the <control>Save to</control> field select a directory you want to save the output.</p></step>
+        <step><p>Click <control>Run</control>.</p>
+            <img src="save-as-zip.png" alt="Save as ZIP archive" width="650" border-effect="rounded"/>
+        </step>
+        <step><p>This will build a single archive with HTML files and an /img folder. </p>
+            <p>Unpack it.</p></step>
+    </procedure>
+    <p>Now you can either run the static website on a localhost
+        or deploy them by copying the unpacked directory to your production web server.</p>
+<!--    <procedure title="Open in a browser">-->
+<!--        <step>Right-click the instance name in the %product% tool window and select and select <ui-path>Generate website | Open in browser</ui-path>. </step>-->
+<!--        <p>By default, this will load your site at <path>http://localhost:3000/</path>.</p>-->
+<!--        <step>Browse to http://localhost:3000 to check what's on.</step>-->
+<!--    </procedure>-->
+</topic>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="2767"
+       title="2022.09.2767">
+    <web-file-name>2767.html</web-file-name>
+
+    <p>
+        %product% version 2022.09.2767 contains the following fixes and improvements.
+    </p>
+
+    <chapter title="Adding topics">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-745">WRS-745</a> Switch to a newly created/added topic in the TOC tree
+
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-795">WRS-795</a> "Create article" quick-fix adds an excess file extension
+
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-782">WRS-782</a> 30+ seconds freeze on new topic creation
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Removing topics">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-737">WRS-737</a> No ability to search for the topic's title in
+                the Set redirect field of the Remove topic from TOC window
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-754">WRS-754</a> Unclear confirmation dialog in case
+                topic has been deleted by "do refactor" action
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-755">WRS-755</a> product=!smth filter is added to all
+                the reused blocks on topic removal from the TOC tree
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Issues with titles">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-775">WRS-775</a> Each Title editing adds new empty line to a MD-topic
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-774">WRS-774</a> Instance related title is duplicated in case of
+                no changes performed in "Edit Title" window (2nd and subsequent times)
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Issues with images">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-786">WRS-786</a> Deployed documentation does not contain
+                images if the images web-path is not set in project.ihp
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-755">WRS-755</a> Completion for images into markdown is broken
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Build">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-76">WRS-776</a> Two zipped files are created by default
+            </li>
+        </list>
+    </chapter>
+</topic>

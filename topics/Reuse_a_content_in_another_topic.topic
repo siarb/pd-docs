@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Reuse pieces of content"
+       id="Reuse_a_content_in_another_topic">
+    <p>
+        To avoid writing the same content in different places, you can reuse any piece of content by including it anywhere you need.
+        This works both for semantic and Markdown markup.
+    </p>
+    <p>
+        For example, notes and warnings that need to be repeated in various places are good candidates for content reuse.
+        When you update the original piece of content, %product% will update it in all places where it is included,
+        saving you from having to update it manually.
+    </p>
+    <chapter title="Make a piece of content reusable">
+        <p>There are three ways to make a piece of content available for reuse:
+        </p>
+        <list>
+            <li>
+                <p>Assign an identifier to any element and reuse it by an ID.
+                    This is fine for simple elements that you only reuse in one or two other places.
+                </p>
+                <note>
+                    However, if the element is large (like a table) or if it's something you reuse across many topics and even other help instances,
+                    it's better to extract the element to a <a href="Reuse_a_content_in_another_topic.topic" anchor="make-snippet-reusable">library</a>.
+                </note>
+            </li>
+            <li>
+                <p>
+                    To reuse multiple elements, surround them with a <code>&lt;snippet&gt;</code> element and assign an identifier to it.
+                    Works well when you reuse a complex fragment made of a few elements.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The preferred way is to keep all your reusable content in a separate topic used as a library and include them from there.
+                    Surround each reusable element or fragment with a <code>&lt;snippet&gt;</code> element.
+                </p>
+                <tip instance="sd">
+                    Use an intention action <a href="Intention-actions.topic" anchor="wrap-in-a-snippet"><emphasis>Wrap element with snippet</emphasis></a> to do this quicker.
+                </tip>
+            </li>
+        </list>
+        <procedure id="reuse-a-single" title="Reuse a single element">
+            <step>Add the <code>id</code> attribute to the element, for example, a warning:
+                <tabs>
+                    <tab title="Semantic markup">
+                        <code-block lang="XML">
+                            <![CDATA[
+                            <warning id="generic-warning">This version support ended on January 14, 2022.
+                            Download the latest version.</warning>
+                            ]]>
+                        </code-block>
+                    </tab>
+                    <tab title="Markdown">
+                        <code-block lang="plain text">
+                            > This version support ended on January 14, 2022.
+                            > Download the latest version.
+                            >
+                            {style="warning" id="generic-warning"}
+                        </code-block>
+                    </tab>
+                </tabs>
+            </step>
+        </procedure>
+        <procedure id="reuse-a-multiple" title="Reuse a fragment with multiple elements">
+            <step>Surround the elements with a <code>&lt;snippet&gt;</code> and assign a unique value for the <code>id</code> attribute:
+                <tabs>
+                    <tab title="Semantic markup">
+                        <code-block lang="XML">
+                            <![CDATA[
+                            <snippet id="prerequisites">
+                                 <p>
+                                     Make sure you are logged in the account.
+                                </p>
+                                <img src="screenshot1.png" border-effect="line" width="436"
+                                alt="Check login"/>
+                            </snippet>
+                            ]]>
+                        </code-block>
+                    </tab>
+                    <tab title="Markdown">
+                        <snippet id="markdown-reuse-warn">
+                        <warning>
+                            <p>
+                                You must put a blank line after opening <code>snippet</code> tag and before the closing one.
+                            </p>
+                        </warning>
+                        </snippet>
+                        <code-block lang="plain text">
+                            <![CDATA[
+                           <snippet id="prerequisites">
+
+                            Make sure you are logged in the account.
+
+                            ![Check login](screenshot1.png) {border-effect="line" width="436"}
+
+                           </snippet>
+                           ]]>
+                        </code-block>
+                    </tab>
+                </tabs>
+            </step>
+        </procedure>
+    <procedure id="make-snippet-reusable" title="Put a snippet into a library">
+        <step>Create a separate topic file.
+        </step>
+        <step>Add the <code>is-library="true"</code> attribute to the <code>topic</code> element for semantic markup or after the first <code>#</code> element for Markdown.
+            Library topics are not included in the table of contents.
+            <tabs>
+                <tab title="Semantic markup">
+                    <code-block lang="XML">
+                        <![CDATA[
+                        <topic
+                            title="Warnings"
+                            id="Warnings_library"
+                            is-library="true">
+                        ]]>
+                    </code-block>
+                </tab>
+                <tab title="Markdown">
+                    <code-block lang="plain text">
+                        # Warnings
+                        {is-library="true"}
+                    </code-block>
+                </tab>
+            </tabs>
+        </step>
+        <step>Surround a reusable content fragment with a <code>&lt;snippet&gt;</code> element and assign a unique value for the <code>id</code> attribute:
+            <tabs>
+                <tab title="Semantic markup">
+                    <code-block lang="XML">
+                        <![CDATA[
+                        <snippet id="generic_warning">
+                            <warning>This version support ended on January 14, 2022.
+                            Download the latest version.</warning>
+                        </snippet>
+                        ]]>
+                    </code-block>
+                </tab>
+                <tab title="Markdown">
+                    <include from="Reuse_a_content_in_another_topic.topic" element-id="markdown-reuse-warn"/>
+                    <code-block lang="plain text">
+                        <![CDATA[
+                           <snippet id="generic_warning">
+
+                            > This version support ended on January 14, 2022.
+                            > Download the latest version.
+                            >
+                            >{style="note"}
+
+                           </snippet>
+                           ]]>
+                    </code-block>
+                </tab>
+            </tabs>
+        </step>
+    </procedure>
+    <p>
+        You can move a snippet from an ordinary topic to a library or between libraries quicker
+        using the <control>Move a snippet</control> action.
+    </p>
+        <procedure>
+            <step>Place the caret at the <code>&lt;snippet&gt;</code> you want to move.</step>
+            <step>From the main menu, select <control>Refactor | Move Snippet...</control>.
+            <p>The <control>Move a snippet</control> dialog opens.
+            </p>
+            </step>
+            <step>In the <control>To a file</control>, select a topic where you want to move a snippet.</step>
+            <step>Click <control>OK</control> to proceed or <control>Review usages</control> to check the results before the actual refactoring.</step>
+        </procedure>
+        <p>All usages of the snippet will be updated.</p>
+    </chapter>
+    <chapter title="Include reusable content">
+        <p>You can reuse the snippet with the same ID multiple times, even in the same topic.</p>
+    <procedure id="include-reusable-content">
+        <step>
+            <p>To reuse a piece of content, add the <code>&lt;include&gt;</code> element with the following attributes</p>
+            <list>
+                <li><code>from</code>: specify the topic where the reusable content resides</li>
+                <li><code>element-id</code>: specify the ID of the element you want to include</li>
+            </list>
+            <code-block lang="XML">
+                <![CDATA[
+                <include from="warning_library.topic" element-id="generic-warning"/>
+            ]]>
+            </code-block>
+        </step>
+    </procedure>
+        <p>You can use the <code>&lt;include&gt;</code> element in both semantic markup and Markdown topics.</p>
+        <p>You can also specify filters in the <code>use-filter</code> attribute if you want to include only certain parts of the snippet. For more information, see <a href="Conditional_content.topic" anchor="filter-in-reuse">Filter reusable content</a>.</p>
+        <p>If there are variables defined in the snippet, set their values as child elements of the <code>&lt;include&gt;</code> element. For more information, see <a href="Variables.topic"/>.</p>
+    </chapter>
+</topic>

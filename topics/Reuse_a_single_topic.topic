@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Reuse a single topic"
+       id="Reuse_a_single_topic">
+
+    <p>
+        To reuse a single topic, add it as the <code>toc-element</code> to your tree.
+        You can either do it through
+        the UI or manually edit the <code>.tree</code> file of your help instance.
+    </p>
+
+    <chapter title="Add through the UI" id="reuse-in-ui">
+    <procedure>
+        <step>
+            <p>
+                In the <control>TOC</control> area of the <control>%product%</control> tool window, select the node
+                you want to add the new topic and click
+                <img src="icon_add.png" width="14" alt="Add"/>
+                or press
+                <shortcut key="NewElement"/>.
+            </p>
+            <img src="reuse-a single-topic.png" width="348" alt="TOC with a place chosen for the new topic" border-effect="line"/>
+        </step>
+
+        <step>
+            <p>In a popup, click <control>Link Topic Files to TOC...</control> to reuse the topic from other instances.
+            </p>
+            <img src="reuse-from-another.png" alt="Reuse from another instance" border-effect="line" width="348"/>
+            <p>Then select an element you want to include.
+                If the selected <code>toc-element</code> does not have an <code>include-id</code> attribute, you will be asked to specify it.</p>
+            <p>
+                The topic appears in the <control>TOC</control>. Double-click it to open in the editor.
+            </p>
+        </step>
+    </procedure>
+    </chapter>
+
+    <chapter title="Add manually" id="reuse-manually">
+    <procedure>
+        <step>
+            <p>
+                In the <control>TOC</control> area of the <control>Writerside</control> tool window, select the node
+                you want to add the new topic and click
+                <img src="icon_edit.png" width="16" alt="Edit"/>
+                or press
+                <shortcut key="EditorEnter"/>.
+            </p>
+            <img src="manually_add_existing_topic_1.png" width="348" alt="TOC with a topic selected" border-effect="line"/>
+            <p>Select the option to edit the TOC element.</p>
+            <img src="edit-toc-element-man.png" width="364" alt="&quot;Select what to edit&quot; popup" border-effect="line"/>
+        </step>
+
+        <step>
+            <p>
+                In the editor, you can see the <path>.tree</path> file of your project.
+                By default, the cursor is on
+                the line with the <code>toc-element</code> tag you selected in the previous step.
+            </p>
+            <code-block lang="XML" noinject="true">
+                <![CDATA[
+                <toc-element topic="Getting_Started.topic">
+                    <toc-element topic="Installation.topic"/>
+                    <toc-element topic="Setting_up.topic"/>
+                    ...
+                ]]>
+                </code-block>
+            <p>
+                On the next line, add a <code>toc-element</code> tag referring to the existing topic file.
+            </p>
+            <p>For example, to add <path>New_topic.topic</path>, enter the following code:
+            </p>
+            <code-block lang="XML" noinject="true">
+                    <![CDATA[
+                <toc-element topic="New-topic.topic"/>
+                ]]>
+                </code-block>
+            <p>To include <path>Some_topic.topic</path> from another instance, first add the <code>include-id</code>
+                attribute to the <code>toc-element</code> in the target instance:
+            </p>
+            <code-block lang="XML" noinject="true">
+                <![CDATA[
+                <toc-element topic="Some-topic.topic" include-id="some-topic"/>
+                ]]>
+            </code-block>
+            <p>Then use the following code in the <path>.tree</path> file:</p>
+            <code-block lang="xml">
+                <![CDATA[
+                <include from="cd" target="some-topic"/>
+                ]]>
+            </code-block>
+            <p>In <code>from</code> attribute specify the instance id, in <code>target</code> — the <code>include-id</code> of the target topic.</p>
+            <p>The topic appears in the <control>%product%</control> tool window in the
+                <control>TOC</control>.
+            </p>
+            <img src="manually_add_existing_topic_3.png" width="349" alt="New topic appeared in the TOC" border-effect="line"/>
+        </step>
+    </procedure>
+    </chapter>
+
+</topic>

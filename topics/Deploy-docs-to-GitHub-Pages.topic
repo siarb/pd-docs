@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="Build and publish on GitHub" id="Deploy-docs-to-GitHub-Pages">
+
+    <p>
+        This article describes how to use GitHub Actions to build a help instance that you will host somewhere else
+        or deploy it to GitHub Pages.
+    </p>
+    <p>
+        %product% maintains a GitHub Action for building documentation in a Docker container:
+        <a href="https://github.com/marketplace/actions/build-writerside-docs-using-docker"/>
+    </p>
+        <procedure title="Build artifacts" id="build-github-actions">
+            <include from="lib.topic" element-id="github-actions" use-filter="build,empty"/>
+        </procedure>
+        <procedure title="Build and publish to GitHub Pages" id="publish-github-pages">
+            <step>
+                On GitHub, go to your repository and open <ui-path>Settings | Pages</ui-path>.
+            </step>
+            <step>
+                In the <control>Source</control> field of the <control>Build and deployment</control> section,
+                select <control>GitHub Actions</control> and click <control>Save</control>.
+            </step>
+            <include from="lib.topic" element-id="github-actions" use-filter="build-and-publish,empty"/>
+        </procedure>
+</topic>

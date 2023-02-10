@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Definition lists"
+       id="Definition_lists">
+
+    <p>Definition lists can be used to document frequently asked questions (FAQ) with answers, problems with solutions,
+        a reference of commands, options, methods, API endpoints and parameters, and UI elements with their descriptions.</p>
+    <p>To create definition lists, in Markdown specify the term on the first line, then on the next line, type a colon followed by a space and the definition.</p>
+    <p>In semantic markup, use <code>&lt;deflist&gt;</code> tag.</p>
+
+    <deflist style="narrow" sorted="desc">
+        <def title="First Term">
+            This is the definition of the first term.
+        </def>
+        <def title="Second Term">
+            This is the definition of the second term.
+        </def>
+    </deflist>
+
+    <tabs>
+        <tab title="Semantic markup">
+            <code-block>
+                <![CDATA[
+                <deflist style="narrow" sorted="desc">
+                    <def title="First Term">
+                        This is the definition of the first term.
+                    </def>
+                    <def title="Second Term">
+                        This is the definition of the second term.
+                    </def>
+                </deflist>
+                ]]>
+            </code-block>
+        </tab>
+        <tab title="Markdown">
+            <code-block lang="plain text">
+                {style="narrow" sorted="desc"}
+                First Term
+                : This is the definition of the first term.
+
+                Second Term
+                : This is the definition of the second term.
+            </code-block>
+        </tab>
+    </tabs>
+    <p>The deflist has the following attributes:</p>
+    <deflist id="deflist-attributes">
+        <def title="style=[full|wide|medium|narrow|compact]">
+            <p>
+                Specify the definition list layout.</p>
+            <tabs id="deflists-style">
+                <tab title="full (default)">
+                    <p>
+                        Use the default style to document FAQs or troubleshooting guides,
+                        or whenever the definition list item titles are long.
+                    </p>
+
+                    <deflist style="full">
+                        <def title="Can I use definition lists to document frequently asked questions (FAQs)?">
+                            Sure, you can.
+                        </def>
+                        <def title="somePeculiarMethodWithReallyLongName()">
+                            This name probably won't fit if you use any other style for your definition list.
+                        </def>
+                    </deflist>
+                </tab>
+
+                <tab title="wide">
+                    <p>
+                        Render the definition list item's title and the corresponding description side-by-side at a 1:1 ratio.
+                        This can be a good choice for a reference of REST API endpoints.
+                    </p>
+
+                    <deflist style="wide">
+                        <def title="/customers">
+                            <p>Get customers.</p>
+                        </def>
+                        <def title="/customers/{customerId}">
+                            <p>Get customer by ID.</p>
+                        </def>
+                        <def title="/customers/{customerId}/accounts">
+                            <p>Get the accounts of the specified customer.</p>
+                        </def>
+                    </deflist>
+                </tab>
+
+                <tab title="medium">
+                    <p>
+                        Render the definition list item's title and the corresponding description side-by-side at a 1:2 ratio.
+                        This can be a good choice for a reference of methods or functions.
+                    </p>
+
+                    <deflist style="medium">
+                        <def title="getFoo()">
+                            <p>Returns the current value of <code>Foo</code>.</p>
+                        </def>
+                        <def title="setBar(String)">
+                            <p>Assigns the provided string to <code>Bar</code>.</p>
+                        </def>
+                        <def title="multiply(int, int)">
+                            <p>Returns the product of two integers.</p>
+                        </def>
+                    </deflist>
+                </tab>
+
+                <tab title="narrow">
+                    <p>
+                        Render the definition list item's title and the corresponding description side-by-side at a 2:7 ratio.
+                        This can be a good choice for a reference of command-line options.
+                    </p>
+
+                    <deflist style="narrow">
+                        <def title="--output">
+                            <p>Specify where to save the output.</p>
+                        </def>
+                        <def title="--print">
+                            <p>Print something</p>
+                        </def>
+                        <def title="--version">
+                            <p>Show version.</p>
+                        </def>
+                    </deflist>
+                </tab>
+
+                <tab title="compact">
+                    <p>
+                        Render the definition list item's title and the corresponding description side-by-side at a 1:8 ratio.
+                        This can be a good choice for a reference of abbreviations or single-letter options.
+                    </p>
+
+                    <deflist style="compact">
+                        <def title="--o">
+                            <p>Specify where to save the output.</p>
+                        </def>
+                        <def title="--p">
+                            <p>Print something.</p>
+                        </def>
+                        <def title="--v">
+                            <p>Show version.</p>
+                        </def>
+                    </deflist>
+                </tab>
+            </tabs>
+        </def>
+        <def title="collapsible=[true|false]" id="deflist-collapsible">
+            <p>Add the <code>collapsible="true"</code> attribute to make a definition list collapsible.
+                By default, a collapsible list renders with all elements in the collapsed state, and the user can click each element to expand it.</p>
+            <note>
+                Only definition lists with <code>style="full"</code> (default value) can be collapsible.
+            </note>
+        </def>
+        <def title="default-state=[collapsed|expanded|inherited]">
+            <p>If collapsible is set <code>true</code>, specify whether the default state is collapsed or expanded.
+            </p>
+        </def>
+        <def title="sorted=[asc|desc]">
+            <p>None is used by default. Specify the sorting order, a list will be sorted alphabetically by definition titles.</p>
+        </def>
+    </deflist>
+
+    <p>The definition has the following attributes:</p>
+    <deflist id="def-attributes">
+        <def title="title" filter="semantic">
+            <p>Define the title or use a <code>title</code> tag inside the definition instead.</p>
+        </def>
+        <def title="collapsible=[true|false]">
+            <p>Add the <code>collapsible="true"</code> attribute to make a definition list collapsible.
+                By default, a collapsible list renders with all elements in the collapsed state, and the user can click each element to expand it.</p>
+        </def>
+        <def title="default-state=[collapsed|expanded|inherited]">
+            <p>If collapsible is set <code>true</code>, specify whether the default state is collapsed, expanded,
+                or inherited from the parent <code>&lt;deflist&gt;</code> tag.</p>
+        </def>
+    </deflist>
+</topic>

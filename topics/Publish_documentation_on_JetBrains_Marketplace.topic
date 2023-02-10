@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Publish documentation on JetBrains Marketplace"
+       id="Publish_documentation_on_JetBrains_Marketplace">
+
+    <p>
+        %product% lets you publish your help instance on the <control>Documentation</control> tab of the plugin's page in JetBrains Marketplace.
+        For example, see <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/">Writerside plugin help</a>.
+        This can be useful if your plugin doesn't have a separate website where you can host the documentation for it.
+    </p>
+        <procedure id="publish-plugin-docs">
+            <step>Open your documentation project and build the necessary help <a href="Local_build.topic">instance locally</a> to produce a ZIP archive.</step>
+            <step>Send us your plugin's ID (for example, here is the <a href="https://plugins.jetbrains.com/plugin/20158-writerside/">link to Writerside plugin</a> and in this case the plugin ID is 20158),
+                a link to your public repository and a ZIP archive name to our team via email <path>writerside@jetbrains.com</path>.</step>
+            <step>Our team will create the TeamCity build configuration and send the link to you.</step>
+            <step>You will be able to build the documentation, then publish it to staging to check.</step>
+            <step><p>The documentation will appear in the <control>Custom pages</control> section of the plugins' page.</p>
+                <p>Click <control>Preview</control> to see how users will see it.</p>
+            </step>
+            <step>Go back to the TeamCity build results and promote the docs to production.
+            </step>
+        </procedure>
+    <chapter title="Add search to the plugin's documentation page" id="search-for-plugin-page">
+        <p>
+            If you want to manage the search index yourself, do the following.
+        </p>
+
+        <procedure>
+            <step>
+                Register on Algolia and <a href="https://www.algolia.com/account/plan/create">create a new standalone application</a>.
+            </step>
+            <step>
+                Inside this application create a new index.
+            </step>
+            <step>
+                <include from="lib.topic" element-id="specify-the-params-for-search"/>
+                <table>
+                   <tr>
+                       <td>
+                           Parameter
+                       </td>
+                       <td>
+                           Value
+                       </td>
+                   </tr>
+                    <tr>
+                        <td>
+                            config-algolia-index
+                        </td>
+                        <td>
+                            Algolia index name
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            config-algolia-id
+                        </td>
+                        <td>
+                            Algolia application ID
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            config-algolia-api-key
+                        </td>
+                        <td>
+                            Search-Only API Key
+                        </td>
+                    </tr>
+                </table>
+            </step>
+            <step>
+                Send us the Admin API key and Algolia index name via email <path>writerside@jetbrains.com</path>.
+                We will configure a TeamCity configuration to upload Algolia indexes to your account.
+            </step>
+        </procedure>
+        <p>
+            If you just want a working search, and don't want to manage the search index via a separate Algolia account, do the following:
+        </p>
+        <procedure>
+            <step>
+                Request an Algolia application ID, index name, and API key from us via email <path>writerside@jetbrains.com</path>.
+            </step>
+            <step>
+                <include from="lib.topic" element-id="specify-the-params-for-search"/>
+                <table>
+                    <tr>
+                        <td>
+                            Parameter
+                        </td>
+                        <td>
+                            Value
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            config-algolia-index
+                        </td>
+                        <td>
+                            Algolia index name
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            config-algolia-id
+                        </td>
+                        <td>
+                            Algolia application ID
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            config-algolia-api-key
+                        </td>
+                        <td>
+                            Search-Only API Key
+                        </td>
+                    </tr>
+                </table>
+            </step>
+            <step>
+                We will set up the TeamCity run configuration to upload Algolia indexes to our account.
+            </step>
+        </procedure>
+    </chapter>
+</topic>

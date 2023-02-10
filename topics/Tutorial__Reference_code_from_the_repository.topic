@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Tutorial: Reference code from the repository"
+       id="Tutorial__Reference_code_from_the_repository">
+
+    <p>From this tutorial, you will learn how to reference the code example from the repository without copy-pasting it into documentation
+        and how to add a check it is valid so that it always stays in sync with the actual solution.
+    </p>
+    <chapter title="Reference the code example from the repository" id="ref-code-snippet">
+        <include from="lib.topic" element-id="code-include-src"/>
+    </chapter>
+    <chapter title="Add code validation" id="code-validation">
+        <p>On the help page, a user can copy the code block in a single click to try it out right away.
+            Add validation to the code snippet to check if it is valid.</p>
+        <procedure>
+            <step>Set <code>validate</code> attribute to <code>true</code> to validate the code in a snippet.
+                It works only for the <a href="https://www.jetbrains.com/help/idea/discover-intellij-idea.html#IntelliJ-IDEA-supported-languages">IntelliJ-supported set of languages</a>.
+            </step>
+            <step>If the code example is invalid
+                %product% will display an error in the preview area.</step>
+        </procedure>
+    </chapter>
+    <p>In this tutorial, we have included a code example from another file and added a check for its validity.</p>
+    <p>Check what other attributes you can apply to the code block in <a href="Code_blocks_semantic.topic"/>.</p>
+</topic>

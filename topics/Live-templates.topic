@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="Live-templates"
+       title="Reuse repeating fragments with live templates">
+        <p>
+            Imagine you are typing the same content again and again, it can be a specific markup element with a specific structure or attributes,
+            or a repeating fragment, like an admonition block, for example, a warning.</p>
+
+        <p>Live templates can help you here. These are customizable fragments allowing you to type a few letters followed
+            by a configurable expansion key (by default, it is <code>Tab</code>) and insert a frequently used fragment into your document
+            or surround the text in the editor with some construct.
+        </p>
+        <p>In this tutorial, you will create and reuse the live template while working on a document.</p>
+        <chapter title="Create a Live template" id="create-lt">
+            <p>
+                For example, in this tutorial, we will create a template for a Markdown code block with some custom attributes.
+            </p>
+            <procedure title="Create a template group">
+                <p>It is handy to group templates to navigate through them easier.</p>
+                <step>Go to <ui-path>Settings/Preferences | Editor | Live Templates</ui-path>.</step>
+                <step>Click + on the right of the panel and select <control>Template group</control>.
+                </step>
+                <step>Type the group name. In our case, we called it Custom markdown. Click <control>OK</control>.
+                </step>
+            </procedure>
+            <procedure title="Create a template">
+                <step>Select the previously created group in the list and click +. Select  <control>Live Template</control>.
+                </step>
+                <step>
+                    Specify the abbreviation — it will be a shortcut to invoke the template. It can contain Latin letters, numbers, dots, and hyphens.
+                    For example, <code>md-code</code>. It should be unique within a group.
+                </step>
+                <step>
+                    (Optional) In the <control>Description</control> field, describe in which cases this template is intended to be used.
+                    For example, <code>a custom collapsible Markdown code block included from a repository.</code>
+                </step>
+                <step>
+                    In the <control>Template text</control> field, add the template content that will be
+                    inserted in the document later.
+                    <img src="add-live-template.png" alt="Add live template body" width="500"/>
+                </step>
+                <step>
+                    Put the <code>$LANG$</code> variable to specify the language for syntax highlighting in a block.
+                </step>
+                <step>
+                    Put the <code>$END$</code> variable to indicate the position of the cursor when the snippet is complete.
+                    In our case, this is <code>src</code> attribute where we'll specify the file name.
+                    <code-block lang="plain text">
+                        <![CDATA[
+                        ```$LANG$
+                        ```
+                        {src="$END$" collapsible="true" default-state="collapsed"}
+                        ]]>
+                    </code-block>
+                </step>
+                <step>
+                    Define the context where the template will be used — pick <control>Writerside Markdown templates</control> for Markdown.
+                </step>
+                <step>
+                    Apply your changes.
+                </step>
+            </procedure>
+            <p>From now on, you can use the Live template on the go.</p>
+            <note>
+                If you don't select a template group, the live template will be added to the user group by default. You can change it later.
+            </note>
+            <p>
+                Get to know other ways to <a href="https://www.jetbrains.com/help/idea/creating-and-editing-live-templates.html">create live templates</a>.
+            </p>
+            <p>
+                In the example below, we used the <code>$END$</code> variable. Get to know other variables in <a href="https://www.jetbrains.com/help/idea/template-variables.html">Live template variables section</a>.
+            </p>
+        </chapter>
+        <chapter title="Use a Live Template">
+            <p>
+                Place a cursor in the editor.
+            </p>
+            <p>
+                Type <code>md-code</code> and press <control>Tab</control>.
+            </p>
+            <p>Specify the programming language and press <control>Tab</control> again.</p>
+            <p>Specify the file name to include the code block from it. Now you can limit the <a href="Code_blocks_semantic.topic" anchor="include-lines">include to specific lines</a> or <a href="Code_blocks_semantic.topic" anchor="include-symbol">code constructs</a>.</p>
+            <img alt="Use live template" src="live-templates.gif" preview-src="live-templates-preview.png"/>
+        </chapter>
+    <p>%product% already has a bunch of built-in live templates for frequently used markup fragments, like tabs, tables, lists, procedures, and more.
+        They work in both Markdown and semantic topics.</p>
+
+    <p>To check them and customize them for your cases go to <ui-path>Settings/Preferences | Editor | Live Templates | Writerside</ui-path>.</p>
+    </topic>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Variables"
+       id="Variables">
+
+    <p>Variables are named values with a unique name
+        and may be used in various places across the documentation.</p>
+    <p>So when you change its value, it will change across all documents.</p>
+    <p>Things are often subject to change and worth putting into a variable:</p>
+    <list>
+        <li>versions;</li>
+        <li>a product or a company name;</li>
+        <li>company's contact data: email or phone number;</li>
+        <li>a link to the support service.</li>
+    </list>
+    <procedure title="Declare a variable" style="choices">
+        <p>Variables have scopes, and they can be <emphasis>global</emphasis> and <emphasis>local</emphasis>. </p>
+        <p>Global variable exists within a module, while local — within a topic or a snippet.</p>
+        <step>To create a global variable, declare it in the <path>v.list</path> file in the module directory and specify name, type, and value.
+            <code-block lang="xml" ignore-vars="true">
+                <![CDATA[
+            <vars>
+            <var name="latest_version"
+                 instance="web"
+                 value="1.8"
+                 type="string"
+            />
+            </vars>
+            ]]>
+            </code-block></step>
+        <step>To create a local variable, declare it in a topic file or in a snippet.
+            <code-block lang="xml" ignore-vars="false" noinject="true"><![CDATA[
+                <snippet id="tip_general">
+                <var name="latest" value="1.8"/>
+                ]]>
+            </code-block></step>
+    </procedure>
+    <procedure title="Use a variable" style="choices">
+        <step>Use the variable declared previously:
+            <code-block lang="xml" ignore-vars="true" noinject="true">
+                <![CDATA[
+        <p>%latest%</p>
+        ]]>
+            </code-block>
+        </step>
+        <step>Overwrite the variable in a certain element, for example, a paragraph, by declaring it one more time with other value.
+            <code-block lang="xml" ignore-vars="true" noinject="true">
+                <![CDATA[
+                <var name="var" value="The original value"/>
+                <p>%var%</p>
+                <p>
+                <var name="var" value="The new value"/>
+                %var%
+                </p>
+                ]]>
+            </code-block>
+        </step>
+        <note>Variables work in a same way in both <code>.topic</code> and <code>.md</code> topics. </note>
+    </procedure>
+    <procedure title="Refer to an instance name">
+        <step>Use the <code>instance</code> variable to refer to an instance name.
+            <code-block lang="xml" ignore-vars="true" noinject="true">
+                <![CDATA[
+                <p>When you click this button, %instance% automatically converts values.</p>
+                ]]>
+            </code-block>
+        </step>
+    </procedure>
+    <procedure title="Ignore a variable">
+        <step>
+            <p>If you have %-enclosed text in the content, for example, in links or code blocks, you can either escape it by adding <code>\</code> after the first <code>%</code>
+                symbol or use <code>interpolate-variables="false"</code>.
+            </p>
+            <p>
+                The setting will apply to all child elements and the content inside the tag.
+            </p>
+        </step>
+    </procedure>
+</topic>

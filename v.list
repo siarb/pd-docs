@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vars SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/vars.dtd">
+<vars>
+    <var name="Settings_page_name" type="string" value=""/>
+    <var name="latest" type="string" value=""/>
+    <var name="sample"
+         value="Sometext"
+         type="string"/>
+    <var name="preferencesDialog" value="Settings/Preferences" type="string"/>
+    <var name="product" value="Writerside" type="string"/>
+    <var name="module" value="Writerside" type="string"/>
+</vars>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="Navigation"
+       title="Mastering the navigation">
+    <p>As the documentation project grows and you make more topics, assets and reusable snippets it may slow down the authoring and maintenance process.
+    </p>
+    <p>This article shows you a few handy features that help navigating around documentation project quickly and efficiently.
+    </p>
+    <deflist>
+        <def title="Use breadcrumbs">
+            <p>In most cases, you can use breadcrumbs to track and navigate through the currently opened document structure.
+                By default, breadcrumbs are enabled and displayed at the bottom of the editor.</p>
+                <p>To enable/disable breadcrumbs for certain file formats, go to <control>Settings/Preferences | Editor | General | Breadcrumbs</control>.</p>
+        </def>
+        <def title="Access a structure view">
+            <p>Open Structure view or a separate File structure popup to display the document structure by headings or other structural elements and jump between them.</p>
+            <p><control>Go to View | Tool Windows | Structure</control> or press <shortcut>Alt (Cmd) + 7</shortcut> to display the tool window or <shortcut>Ctrl(Cmd) + F12</shortcut> to open the <control>File Structure</control> popup.</p>
+        </def>
+        <def title="Go to Declaration/Usage">
+            <p>
+                To navigate to the included snippet, image or link origin, press <shortcut>Ctrl(Cmd)+B</shortcut> or <control>Ctrl(Cmd)+Click</control>.
+            </p>
+        </def>
+        <def title="Navigate between errors">
+            <p>To navigate between errors and warnings press <shortcut>F2</shortcut> for the next or <shortcut>Shift+F2</shortcut> for the previous one.</p>
+        </def>
+        <def title="Jump to a certain line">
+            <p>You can search for a certain line and navigate by pressing <shortcut>Cmd+L</shortcut> for Mac and <shortcut>Ctrl+G</shortcut> for Windows and then typing the line number.
+            </p>
+        </def>
+        <def title="Navigate recent locations and changes">
+            <tip>It's handy when you remember you've seen or have been working on some particular text fragment but don't remember where exactly.</tip>
+        <p>You can move back and forth through the project's locations using the following functions:
+            </p>
+            <list>
+                <li><p><shortcut>Ctrl(Cmd)+E</shortcut> to quickly find a file that you have opened recently. Use the same shortcut again to display the changed files only.</p></li>
+                <li><p><shortcut>Ctrl(Cmd)+Shift+E</shortcut> to see the latest visited locations in files. Here you can type your search query to find the exact word, phrase, or markup element you've been editing.</p></li>
+                <li><p><shortcut>Ctrl(Cmd)+Shift+Backspace</shortcut> to navigate to the last edited text fragment.</p></li>
+            </list>
+        </def>
+    </deflist>
+</topic>

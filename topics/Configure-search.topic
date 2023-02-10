@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="Configure search" id="Configure-search">
+
+    <p>Currently, the search will work only for published documentation after you configure the Algolia indexes generation and publication on your CI/CD.
+    </p>
+    <procedure id="create-application" title="Create an Algolia application">
+        <step><p>Register a free <a href="https://www.algolia.com/">Algolia</a> account.</p>
+            <note>
+                Algolia’s free account is limited to 10,000 search requests and 10,000 records per month.
+            </note>
+        </step>
+        <step><p>Go to Algolia <a href="https://www.algolia.com/account/applications">applications</a> page.</p>
+        </step>
+        <step><p>Click <control>Create Application</control>.</p>
+        </step>
+        <step><p>Set application parameters and create it.</p>
+        </step>
+        <step><p>Copy and save application ID, you will need it on the step <a anchor="application-id">Add the Algolia search index to the Writerside project config</a>.</p>
+        </step>
+    </procedure>
+    <procedure id="create-index" title="Create an Algolia search index" style="choices">
+        <step><p>Go to <ui-path>Data sources | Indices</ui-path> and click <control>Create Index</control>.
+                Copy and save its name, you will need it <a anchor="index-name">on the next step</a>.
+              </p>
+        </step>
+    </procedure>
+    <procedure id="add-search-to-config" title="Add the Algolia search index to the Writerside project config">
+        <step>
+            <p>In your documentation project in the <path>cfg/buildprofiles.xml</path> file specify:</p>
+            <list>
+                <li id="application-id">
+                    <code>&lt;config-algolia-id&gt;</code> Algolia Application ID <code>&lt;/config-algolia-id&gt;</code>
+                </li>
+                <li id="index-name">
+                    <code>&lt;config-algolia-index&gt;</code> Algolia Index name <code>&lt;/config-algolia-index&gt;</code>
+                </li>
+                <li>
+                    <code>&lt;config-algolia-api-key&gt;</code> Algolia Search-Only API Key <code>&lt;/config-algolia-api-key&gt;</code>
+                    (Find it in <a href="https://www.algolia.com/account/api-keys">API Keys section</a> of the Algolia UI).
+                </li>
+                <li>
+                    <code>&lt;config-search-scopes-provider&gt;</code> https://company-name.com <code>&lt;/config-search-scopes-provider&gt;</code>
+                    (Use URL of your company or leave default https://www.jetbrains.com/).
+                </li>
+            </list>
+        </step>
+        <step>Commit and push these changes or build your documentation for later upload to server.</step>
+    </procedure>
+    <chapter title="Create filters in Algolia UI" id="create-filters-in-algolia-ui">
+        <p>You need to create filters in Algolia UI that will match the facet filters passed in the search request.</p>
+        <procedure>
+            <step>In the index page created on the <a anchor="create-index">Create an Algolia search index</a> step, go to <ui-path>Configuration | Facets</ui-path>.</step>
+            <step>
+                In the <ui-path>Attributes for faceting</ui-path> section, click <control>Add an attribute</control>.
+            </step>
+            <step>
+                Add two attributes: <code>product</code> and <code>version</code>.
+                They will appear as filters on the Algolia Index page.
+            </step>
+            <step><p>Do not forget to click 'Review and Save Settings' and confirm.</p>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Create the build configuration on CI/CD" id="create-the-build-configuration-on-ci-cd">
+        <p>You can configure search index generation and publication on any CI/CD that you use.
+            Below are examples for TeamCity and GitHub Actions.</p>
+        <tabs>
+            <tab title="TeamCity">
+                <procedure title="Build your help instance with indexes" id="build-help-with-indexes">
+                    <step>In your existing run configuration used to build docs, change Docker Image to <code>registry.jetbrains.team/p/writerside/builder/writerside-builder:2.1.971</code>
+                        or a later version. Previous versions do not generate search indexes.
+                    </step>
+                </procedure>
+                <procedure title="Publish Algolia search indexes">
+                    <step>Create a separate run configuration to publish the Algolia indexes to your application. </step>
+                    <step>Use a Docker image <code>registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-2</code>, which contains the <code>help-publication-agent</code> script.</step>
+                    <step>
+                        Create a <control>Command line</control> type step with the following script:
+                        <code-block lang="bash">
+                            env "algolia-key=${'$'}ALGOLIA_KEY" java -jar /opt/builder/help-publication-agent.jar \
+                            update-index \
+                            --application-name ${'$'}ALGOLIA_APP_NAME \
+                            --index-name ${'$'}ALGOLIA_INDEX_NAME \
+                            --product ${'$'}CONFIG_JSON_PRODUCT \
+                            --version ${'$'}CONFIG_JSON_VERSION \
+                            --index-directory algolia-index/ \
+                            2>&amp;1 | tee algolia-update-index-log.txt
+                        </code-block>
+                    </step>
+                    <step>
+                        In <control>General Settings</control>, in the <control>Artifact path</control> field, add <path>algolia-update-index-log.txt</path> to write logs.
+                    </step>
+                    <step>
+                        In <control>Dependencies</control>, add artifacts produced on the previous step:
+                        <code>webhelp.zip</code>
+                        and <code>algolia-indexes-*.zip!** => algolia-index</code> (this action unpacks a zip-archive).
+                    </step>
+                    <step><p>In <control>Parameters</control>, add the following environment variables:</p>
+                        <list>
+                            <li><control>env.ALGOLIA_INDEX_NAME</control> — a name of your Algolia index.</li>
+                            <li><control>env.ALGOLIA_APP_NAME</control> — an Algolia Application ID.</li>
+                            <li><control>env.ALGOLIA_KEY</control> — an Algolia Admin API key.</li>
+                            <li><control>env.CONFIG_JSON_PRODUCT</control> — the web path of the documentation specified in project.ihp (usually is the
+                                same as the instance name).</li>
+                            <li><code>env.CONFIG_JSON_VERSION</code> — the version of the documentation specified in project.ihp (usually is the
+                                same as the branch name).
+                            </li>
+                        </list>
+                    </step>
+                    <step>
+                        Go to the build configuration page and click <control>Deploy</control>.
+                        Once the deployment is finished, check whether indexes are uploaded in the Algolia UI.
+                    </step>
+                </procedure>
+            </tab>
+            <tab title="GitHub Actions">
+                <p>Before configuring a job that publishes a search index, you need to set up a job that builds help artifacts,
+                    read how to do this <a href="Deploy-docs-to-GitHub-Pages.topic" anchor="build-github-actions">here</a>.</p>
+                <procedure title="Set up Publish Algolia indexes job">
+                    <step>In your repository on GitHub, go to <ui-path>Settings | Secrets and variables | Actions</ui-path>,
+                        and add a <control>New repository secret</control> called <code>ALGOLIA_KEY</code> with Admin API key from your Algolia account.</step>
+                    <step>Go to your existing GitHub Actions workflow and add a job that publishes Algolia indexes</step>
+                    <step>Create a separate run configuration to publish the Algolia indexes to your application with the following contents:
+                        <code-block lang="yaml">
+                            publish-indexes:
+                            # Requires the build-job results
+                            needs: build-job
+                                runs-on: ubuntu-latest
+                                container:
+                                    image: registry.jetbrains.team/p/writerside/builder/algolia-publisher:2.0.32-2
+
+                                steps:
+                                    - uses: actions/checkout@v3
+                                    - uses: actions/download-artifact@v3
+                                      with:
+                                        name: algolia-indexes
+                                    - uses: montudor/action-zip@v1
+                                      with:
+                                        args: unzip -qq algolia-indexes-HP.zip -d algolia-indexes
+                                    - run: |
+                                    env "algolia-key=${{env.ALGOLIA_KEY}}" java -jar /opt/builder/help-publication-agent.jar \
+                                    update-index \
+                                    --application-name ${{env.ALGOLIA_APP_NAME}} \
+                                    --index-name ${{env.ALGOLIA_INDEX_NAME}} \
+                                    --product ${{env.CONFIG_JSON_PRODUCT}} \
+                                    --version ${{env.CONFIG_JSON_VERSION}} \
+                                    --index-directory algolia-indexes/ \
+                                    2>&amp;1 | tee algolia-update-index-log.txt
+                        </code-block>
+                    </step>
+                    <step>
+                        <p>
+                            Add the following environmental variables into the workflow:
+                        </p>
+                            <code-block lang="yaml">
+                                 env:
+                                    ALGOLIA_APP_NAME: y our_algolia_app_id
+                                    ALGOLIA_INDEX_NAME: your_index_name
+                                    ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
+                                    CONFIG_JSON_PRODUCT: web-path from project.ihp
+                                    CONFIG_JSON_VERSION: version from project.ihp
+                                </code-block>
+                            <p>where:</p>
+                        <list>
+                            <li><code>ALGOLIA_INDEX_NAME</code> — the name of your index.</li>
+                            <li><code>ALGOLIA_APP_NAME</code> — your Application ID.</li>
+                            <li><code>ALGOLIA_KEY</code> — a reference to an Admin API key stored as a repository secret.</li>
+                            <li><code>CONFIG_JSON_PRODUCT</code> — the web-path of the documentation written in the <path>project.ihp</path> (usually it is the
+                                same as the instance name).</li>
+                            <li><code>CONFIG_JSON_VERSION</code> — the version of the documentation written in the <path>project.ihp</path> (usually it is the
+                                same as the branch name).
+                            </li>
+                        </list>
+                    </step>
+                    <step>
+                        Run the job. Once it is finished, check whether indexes are uploaded in the Algolia UI.
+                    </step>
+                </procedure>
+            </tab>
+        </tabs>
+    </chapter>
+    <p>
+        Now publish your documentation and check how search works.
+    </p>
+    <note><p>We are working on our own solution.
+        To stay updated on search development progress, follow <a href="https://youtrack.jetbrains.com/issue/WRS-946/Our-own-search-solution-for-WRS">this ticket in YouTrack</a>.</p></note>
+</topic>

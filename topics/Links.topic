@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Links"
+       id="Links">
+
+    <p>Here's how you insert a link in Markdown: <code id="md-link-anchor">[link text](external URL, topic filename, or custom element id.)</code>.</p>
+    <p>You can refer to any elements with custom IDs by specifying a standard link with a number sign (#) followed by the custom ID.
+    </p>
+    <table>
+        <tr>
+            <td>Markup</td>
+            <td>Result</td>
+        </tr>
+        <tr>
+            <td>
+                <code-block>
+                    Here is [the link to anchor](#md-link-anchor)
+                </code-block>
+            </td>
+            <td>
+                Here is <a anchor="md-link-anchor">the link to an anchor</a>.
+            </td>
+        </tr>
+    </table>
+    <p>To specify the link summary, use the following markup: <code>[Link text](Topic.md "The target topic summary")</code>.
+    </p>
+    <chapter title="Reference-style links">
+        <p>%product% allows adding <emphasis>reference-style</emphasis> links, which means you can put all the links somewhere in the document,
+            for example, in the bottom, assign identifiers to them, and reference throughout the document.</p>
+        <p>
+            For example:
+        </p>
+        <code-block lang="plain text">
+            Some text with some [link][jb] and some [other link][ex].
+
+            [jb]: https://www.jetbrains.com
+            [ex]: https://example.com
+        </code-block>
+    </chapter>
+</topic>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Remove topics"
+       id="Delete_a_topic">
+
+ <p>
+     When you remove a topic from an instance TOC or delete a topic file, you need to check how this
+     impacts the rest of your content:
+ </p>
+    <list style="bullet">
+        <li>
+            Check all references from other topics and remove or update them.
+        </li>
+        <li>
+            If you want to delete the topic file, not just remove a topic from a single TOC, check
+            all <code>.tree</code> files and remove all toc-elements referencing this topic.
+        </li>
+        <li>
+            Check that this topic does not contain content snippets that are reused in other topics
+            through <a href="Reuse_a_content_in_another_topic.topic">includes</a>.
+        </li>
+        <li>
+            Place redirects from the deleted topic's URL so that users don't get the 404 error if they
+            use the old link.
+        </li>
+        <!--TODO add a list item on how to update help-ids if help is contextual-->
+    </list>
+    <p>
+        %product% does these things automatically for you through the <emphasis>Delete</emphasis> refactoring,
+        which is a safe way to remove a topic.
+    </p>
+    <warning>
+        <p>
+            Avoid removing topics by deleting the corresponding <code>toc-element</code> from
+            a <path>.tree</path> file. This will result in broken references and lead to build failure.
+        </p>
+    </warning>
+
+    <procedure title="Remove topic from TOC" id="remove-from-toc">
+        <step>
+            <p>
+                In the <control>Writerside</control> tool window, select the topic you want to remove
+                and click
+                <img src="icon_remove.png" width="16" alt="Remove"/> or press <shortcut key="$Delete"/>.
+            </p>
+        </step>
+        <step>
+            <p>
+                In the <control>Remove TOC element</control> dialog, select the <control>Set redirect to</control>
+                option and choose the new target from the list:
+            </p>
+            <img src="remove_topic_dialog.png" alt="Remove TOC element dialog" width="460" border-effect="rounded"/>
+        </step>
+        <step>
+            <p>
+                At this point, you can make sure that the <control>Update usages automatically</control>
+                option is selected and click <control>Remove</control>, but we highly recommend that you click
+                <control>Review usages</control> as automatically removing all references to a topic
+                may result in some dangling phrases.
+            </p>
+            <p>
+                This will open the <control>Find</control> tool window where you can review all usages.
+                When you click on a usage, the source is displayed in the right pane which is a fully-functional
+                editor where you can update references if necessary:
+            </p>
+            <img src="find_tool_window_with_editor.png" alt="Find tool window" width="706"/>
+        </step>
+        <step>
+            <p>
+                Click <control>Do Refactor</control> when you've reviewed the changes.
+            </p>
+        </step>
+        <step>
+            <p>
+                If you are sure you don't need this content anymore, click <control>Delete Topic File</control>
+                in the confirmation dialog. If you don't, the topic will be removed from the current instance TOC,
+                and you will be able to link it again if necessary (see <a href="Manage_table_of_contents.topic"/>).
+                <!--TODO insert a link to the description of the inspection that checks for unused files and images-->
+            </p>
+        </step>
+    </procedure>
+</topic>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Visual elements"
+       id="Visual_elements">
+
+    <p>To augment the topic contents with various visual elements, like, screenshots, diagrams, schemes, video illustrations,
+        UI elements, and icons.
+    </p>
+    <p>
+        You can add <a anchor="img">images</a>, GIF animations,
+        inline images (icons), and <a anchor="video">videos</a>.
+    </p>
+    <p>All the images, gifs, and video files you want to reference as local files (not as external URLs)
+        must be placed into the <code>images/</code> directory of the project.</p>
+    <chapter title="Image, icon, and animated image" id="img">
+        <p>Use the image element to add block images (for example, screenshots, diagrams, schemas),
+            inline images (icons and UI elements), and GIF animations.</p>
+        <p>By default, an image type is derived from its size and format:</p>
+        <list>
+            <li>If it is less than 16px, it is placed inline.</li>
+            <li>If more, it is placed as a separate block.</li>
+            <li>If it is more than 706px, it fits into the viewport and is zoomed in by click.</li>
+            <li>If it is in <path>.gif</path> format, it is treated as an animated image, as a preview,
+                we render the first frame or take the one specified in the <code>preview-src</code>.</li>
+        </list>
+        <p>You can override this behavior using the <a anchor="img-style" summary="Specify if an image should be inline or a separate block"><code>style</code></a> attribute.</p>
+        <p>In semantic markup, you add them as attributes to the <code>&lt;img&gt;</code> tag.
+            In Markdown, you surround them with curly brackets.</p>
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="Semantic markup">
+                <code-block lang="XML">
+                    <![CDATA[
+                     <img src="image.png" alt="Alt text" width="450px">
+                     ]]>
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="Markdown">
+                <code-block lang="plain text">
+                    ![Alt Text](image.png){ width="450px" }
+                </code-block>
+            </tab>
+        </tabs>
+
+        <p>The image has the following attributes:</p>
+        <deflist id="image-attributes">
+            <def title="src" filter="semantic">
+                <p><format color="Red">required</format> Specify the image filename.
+                    In Markdown, place it into round brackets <code>()</code>.
+                </p>
+            </def>
+            <def title="alt" filter="semantic">
+                <p><format color="Red">required</format> Add alternative text to images, gifs, and icons.
+                    It is a short written description of an image that is important for content accessibility and search optimization.
+                    In Markdown, place it into square brackets <code>[]</code>.
+                </p>
+            </def>
+            <def title="width">
+                <p>Set the width of an image.</p>
+            </def>
+            <def title="border-effect=[none|line|rounded]">
+                <p>Select a border style for your image.
+                    GIF animations always have a border, so the <code>none</code> option is not applicable.</p>
+            </def>
+            <def title="style=[inline|block]" id="img-style">
+                <p>Override the default behavior derived from image size.
+                    Specify if an image should be inline or a separate block.</p>
+            </def>
+            <def title="preview-src">
+                <p>Set a custom preview file instead of a small thumbnail.</p>
+            </def>
+            <def title="thumbnail=[true|false]">
+                <p>thumbnail="true" will create a small thumbnail from the original file.</p>
+            </def>
+        </deflist>
+        <note>
+            <p>
+                By default, a user can switch between light and dark themes on the docs website,
+                so it is recommended to have image variants for both themes.
+                %product% displays a warning about it in the preview area.
+            </p>
+        </note>
+        <p id="dark-image">
+            To display both light and dark-themed screenshots depending on the selected web help theme:</p>
+        <procedure>
+            <step>Add the <code>_dark.png</code> suffix to the dark theme variant.</step>
+            <step>Put both variants of it in the <path>images/</path> directory.</step>
+            <step>Specify only the light theme variant in the <code>src</code> attribute.</step>
+        </procedure>
+        <p>For example, if the two screenshot variants are named <path>example.png</path> and <path>example_dark.png</path>,
+            specify only <code>&lt;img src="example.png"/&gt;</code> to display both variants depending on the selected theme.</p>
+    </chapter>
+    <chapter title="Referencing images">
+    <p>In Markdown you can reference images declared in another part of the topic, for example, at the bottom.</p>
+    <p>This can be handy for frequently used icons.</p>
+    <table>
+        <tr>
+            <td>Markup</td>
+            <td>Result</td>
+        </tr>
+        <tr>
+            <td>
+                <code-block>
+                    Click ![][check] icon to mark an item as done.
+
+                    [check]: check-icon.png
+                    [up]: up-icon.png
+                    [down]: down-icon.png
+                    [plus]: plus-icon.png
+                </code-block>
+            </td>
+            <td>
+                Click <img alt="check icon" src="check-icon.png" width="16"/> icon to mark an item as done.
+            </td>
+        </tr>
+    </table>
+    </chapter>
+    <chapter title="Video" id="video">
+        <p>Use <code>&lt;video&gt;</code> tag to add local videos or links to videos from YouTube, or Vimeo.</p>
+        <p>It has the following attributes:</p>
+        <deflist>
+            <def title="src">
+                <p>Specify the video filename, YouTube or a Vimeo video URL.
+                    For YouTube it accepts both full and shortened link formats.</p>
+            </def>
+            <def title="width">
+                <p>Set the width of a video element.</p>
+            </def>
+            <def title="height">
+                <p>Set the height of a video element.</p>
+            </def>
+            <def title="mini-player=[true|false]">
+                <p>If the attribute's value is set to <code>true</code>,
+                    only the Play/Pause button is displayed for local video files and other controls are hidden.
+                    This is handy if you use a video instead of a gif image.</p>
+            </def>
+            <def title="preview-src">
+                <p>Specify a custom preview image.
+                    By default, for YouTube we display a video thumbnail if it was specified when the video was uploaded. </p>
+            </def>
+        </deflist>
+        <p>Below find examples of various video markups.</p>
+
+        <table>
+            <tr>
+                <td width="50%">Markup</td>
+                <td width="50%">Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off-->
+                        <![CDATA[
+                         <video src="sample.mp4"/>
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    <video src="sample.mp4"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off-->
+                        <![CDATA[
+                         <video src="sample.mp4" mini-player="true"/>
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    <video src="sample.mp4" mini-player="true"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off-->
+                        <![CDATA[
+                         <video src="https://vimeo.com/253989945"/>
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    <video src="https://vimeo.com/253989945"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off-->
+                        <![CDATA[
+                          <video src="https://youtu.be/BeJu9bMPLGU" preview-src="preview-image.png"/>
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    <video src="https://youtu.be/BeJu9bMPLGU" preview-src="preview-image.png"/>
+                </td>
+            </tr>
+        </table>
+    </chapter>
+</topic>

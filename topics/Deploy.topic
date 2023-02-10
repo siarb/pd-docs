@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Deploy"
+       id="Deploy">
+
+    <p>Start writing here.</p>
+    <chapter title="docker Image" caps="title" id="deploy-topic">
+        <p>Docker image for %instance% is published on the Docker Hub.</p>
+        <a href="Local_build.topic"/>
+    </chapter>
+</topic>

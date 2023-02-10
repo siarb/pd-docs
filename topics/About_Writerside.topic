@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Getting started"
+       id="About_Writerside" help-id="About Sample Product;About_Sample_Product">
+
+    <show-structure for="procedure"/>
+
+    <p id="intro">
+        %product% is a plugin for <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>
+        and other JetBrains IDEs based on the IntelliJ platform.
+        Use it to author, build, test, and publish technical documentation.
+    </p>
+
+    <procedure title="Install %product%" id="install">
+        <step>Open IDE settings and select <control>Plugins</control>.</step>
+
+        <step>On the <control>Marketplace</control> tab, search for <emphasis>Writerside</emphasis>.</step>
+
+        <step>Select the plugin and click <control>Install</control>.</step>
+
+        <step>Restart the IDE.</step>
+    </procedure>
+
+    <procedure title="Create a new documentation project" id="create-new-project">
+        <p>After you install the plugin, you can create a new documentation project.</p>
+
+        <step>From the main menu, select <ui-path>File | New | Project</ui-path>.</step>
+
+        <step>In the <control>New Project</control> dialog, select <ui-path>Writerside | Writerside Project</ui-path> and click <control>Next</control>.</step>
+
+        <step>
+            <p>
+                Specify the project name, the directory to store the project, and click <control>Create</control>.
+                The version is not configurable and doesn't affect anything.
+            </p>
+
+            <img src="new-project.png" alt="New project creation window" border-effect="rounded"/>
+        </step>
+
+        <p>
+            %product% creates a new documentation project with one help instance called <emphasis>Sample product</emphasis>.
+            You can <a href="Create_an_instance.topic" anchor="rename-instance" instance="sd">change the instance name</a> to something more meaningful.
+        </p>
+
+        <p>For more information about the documentation project structure, see <a href="Project_structure.topic"/>.</p>
+    </procedure>
+</topic>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="2022.11.3080" id="3080">
+    <web-file-name>whats-new-last-update.html</web-file-name>
+
+    <chapter title="Markdown support improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-170">WRS-170</a> Coding assistance for XML tags inside .md files
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1212">WRS-1212</a> Exception is thrown while user types style of
+                quotation in Markdown
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1110">WRS-1110</a> MD code-block transformed to `code` of
+                XML instead of `code-block`
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1054">WRS-1054</a> "Convert this article to XML format" fails when
+                called from an intention action preview
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-940">WRS-940</a> Do not touch XML entity from code block (MD)
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-738">WRS-738</a> Conversion from MD to XML action leads to
+                invalid topic and tree
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Semantic markup improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-916">WRS-916</a> Sort filter values despite the exclamation
+                mark in 'Sort filter values and remove duplicates' intention when several values are in the filter
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1109">WRS-1109</a> Filter elements are not resolved in`use-filter`
+                near a space or a misplaced negation
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1065">WRS-1065</a> `video` element should not be allowed in `p`
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-920">WRS-920</a> `Sorted value starting with an uppercase is placed
+                before the value which is earlier in alphabetical order but starting with lowercase
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-918">WRS-918</a> Space before the first value is displayed, but
+                not displayed before the last filter attribute after sorting
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Single-source improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-945">WRS-945</a> Allow "Move" refactoring for snippet in XML
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1138">WRS-1138</a> Links in 'tldr', 'snippet' and 'a'
+                tags are not treated properly during topic removal if tags are not wrapped in chapter or paragraph
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1136">WRS-1136</a> Exception is thrown when user
+                deletes topic used in seeAlso, topic file remains in the project, exception is not sent by clicking 'Report and Clear All'
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1135">WRS-1135</a> Empty balloon appears next to the TOC-area when topic
+                deleted with unticked checkbox 'Update usages automatically'
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-809">WRS-809</a> Broken "Remove usages" functionality
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Output configuration improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1219">WRS-1219</a> Warn user about duplicated tags
+                in buildprofiles.xml
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1283">WRS-1283</a> build profiles XML: some config tags
+                don't work if the value is on a new line
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1273">WRS-1273</a> build profiles XML: wrong path to logo
+                image is not highlighted as a compilation error for preview
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1220">WRS-1220</a> 2nd social link in footer is underlined
+                as error if icp is not specified
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Web help output">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-985">WRS-985</a> The expander of the collapsible block of
+                code is cut off when header is collapsible
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-886">WRS-886</a> External links do not open when preview
+                is opened in the browser
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-907">WRS-907</a> Scrolling a page to top doesn't clear the URL hash
+            </li>
+        </list>
+    </chapter>
+
+
+    <chapter title="Usability improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1126">WRS-1126</a> Add Confirmation section to Settings | Tools | Writerside
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1051">WRS-1051</a> Throw notification to eventlog after
+                'Create Template from Topic'
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-961">WRS-961</a> Explain the setting related to gif conversion
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-158">WRS-158</a> Edit TOC structure
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1112">WRS-1112</a> There is no Before-After example for
+                'Convert selection to SML syntax' intention
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1050">WRS-1050</a> "Don't show again" checkbox is
+                not working for topic deletion
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1049">WRS-1049</a> 'Settings' from confirmation after
+                saving a topic as template does not open Settings -> Editor -> File and Code Templates
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1046">WRS-1046</a> 'Invalid filter value'
+                inspection has poorly formatted description
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1036">WRS-1036</a> "Don't show again" checkbox is not
+                working in confirmation after saving a topic as template and after removing topic
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1015">WRS-1015</a> Spaces in the topic name are prohibited,
+                but automatically created first topic filename contains spaces
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1008">WRS-1008</a> Is not possible to Drag-n-Drop topic
+                between wrappers or to the last position if current last element is a wrapper
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-743">WRS-743</a> Markdown preview remains if .md file was
+                opened in previous IDE session
+            </li>
+        </list>
+    </chapter>
+
+
+    <chapter title="Issues with titles">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1276">WRS-1276</a> Topic has name 'toc-element[N]' or '?'
+                after restoring (Ctrl + Z), wrappers have no titles
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1279">WRS-1279</a> The name of the md file is displayed
+                instead of the title specified with a `title` tag or underlined
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-963">WRS-963</a> Show file name in the TOC-area for
+                MD-files if topic has no header
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1134">WRS-1134</a> Variable put in a Markdown topic
+                title is not displayed in left toc
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1117">WRS-1117</a> MD: custom IDs for heading rendered
+                to code with artifacts in preview
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1005">WRS-1005</a> Topic header is duplicated in mini-toc
+                if 'default-property element-name=topic' specified in project.ihp
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-980">WRS-980</a> When you edit topic title in the editor,
+                the TOC view is not updated
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-808">WRS-808</a> Instance-specific title is added after the
+                text when user edits topic title along with instance title
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-1072">WRS-1072</a> .xml doubles on new topic creation
+            </li>
+        </list>
+    </chapter>
+
+
+</topic>
+

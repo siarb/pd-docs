@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Find reusable content"
+       id="Find_Reusable_Content">
+
+    <p>You can locate the content what worth to be reused using IntelliJ IDE's feature called Find in Files.</p>
+    <p>First, try to find reusable content that you can add to the library.
+        For example, if you describe some installation or setup procedure and heavily use the
+        control names, check where these controls and paths are also mentioned.
+        To do this:</p>
+    <procedure>
+        <step>Highlight the control or ui-path element.</step>
+        <step>Right-click and select <control>Find in Files</control> or press
+            <shortcut key="FindInPath"/></step>
+        <step>If the content is repeated two or more times, consider moving it into
+            a <a href="Reuse_a_content_in_another_topic.topic" anchor="make-snippet-reusable">reusable snippet</a>.</step>
+    </procedure>
+</topic>

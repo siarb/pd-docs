@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Table of contents elements"
+       id="Table_of_contents_elements">
+
+    <p>The <code>toc-element</code> element has the following attributes:</p>
+    <deflist>
+        <def title="topic">
+            <p>Specify the topic filename.</p>
+        </def>
+        <def title="toc-title">
+            <p>Specify the topics' title. This title will appear in the table of contents and will override the title specified in the topic.
+                If you specify the <code>toc-title</code>, but not the <code>topic</code>
+                it will create a <a href="Manage_table_of_contents.topic" anchor="wrapper-topic">wrapper topic</a> with no content in it.
+            </p>
+        </def>
+        <def title="hidden">
+            <p>Set to <code>true</code> to hide the topic from a table of contents.
+                The topic is accessible by direct links to it.</p>
+        </def>
+        <def title="sort-children">
+           <p><code>[none|ascending|descending]</code> Specify the order to sort the topics' children.
+               By default there is no sorting, topics appear in an order they are placed in <path>.tree</path> file.</p>
+        </def>
+        <def>
+            <title>accepts-web-file-names</title>
+            <p>Specify the HTML file name of the removed page.</p>
+        </def>
+        <def>
+            <title>accepts-web-file-names-ref</title>
+            <p>Specify the rule id from the redirection-rules.xml.</p>
+        </def>
+        <def>
+            <title>target-for-accepts-web-file-names</title>
+            <p>Specify the full URL where to redirect a user.</p>
+        </def>
+    </deflist>
+</topic>

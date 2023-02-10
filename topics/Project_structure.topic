@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Writerside project structure"
+       id="Project_structure">
+
+    <p>
+        To see the files and directories of a %product% project, use the Project tool window: press <shortcut key="ActivateProjectToolWindow"/>
+        or click the <img src="folder-outline-svgrepo-com.svg" alt="folder icon" height="16"/> icon on the left toolbar or select <ui-path>View | Tool Windows | Project</ui-path> from the main menu.
+    </p>
+    <p>A typical %product% project directory looks like this:</p>
+    <img src="project-tool-window.png" alt="An example of a typical project structure" border-effect="line" width="520"/>
+    <p>By default, every %product% project contains the following files and directories:</p>
+    <deflist>
+        <def><title>%module%/project.ihp</title>
+            The module configuration file defines the settings for the module and its help instances.
+        </def>
+        <def><title>%module%/topics</title>
+            <p>The directory with topic files: <path>.md</path> for Markdown and <path>.topic</path> for semantic markup topics.</p>
+        </def>
+        <def><title>%module%/images</title>
+            The directory with images and other media, such as animated GIFs and videos.
+        </def>
+        <def id="tree-file"><title>%module%/.tree</title>
+            The tree file defines the <a href="Manage_table_of_contents.topic">table of contents</a>, which is the order and hierarchy of topics in a help instance.
+        </def>
+        <def><title>%module%/c.list</title>
+            The list of categories for grouping related links in the <a href="Links_and_references.topic" anchor="see-also">See also</a> section of a topic.
+        </def>
+        <def><title>%module%/v.list</title>
+            The list of module-level variables with their values.
+        </def>
+        <def>
+            <title>%module%/redirection-rules.xml</title>
+            The configuration file for redirection rules.
+        </def>
+    </deflist>
+
+   <p>The following files and directories are optional:</p>
+<deflist>
+    <def><title>%module%/folder-for-code-snippets</title>
+        <p>The directory to store the code snippets and refer them in the docs. Specify its name in the <code>snippets</code> attribute of the <code>project.ihp</code> file.</p></def>
+    <def><title>%module%/cfg/glossary.xml</title>
+        The glossary file defines the terms and their descriptions that you can use in <a href="Tooltips.topic">tooltips</a>.</def>
+    <def><title>%module%/resources</title>
+        The directory for resources, such as files with source code or data that users can download from a topic that references the resource.
+    </def>
+    <def><title>%module%/r.list</title>
+        The file that maps resources to IDs used to reference them.
+    </def>
+</deflist>
+</topic>

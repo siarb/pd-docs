@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="Local-history"
+       title="Local history">
+    <p>
+        IntelliJ IDEs support a wide range of versioning abilities.
+        However, when you write the docs you don't commit each separate change,
+        only major ones, while you make lots of edits and rewriting.
+    </p>
+    <p>
+        Local history maintains revisions for all meaningful changes, including external ones,
+        and works as an auto-save of changes at different stages of your work.
+    </p>
+    <procedure>
+        <p>Imagine, you've written a new section and then decided to checkout to another branch and forgot
+            to commit or shelf the changes. Local history will store these changes and you can get them back.</p>
+        <step>
+            <p>
+                Right-click anywhere in the editor and choose <ui-path>Local History | Show History</ui-path> from the context menu.
+            </p>
+        </step>
+        <step>
+            <p>
+                On the left there is a list of all saved revisions of the current file with timestamps.
+            </p>
+        </step>
+        <step>
+            <p>
+                To restore a specific text fragment, select the revision that contains that fragment.
+            </p>
+        </step>
+        <step>
+            <p>
+                Locate the text fragment you want to restore click the <img src="app.diff.applyNotConflictsLeft.png" alt="Chevron icon"/> icon to copy it from the left pane.
+            </p>
+            <img src="local-history.png" alt="Local history usage" border-effect="line"/>
+        </step>
+    </procedure>
+    <note>
+        <p>The default retention period for local history is 5 days, but you can change it in <ui-path>Settings/Preferences | Advanced settings | IDE</ui-path>.
+        </p>
+    </note>
+</topic>
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Summary elements"
+       id="Summary_elements">
+
+    <chapter title="Link summary" id="link-summary">
+        <p>
+            Use the <code>link-summary</code> element in the target topic to display its summary in the link popup.
+        </p>
+        <code-block lang="XML">
+                <![CDATA[
+            <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   title="Links"
+                   id="Links">
+
+                <link-summary>This information is displayed in the link popup</link-summary>
+                ...
+            ]]>
+            </code-block>
+    </chapter>
+    <chapter title="Card summary" id="card-summary">
+        <p>Use it to specify the topic summary and display it on the card on the <a href="Section_starting_page.topic">starting page</a>,
+            so that a user can evaluate what the target topic is about before clicking.
+            Otherwise, you can write the summary using the <code>summary</code> attribute.</p>
+        <code-block lang="XML">
+            <![CDATA[
+               <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               title="Links"
+               id="Links">
+
+            <card-summary>This information is displayed in the card on the starting page.</card-summary>
+            ...
+            ]]>
+        </code-block>
+    </chapter>
+    <chapter title="Web summary" id="web-summary">
+        <p>Use it to specify the short topic summary for external search engines.
+        </p>
+        <p>
+            When this element is specified, %product% adds a <code>meta</code> tag
+            with a <code>name="description"</code> attribute and <code>content="your web-summary here"</code> attribute
+            to the generated HTML page.</p>
+        <p>
+        This doesn't mean that this description will appear in the snippet on the search results page,
+            but search engines take it into account.
+            Also it is used a text preview when someone shares the link in a messenger or a social media.
+        </p>
+        <p>When it is not specified, we don't provide any default value.
+            A search engine will display a summary that it has generated automatically while crawling the page,
+            it can be any other fragment from the page it considers relevant.</p>
+        <code-block lang="XML">
+            <![CDATA[
+               <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               title="Links"
+               id="Links">
+
+            <web-summary>This is information for the search engines.</web-summary>
+            ...
+            ]]>
+        </code-block>
+    </chapter>
+    <p>
+        For each of these elements, you can either write the text fragment or specify the <code>rel</code> attribute
+            with the element ID to use it as a summary.
+        It can be any element that contains text, %instance% will extract the text from it.</p>
+        <code-block lang="XML">
+            <![CDATA[
+            <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   title="Links"
+                   id="Links">
+
+                <link-summary rel="my-paragraph"/>
+                ...
+                <p id="my-paragraph">
+                    This is the text to use as a link summary.
+                </p>
+            ]]>
+        </code-block>
+</topic>

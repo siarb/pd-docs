@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage in-page table of contents"
+       id="Manage_in-page_table_of_contents">
+
+    <p>You can use the right in-page TOC to display chapters' and procedures' titles.</p>
+    <p>By default, only chapter titles are displayed. You can change it using the attributes described below.</p>
+    <procedure title="Change the in-page TOC structure" id="change-structure" style="choices">
+        <step>
+            <p>
+                Inside the <code>topic</code> element, add the <code>show-structure</code> element with the <code>for</code> attribute.
+                As the attribute value, use the names of the structure elements which must go to the TOC.
+                If there are a few separate them by a comma.
+            </p>
+            <code-block lang="XML">
+                <![CDATA[
+                <topic>
+                <show-structure for="chapter,procedure"/>
+                ]]>
+                </code-block>
+        </step>
+        <step><p>Define the TOC maximal depth using <code>depth</code> attribute of the <code>show-structure</code> element.</p>
+            <code-block lang="XML">
+                <![CDATA[
+                <topic>
+                <show-structure depth="2"/>
+                ]]>
+            </code-block>
+        </step>
+    </procedure>
+</topic>

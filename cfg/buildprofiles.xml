@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<buildprofiles xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/build-profiles.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <variables>
+        <download-page/>
+
+        <config-algolia-id>TGW4GIW73X</config-algolia-id>
+        <config-algolia-index>pd-index</config-algolia-index>
+        <config-algolia-api-key>29effd68f91893202311a653263f1fb8</config-algolia-api-key>
+        <config-search-scopes-provider>https://www.jetbrains.com/search/json/</config-search-scopes-provider>
+
+        <config-feedback-widget>true</config-feedback-widget>
+        <config-feedback-support>null</config-feedback-support>
+        <config-feedbackRequireEmail>true</config-feedbackRequireEmail>
+        <config-feedback-url>https://support.jetbrains.com</config-feedback-url>
+        <config-webmaster>webmaster@jetbrains.com</config-webmaster>
+        <config-sideblocks>true</config-sideblocks>
+        <primary-color>strawberry</primary-color>
+        <color-preset>vivid</color-preset>
+        <header-logo>writerside.svg</header-logo>
+        <config-versions-switcher>
+            https://raw.githubusercontent.com/lananovikova10/versions-json/main/help-versions.json
+        </config-versions-switcher>
+        <og-image>sample-image.png</og-image>
+        <analytics-head-script-file>google-analytics.js</analytics-head-script-file>
+        <analytics-body-html-file>google-analytics-noscript.html</analytics-body-html-file>
+    </variables>
+    <build-profile instance="sd"/>
+</buildprofiles>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Single sourcing and content reuse"
+       id="Single_sourcing">
+
+    <p>%product% provides rich functionality for single sourcing and content reuse.</p>
+    <p>Single sourcing the content means writing it once and
+        then using in different contexts instead of copy-pasting. </p>
+    <p>You can reuse topics, chapters, paragraphs, sentences,
+        and tree sections, and customize them for different outputs using filters and variables.</p>
+</topic>

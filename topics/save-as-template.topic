@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="save-as-template"
+       title="Save topic as template">
+    <p>In %product% you can turn any topic into a template to use it repeatedly so that some particular type of docs will have a consistent structure throughout the help,
+        for example this is handy for a common types of docs or for repetitive content, like tables with parameters.</p>
+    <p>Topic templates can be both <path>.md</path> and <path>.topic</path> and contain everything that a topic can contain.</p>
+    <procedure>
+        <step>
+            Right-click the necessary topic in the %product% tool window and select <control>
+            Create Template from Topic</control>.
+        </step>
+        <p>
+            A template will be created and appear in the topic templates list. Now you can <a href="save-as-template.topic" anchor="customize-templates">customize</a> it if needed.
+        </p>
+    </procedure>
+    <procedure id="customize-templates" title="Customize a template">
+        <step>
+            <p>
+                In the <control>TOC</control> area of the <control>%product%</control> tool window, select the node
+                to which you want to add the new topic and click
+                <img src="icon_add.png" width="14" alt="Add"/>
+                or press
+                <shortcut key="NewElement"/>.
+            </p>
+        </step>
+        <step>
+            Select <control>Topic from Template | Customize templates</control>.
+            You will be transferred to <ui-path>Settings/Preferences| Editor | File and Code templates</ui-path>.
+        </step>
+        <step>
+            <p>On the <control>Files</control> tab find the template you want to customize and change its contents.</p>
+            <note>Do not break the markup elements as in this view you don't have any validation or assistance.</note>
+        </step>
+        <step>Click <control>OK</control>.</step>
+    </procedure>
+</topic>

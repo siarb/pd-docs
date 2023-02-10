@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Create and manage an instance"
+       id="Create_an_instance">
+
+    <p>Using a few instances you can produce tailored documentation sets for multiple offerings depending on:</p>
+    <list>
+        <li>product;</li>
+        <li>version (mobile or web);</li>
+        <li>audience or user permissions (ordinary user, admin);</li>
+        <li>output format (web, PDF).</li>
+    </list>
+    <p>Each instance has a unique ID and a <path>.tree</path> file. You can include the same topics in a few instances
+        and customize them using <a href="Conditional_content.topic">filters</a> and <a href="Variables.topic">variables</a>.</p>
+    <p>You can share content and other resources (images, videos) between multiple instances.</p>
+    <include from="lib.topic" element-id="create-instance" use-filter="!mod"/>
+    <p><a href="Create_an_instance.topic" anchor="change-instance-color">Change the instance icon color</a> to distinguish it from the others.</p>
+    <procedure title="Rename an instance" id="rename-instance">
+        <p>Remember, an instance ID is used in the project configuration file, in a <path>.tree</path> file,
+            and filters, so don't overuse it.</p>
+        <step>Click
+            <img src="rename.png" width="14" alt="Rename"/>
+            or press <shortcut key="RenameElement"/>.</step>
+        <step>Specify a new instance ID.</step>
+        <step>Click <control>Refactor</control> to proceed or <control>Preview</control> to see the list of ID usages
+            where the rename refactoring will be performed.
+        </step>
+        <step>When you click <control>Preview</control>, an IDE opens the Find tool window with the found usages where you can check the results
+            and confirm the refactoring (<control>Do Refactor</control>).</step>
+        <p>A <path>.tree</path> file and all instance appearances will be renamed.</p>
+    </procedure>
+    <procedure title="Change an instance icon color" id="change-instance-color">
+        <p>To distinguish instances from each other in the interface you may want to assign different color icons.</p>
+        <step>Right-click the desired instance and select the <control>Instance color</control>.</step>
+        <step>Click the color number in the list to change it. By default, all instances get the color number 1.</step>
+    </procedure>
+</topic>

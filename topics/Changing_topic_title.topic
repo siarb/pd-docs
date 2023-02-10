@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Edit titles, filenames and IDs"
+       id="Changing_topic_title">
+    <p>
+        As your content evolves, you may want to modify the original topic title to better reflect its current content.
+        The same applies to the topic filename and ID - you can modify these to make search easier for content
+        authors inside the doc project, and for your users.
+    </p>
+    <p>
+        When you edit a topic title, filename or ID, you do not need to go through all references and fix them manually -
+        %product% will automatically update all links from other topics and entries in the configuration files that control
+        the table of contents.
+    </p>
+    <p>If you need to use dynamic titles that change depending on the context, use <a href="Conditional_content.topic">filters</a> or <a href="Variables.topic">variables</a>.</p>
+
+<chapter title="Types of titles">
+    <p>
+        In %product%, topics have the following properties related to their titles to let you stay flexible,
+        write for SEO and adjust titles to the context:
+    </p>
+    <deflist>
+        <def title="Filename" id="topic-filename">
+            <p>
+                A filename is derived from topic title when you create a topic, but it doesn't have to
+                be a full match to it, so you can specify a custom filename, or change it later.
+            </p>
+            <p>
+                A filename must be unique within your documentation project/module, as topic ID is generated
+                automatically from it.
+            </p>
+        </def>
+        <def title="ID" id="topic-id">
+            <p>
+                IDs are generated from topic filenames and are used to reference topics from other topics or configuration
+                files, for example, the <path>.tree</path> files that define the Table of Contents (TOC).
+            </p>
+            <p>
+                Page URLs are generated from topic IDs, so make sure they are meaningful and contain the right
+                keywords for SEO.
+            </p>
+        </def>
+        <def title="Title" id="topic-title">
+            <p>
+                Topic titles are displayed in the Table of Contents and as a topic header. They do not have to be unique
+                since topics are referenced by IDs, not their titles, but it's recommended to keep them unique so that
+                your readers don't get identical entries in search results, or are pulled in a wrong direction by a search
+                engine.
+            </p>
+        </def>
+        <def title="Instance-specific title" id="instance-specific-title">
+            <p>
+                Sometimes, you want to <a href="Reuse_a_single_topic.topic">reuse a topic in multiple documentation
+                instances</a>, but want to adjust the title to different contexts, for example, add a related technology name
+                or some important keywords to make it more discoverable.
+            </p>
+            <p>
+                In this case, %product% lets you display titles specific for each instance.
+            </p>
+        </def>
+        <def title="Web file name" id="web-file-name">
+            <p>
+                This is similar to <a anchor="instance-specific-title"/>, but affects the URL to reflect a title specific
+                for a particular instance.
+            </p>
+        </def>
+        <def title="TOC-only title" id="toc-only-title">
+            <p>
+                A TOC-only title is useful if a topic title is long and looks bad in the TOC, but you don't want to truncate
+                it for the sake of keeping all the keywords and ensuring the topic is searchable. In this case, you can specify
+                a shorter version that will only be displayed in the TOC, while the full version will serve as the topic header.
+            </p>
+        </def>
+    </deflist>
+</chapter>
+
+    <chapter title="Change topic title" id="change-topic-title">
+        <procedure id="change-base-title">
+            <step>
+                Right-click a topic in the %product% tool window and select
+                <control>Edit Title</control>.
+            </step>
+            <step>
+                <p>
+                    In the dialog that opens, specify the new value for the title you want to change.
+                </p>
+                <img alt="Edit Title action" src="edit-title-action.png" border-effect="rounded" width="470"/>
+                <list style="bullet">
+                    <li>
+                        <p><control>Topic title</control>: affects the top-level topic header and the entry in the TOC for all
+                        instances where this topic is used.</p>
+                        <p>
+                            This value is controlled by the <code>title</code> attribute of the topic file.
+                        </p>
+                    </li>
+                    <li>
+                        <p><control>Title for &lt;instance_name&gt;</control>: affects the topic header and the entry
+                        in the TOC for the currently selected instance.</p>
+                        <p>
+                            If you modify this value, a line like the following will be added to your source file:
+                        </p>
+                        <code-block lang="XML">
+                            <![CDATA[
+                        <title instance="pd">Edit topics titles and IDs</title>
+                ]]>
+                        </code-block>
+                        <note>
+                            <p>
+                                Note that such customization will not be reflected in the URL since they are generated from topic IDs.
+                                If you want the URL to reflect the name specific for an instance, you also need to <a anchor="change-web-file-name">set a custom URL</a>.
+                            </p>
+                        </note>
+                    </li>
+                    <li>
+                        <p><control>TOC-only title</control>: affects the way the title will be displayed in the TOC for
+                        all instances where this topic is used.</p>
+                        <p>
+                            This value is controlled by the <code>toc-title</code> attribute for a <code>toc-element</code>
+                            in the corresponding <path>.tree</path> file (see <a href="Manage_table_of_contents.topic"/>).
+                            If you modify this value, the entry in the <path>.tree</path> file will look something like
+                            the following:
+                        </p>
+                        <code-block lang="XML">
+                            <![CDATA[
+                        <toc-element topic="Changing_topic_title.topic" toc-title="Change Title"/>
+
+                ]]>
+                        </code-block>
+                    </li>
+                </list>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Set a custom URL" id="change-web-file-name">
+        <p>
+            If you define an <a anchor="instance-specific-title">instance-specific title</a> for a topic, it also
+            makes sense to reflect these changes in the URL. You may also want to modify a topic's URL to add some
+            keywords for better searchability.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Open the topic file in the editor and add the <code xml:lang="XML"><![CDATA[
+                        <web-file-name>cutom_URL.html<web-file-name/>]]></code> element to it after the topic title.
+                </p>
+                <p>
+                    If you want the URL to reflect an instance-specific topic title, add the filter like in this
+                    example: <code xml:lang="XML"><![CDATA[
+                        <web-file-name instance="pd">my-cool-page.html</web-file-name>]]></code>
+                </p>
+                <note>
+                    <p>The <code>web-file-name</code> attribute must be unique within an instance and not
+                    conflict with other URLs generated from topic IDs.</p>
+                </note>
+            </step>
+            <step>
+                <a href="Place_redirects.topic">Add a redirect</a>
+                from the previous topic URL to prevent users getting a 404 error.
+            </step>
+        </procedure>
+    </chapter>
+
+    <chapter title="Change the file name and ID" id="change-file-name">
+        <p>
+            As your content evolves, it may turn out that the original file name no longer
+            reflects the actual content of a topic file. In this case, you may want to change
+            the filename and ID to make it searchable inside your product and to be able to
+            reference it easily from other topics.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    Right-click a topic in the %product% tool window and select <control>Rename topic file</control> or press
+                    <shortcut key="RenameElement"/>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    In the <control>Rename</control> dialog, specify the new filename.
+                </p>
+                <note>
+                    <p>The filename must be unique within an instance and not conflict with
+                        <a href="Changing_topic_title.topic" anchor="change-web-file-name">custom web file names</a>.</p>
+                </note>
+            </step>
+            <step>
+                <p>
+                    Click <control>Refactor</control> to automatically update all references to this topic including toc-elements in the
+                    <path>.tree</path> files where this topic is listed.
+                </p>
+                <p>
+                    You can also click <control>Preview</control> to first review all changes to be made
+                    in the dedicated tool window and click <control>Do Refactor</control> if they look good.
+                </p>
+                <p>
+                    Topic ID will also be updated automatically.
+                </p>
+            </step>
+            <note>
+                <p>
+                    Keep in mind that page URLs are generated from topic IDs, so if you rename a file, you
+                    will need to also <a href="Place_redirects.topic">add redirects</a>
+                    so that your readers don't get the 404 error when using an old link.
+                </p>
+            </note>
+            <step>
+                <a href="Place_redirects.topic">Add a redirect</a> from the previous URL as it depends on the ID and will also be updated.
+            </step>
+        </procedure>
+    </chapter>
+
+</topic>

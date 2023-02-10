@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Images"
+       id="Images">
+
+    <p>Here's how you insert an image in Markdown: <code>![alt text](image.png "title")</code>.</p>
+    <p>Enhance the image by placing the following attributes in the curly brackets after the block:</p>
+    <code-block>
+       ![Alt Text](image.png) { attributes go here }
+    </code-block>
+    <include from="Visual_elements.topic" element-id="image-attributes" use-filter="!semantic"/>
+    <chapter title="Referencing images">
+        <p>You can reference images declared in another part of the topic, for example, in the bottom.</p>
+        <p>This can be handy for frequently used icons.</p>
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block>
+                    Click ![][check] icon to mark an item as done.
+
+                    [check]: check-icon.png
+                    [up]: up-icon.png
+                    [down]: down-icon.png
+                    [plus]: plus-icon.png
+                    </code-block>
+                </td>
+                <td>
+                    Click <img alt="check icon" src="check-icon.png" width="16"/> icon to mark an item as done.
+                </td>
+            </tr>
+        </table>
+    </chapter>
+</topic>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Tooltips"
+       id="Tooltips">
+
+    <p>To explain the meaning of a term or provide additional information without wasting space,
+        use a <code>&lt;tooltip&gt;</code> attribute.</p>
+    <p>
+        It displays a <tooltip term="tooltip">text</tooltip> when a user hovers over it.
+    </p>
+
+    <procedure title="Add a tooltip">
+        <step>
+            <p>
+                In the <path>cfg/glossary.xml</path> file of your documentation project,
+                add the term you want to explain.
+            </p>
+            <p>
+                For example, to specify an explanation for the <emphasis>GUI</emphasis> term, add the following line:
+            </p>
+            <code-block lang="XML">
+                <![CDATA[
+                <term name="GUI">Graphical User Interface</term>
+                ]]>
+            </code-block>
+        </step>
+        <step>
+            <p>
+                Go back to your topic file and wrap the text you want to explain into the
+                <code>tooltip</code> tag with the <code>term</code> attribute.
+            </p>
+        </step>
+    </procedure>
+    <table>
+        <tr>
+            <td>Markup</td>
+            <td>Result</td>
+        </tr>
+        <tr>
+            <td>
+                <code-block lang="XML">
+                    <![CDATA[
+                            <p>
+                                The documentation branch for the
+                                next product version is built and
+                                published with the
+                                <tooltip term="GUI">
+                                    GUI
+                                </tooltip>
+                                status.
+                            </p>
+                            ]]>
+                </code-block>
+            </td>
+            <td>
+                <p>
+                    The documentation branch for the next product version is built and published with
+                    the <tooltip term="GUI">GUI</tooltip> status.
+                </p>
+            </td>
+        </tr>
+    </table>
+</topic>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ihp SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/ihp.dtd">
+
+<ihp version="2.0">
+    <settings>
+<!--        <propbundle-cache type="build" location="config:Documentation_Supplementals_IconsMain,locator:2021.3,artifact:props.zip!/propmap.xml" enabled="true"/>-->
+<!--        <icon-cache type="build" location="config:Documentation_Supplementals_IconsMain,locator:2021.3,artifact:icons.zip!/iconmap.xml" enabled="true"/>-->
+<!--        <keymap-cache type="build" location="config:Documentation_KeymapsExperimental,locator:2021.3" enabled="true"/>-->
+<!--        <video-cache type="build" location="config:WebTeam_DataServer_Crawlers_YouTubeCrawler,locator:lastSuccessful,artifact:crawlers/data/video/data.json" enabled="true"/>-->
+        <caps style="title" for="toc-element"/>
+    </settings>
+    <module name="stardust-help"/>
+    <categories src="c.list"/>
+    <topics dir="topics"/>
+    <images dir="images" version="1.0" web-path="img/"/>
+    <vars src="v.list"/>
+    <snippets src="codeSnippets"/>
+    <instance src="pd.tree" web-path="/plugin-developers/" version="main"/>
+    <instance src="ij.tree"/>
+    <instance src="sd.tree" web-path="/stardust-mvp/" teamcity-build-path="Documentation_InternalDocumentation_StardustMvpHelp" keymaps-mode="provided"/>
+    <instance src="sdk.tree" web-path="/sdk/" version="1.0"/>
+    <instance src="ts.tree" web-path="/ts/" version="1.0"/>
+</ihp>

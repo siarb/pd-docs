@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="2754"
+       title="2022.09.2754">
+
+<p>
+    %product% version 2022.09.2754 contains the following fixes and improvements.
+</p>
+    <chapter title="Issues with titles">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-724">WRS-724</a> Instance-specific title is added before the actual title
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-742">WRS-742</a> Title for instance is duplicated, title is not changed
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-741">WRS-741</a> Markdown title is moved to the right when title for is added
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-722">WRS-722</a> Topic title is missing when you create a topic from template, that you've previously created from the existing Md topic
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-726">WRS-726</a> The preview doesn't display titles for MD topic that has # heading as a title
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-723">WRS-723</a> Ignore frontmatter lines if they are present before title
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Usability improvements">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-761">WRS-761</a> Redundant word "File" in the "Copy Special" menu option: Topic File Title 'How to add a new topic'
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-762">WRS-762</a> First underscore (_) is not visible in "Go to TOC Element in ..." menu option
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-736">WRS-736</a> File names in the "Topic from template" popup menu are shown without the first underscore "_"
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-744">WRS-744</a> Pre-fill ID while creating new Instance after filling name
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Issues with TOC management">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-352">WRS-352</a> TOC toolwindow: toc-elements in .tree are reordered incorrectly if drag-n-drop items in toolwindow
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-740">WRS-740</a> Link topic files to TOC allows to add the same topic several times
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-747">WRS-747</a> Brush-up the TOC view
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-570">WRS-570</a> Undo doesn't work for delete topic action
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Issues with section starting pages">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-647">WRS-647</a> preview is not updating in a live mode
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-710">WRS-710</a> Add a template for section starting pages to Writerside
+            </li>
+        </list>
+    </chapter>
+</topic>

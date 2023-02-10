@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage an output file"
+       id="Manage_a_topic">
+
+    <p>Here is a group of settings used to manage an output file.</p>
+    <chapter title="Restrict search engine indexing for a topic">
+        <p>You can prevent a page from appearing in external search results, using a <code>no-index</code> tag.</p>
+        <procedure>
+            <step>
+                Add the self-closing <code>no-index</code> element in the beginning of the topic.
+                You can specify for which instances to restrict indexing.
+                <code-block lang="XML">
+                    <![CDATA[
+                    <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           title="Install Writerside"
+                           id="Installing_Writerside">
+
+                        <no-index instance="ab"/>
+                    ]]>
+                </code-block>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Alter the output filename">
+        <p>%product% allows you to alter the topics' output file name and therefore the URL as well.
+        </p>
+        <procedure>
+            <step>
+                Add the <code>web-file-name</code> element in the beginning of the topic and specify the file name with the .html extension.
+                <code-block lang="XML">
+                    <![CDATA[
+                <topic xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       title="Install Writerside"
+                       id="Installing_Writerside">
+
+                    <web-file-name>even-cooler-name.html</web-file-name>
+                ]]>
+                </code-block>
+            </step>                                                                                            
+        </procedure>
+    </chapter>
+</topic>

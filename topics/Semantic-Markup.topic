@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="Semantic-Markup"
+       title="Markup reference">
+    <web-file-name>markup-reference.html</web-file-name>
+
+    <p>
+        %product% supports Markdown and semantic markup. With Markdown, you define the formatting of your content directly,
+        while with semantic markup you can specify the "meaning" behind each element, which may have some special behavior.
+        You can use semantic markup in its dedicated <path>.topic</path> file type or mix it into you <path>.md</path> files where necessary.
+    </p>
+    <p>
+        For example, you can highlight names of UI controls with the generic Markdown notation for bold: <code>**OK**</code>.
+        Or you can wrap it with a semantic element, which specifically says that this is the name of a UI control: <code>&lt;control&gt;OK&lt;/control&gt;</code>.
+    </p>
+    <p>
+        In Markdown, you can document a series of steps as a numbered list, but a numbered list can mean something else in another context.
+        The semantic equivalent is the <code>&lt;procedure&gt;</code> element with <code>&lt;step&gt;</code> subelements.
+    </p>
+    <p>
+        In Markdown, you cannot add tabs, but there is a <code>&lt;tabs&gt;</code> element in semantic markup.
+    </p>
+    <p>
+        Semantic markup is defined by an XML schema, and %product% provides assistance for it, such as smart completion
+        that tells you which elements are valid in the current context,
+        inspections that highlight syntax errors, actions for generating and converting various elements.
+    </p>
+    <p>
+        There are block elements, such as chapters, procedures, tables, images, paragraphs, and so on.
+        And there are inline elements that apply to specific parts of a paragraph block.
+        For example, a chapter can contain a procedure, which is made up of steps, and each step can have one or more paragraphs.
+        Inside each paragraph, you can specify which words are UI controls, file names, or paths, add links and shortcuts, and so on.
+        There are also special elements for content reuse, such as the <code>&lt;if&gt;</code> element for conditional output.
+    </p>
+    <p>
+        Use the built-in quick documentation feature to get information about each semantic element:
+        hover over the element or place the cursor on it and press <shortcut>Ctrl+Q</shortcut> on Windows or <shortcut>F1</shortcut> on macOS.
+    </p>
+    <img src="documentation-tag.png" alt="Documentation for semantic tags" border-effect="line"/>
+
+
+   <p>%product% implements the <a href="https://spec.commonmark.org/0.30/">CommonMark Spec</a> for Markdown and uses <a href="https://github.com/vsch/flexmark-java">flexmark</a>
+       as the parser. For more information, see the <a href="https://commonmark.org/help/">CommonMark quick reference</a>.</p>
+
+    <p>
+        In addition to the standard CommonMark syntax, %product% uses custom attributes to extend the markup (for example, define IDs for chapters)
+        and supports injecting semantic XML markup blocks into Markdown.
+    </p>
+    <p>
+        The <a href="https://plugins.jetbrains.com/plugin/7793-markdown/docs">Markdown plugin</a> bundled in the IDE supports the following assistance features:
+    </p>
+
+    <list>
+        <li>Insert tables, images, links, or a table of contents with the Generate action <shortcut key="Generate"/>;</li>
+        <li>Drag and drop images and other files directly into the editor;</li>
+        <li>Edit tables with automatic cell resizing, select, reorder, and align rows and columns;</li>
+        <li>Use the floating toolbar for quick access to formatting actions.</li>
+    </list>
+    <p>To make your life easier, %product% provides live templates and on-the-fly Markdown to semantic markup conversion.
+    </p>
+    <p>%product% has validation rules that define where and how each element can be used.
+        Built-in inspections will warn you if you put an element in the wrong position or forgot some required attributes.</p>
+    <p>For example, a <code>title</code> is required for a <code>chapter</code>,
+        so if you miss a title, an element will be underlined and you'll see a message addressing this in the preview area.
+        To navigate to the issue and fix it, click a line number.</p>
+    <img src="chapter-no-title.png" alt="Block elements validation" border-effect="line" width="894"/>
+    <!--Assistance, completion, tags documentation, conversion on the fly, live templates-->
+    <p>You can type <code>&lt;</code> to see the whole list of tags available in a certain context.</p>
+    <img alt="Semantic elements list pop-up" src="semantic-elements.png" border-effect="line" width="578"/>
+</topic>

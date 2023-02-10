@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="2838"
+       title="2022.09.2838">
+
+
+    <p>
+        %product% version 2022.09.2838 contains the following fixes and improvements.
+    </p>
+
+    <chapter title="Semantic markup">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-106">WRS-106</a> Ensure that live templates for tags
+                are not suggested while editing the attributes
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-415">WRS-415</a> Fix `MdToXmlArticleIntentionDuplicate`
+                and `MdToXmlArticleIntention
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-887">WRS-887</a> Sort filter items alphabetically intention
+                should be available if there is more than 1 filter value in filter= or instance= element
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-644">WRS-644</a> Paragraph tags inside TLDR
+
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Markdown">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-905">WRS-905</a> Markdown: unexpected XML completion
+                when typing of simple text
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-599">WRS-599</a> Support assistance for attributes in Markdown
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Topics and instances">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-607">WRS-607</a> Topic file name is not made up
+                automatically from topic title
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-599">WRS-523</a> Undo for wrong tree action
+            </li>
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-654">WRS-654</a> Do not allow including topics from the
+                current instance in Include from Another Product
+            </li>
+        </list>
+    </chapter>
+    <chapter title="Video">
+        <list style="bullet">
+            <li>
+                <a href="https://youtrack.jetbrains.com/issue/WRS-846">WRS-846</a> Display the YouTube thumbnail for the video element
+            </li>
+        </list>
+    </chapter>
+</topic>

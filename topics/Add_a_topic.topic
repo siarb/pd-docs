@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       id="Add_a_topic"
+       title="Add topics">
+
+        <p>In %product%, you can create a new topic from scratch or use a built-in template to help you get started.
+<!--or import <path>.md</path> files and transform them into topics.-->
+        </p>
+
+    <chapter title="Create an empty topic" id="create-a-new-topic">
+        <procedure>
+        <step>
+            <p>
+                In the TOC area of the <control>%product%</control> tool window, select the folder
+                to which you want to add the new topic and click
+                <img src="icon_add.png" width="14" alt="Add"/> on the toolbar
+                or press <shortcut key="NewElement"/>.
+            </p>
+            <img src="reuse-a single-topic.png" width="296" alt="TOC with a place chosen for the new topic" border-effect="line"/>
+        </step>
+        <step>
+            Select <control>Empty MD Topic</control> or <control>Empty SML Topic</control> (see <a href="Topics.topic" anchor="topic_formats"/>
+            for details on different topic formats and how to choose one).
+        </step>
+        <step>
+            <include from="lib.topic" element-id="select-title"/>
+        </step>
+    </procedure>
+        <p>
+            The newly created topic will appear in the TOC view and will open in the editor.
+        </p>
+        <img src="add-a-new-topic-after.png" width="296" alt="New topic displayed in TOC" border-effect="line"/>
+        <p>
+            For instructions on how to move a topic around the TOC, see <a href="Manage_table_of_contents.topic"/>.
+        </p>
+    </chapter>
+    <chapter title="Create topic from template" id="create-from-template">
+        <include from="lib.topic" element-id="create-topic-from-template"/>
+    </chapter>
+<!--    <chapter title="Import .md file as a topic" id="import-md-as-topic">-->
+<!--        <include from="lib.topic" element-id="import-md-files"/>-->
+<!--    </chapter>-->
+</topic>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
+
+<instance-profile id="sd" name="Writerside"
+                  start-page="Discover-Writerside.topic"
+                  status="release">
+    <toc-element topic="Discover-Writerside.topic">
+        <toc-element topic="About_Writerside.topic"/>
+        <toc-element topic="Writerside-components.topic"/>
+    </toc-element>
+    <toc-element topic="Manage_project.topic">
+        <toc-element topic="Project_structure.topic"/>
+        <toc-element topic="Manage_table_of_contents.topic"/>
+        <toc-element topic="Support_multiple_versions.topic"/>
+        <toc-element topic="Create_an_instance.topic"/>
+    </toc-element>
+    <toc-element topic="Styling_and_Layout.topic" hidden="true"/>
+    <toc-element topic="Topics.topic" id="topic">
+        <toc-element topic="Add_a_topic.topic"/>
+        <toc-element topic="Changing_topic_title.topic" toc-title="Change titles and IDs"/>
+        <toc-element toc-title="Edit topics">
+            <toc-element topic="Intention-actions.topic"/>
+            <toc-element topic="Use-live-templates-for-markup-elements.topic"/>
+        </toc-element>
+        <toc-element topic="Manage_a_topic.topic"/>
+        <toc-element topic="Preview_a_topic.topic"/>
+        <toc-element topic="Place_redirects.topic"/>
+        <toc-element topic="Delete_a_topic.topic"/>
+        <toc-element topic="save-as-template.topic"/>
+        <toc-element topic="Add_downloadable_asset_to_the_page.topic"/>
+    </toc-element>
+    <include from="ts" element-id="markup-ref"/>
+    <toc-element toc-title="IntelliJ IDEs features for better writing">
+        <toc-element topic="Navigation.topic"/>
+        <toc-element topic="Find_in_files.topic"/>
+        <toc-element topic="Find_usages.topic"/>
+        <toc-element topic="Column_selection.topic"/>
+        <toc-element topic="Multiple_cursors.topic"/>
+        <toc-element topic="Wrap_text_with_tags.topic"/>
+        <toc-element topic="Local-history.topic"/>
+        <toc-element topic="Live-templates.topic"/>
+    </toc-element>
+    <toc-element topic="Local_build.topic"/>
+    <toc-element topic="Turn_an_existing_MD_files_into_a_project.topic"/>
+    <toc-element topic="Single_sourcing.topic">
+        <toc-element topic="Reuse_a_single_topic.topic"/>
+        <toc-element topic="Reuse_multiple_topics_at_once.topic"/>
+        <toc-element topic="Reuse_a_content_in_another_topic.topic"/>
+        <toc-element topic="Make_titles_differ.topic"/>
+        <toc-element topic="Make_part_of_the_content_differ.topic"/>
+        <toc-element topic="Previewing_the_single-sourced_content.topic"/>
+        <toc-element topic="Find_Reusable_Content.topic"/>
+        <toc-element topic="Variables.topic"/>
+        <toc-element topic="Conditional_content.topic"/>
+    </toc-element>
+</instance-profile>

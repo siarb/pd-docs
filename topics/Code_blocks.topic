@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Code blocks"
+       id="Code_blocks">
+
+    <p>In Markdown place triple backticks <code>```</code> before and after the code block.</p>
+    <p>Optionally, specify the language name after the opening backticks to enable syntax highlighting.</p>
+    <compare first-title="Markup" second-title="Result">
+        <code-block lang="plain text">
+            ```java
+            class Main {
+
+            public static void main(String[] args) {
+
+            System.out.println("Enter two numbers");
+            int first = 10;
+            int second = 20;
+
+            System.out.println(first + " " + second);
+
+            // add two numbers
+            int sum = first + second;
+            System.out.println("The sum is: " + sum);
+            }
+            }
+            ```
+        </code-block>
+        <code-block lang="java">
+            class Main {
+
+            public static void main(String[] args) {
+
+            System.out.println("Enter two numbers");
+            int first = 10;
+            int second = 20;
+
+            System.out.println(first + " " + second);
+
+            // add two numbers
+            int sum = first + second;
+            System.out.println("The sum is: " + sum);
+            }
+            }
+        </code-block>
+    </compare>
+    <p>Enhance the code block by placing the following attributes in the curly brackets after the block:</p>
+    <code-block>
+        ```lang
+        a code block with attributes
+        ```
+        { attributes go here }
+    </code-block>
+    <include from="Code_blocks_semantic.topic" element-id="code-block-reference" use-filter="!semantic"/>
+    <chapter title="Make block collapsed" id="make-block-collapsed">
+        <procedure>
+        <step>Add the <code>collapsible="true"</code> attribute to the code block.</step>
+        <step>By default it will be collapsed, to make it expand add <code>default-state="collapsed"</code> attribute.</step>
+        <step><p>(Optional) Specify the title to display in a collapsed state. By default the first line of the code snippet is used as a title.
+            Change it by adding the:</p>
+            <list>
+                <li><code>collapsed-title</code> attribute to specify a custom title manually;
+                    <tabs>
+                        <tab title="Markup">
+                            <code-block noinject="true">
+                                ```
+                                class Main {
+
+                                public static void main(String[] args) {
+
+                                System.out.println("Enter two numbers");
+                                int first = 10;
+                                int second = 20;
+
+                                System.out.println(first + " " + second);
+
+                                // add two numbers
+                                int sum = first + second;
+                                System.out.println("The sum is: " + sum);
+                                }
+                                }
+                                ```
+                                {collapsible="true" default-state="expanded"
+                                collapsed-title="Title to display when a block is collapsed"}
+                            </code-block>
+                        </tab>
+                        <tab title="Result">
+                            <code-block collapsible="true" lang="java" collapsed-title="Title to display when a block is collapsed">
+                                class Main {
+
+                                public static void main(String[] args) {
+
+                                System.out.println("Enter two numbers");
+                                int first = 10;
+                                int second = 20;
+
+                                System.out.println(first + " " + second);
+
+                                // add two numbers
+                                int sum = first + second;
+                                System.out.println("The sum is: " + sum);
+                                }
+                                }
+                            </code-block>
+                        </tab>
+                    </tabs>
+                </li>
+                <li><code>collapsed-title-line-number</code> attribute to specify the line to use as the title.
+                    <tabs>
+                    <tab title="Markup">
+                    <code-block noinject="true">
+                        ```
+                        class Main {
+
+                        public static void main(String[] args) {
+
+                        System.out.println("Enter two numbers");
+                        int first = 10;
+                        int second = 20;
+
+                        System.out.println(first + " " + second);
+
+                        // add two numbers
+                        int sum = first + second;
+                        System.out.println("The sum is: " + sum);
+                        }
+                        }
+                        ```
+                        {collapsible="true" default-state="expanded"
+                        collapsed-title-line-number="5"}
+                    </code-block>
+                    </tab>
+                    <tab title="Result">
+                    <code-block collapsible="true" lang="java" collapsed-title-line-number="5">
+                        class Main {
+
+                        public static void main(String[] args) {
+
+                        System.out.println("Enter two numbers");
+                        int first = 10;
+                        int second = 20;
+
+                        System.out.println(first + " " + second);
+
+                        // add two numbers
+                        int sum = first + second;
+                        System.out.println("The sum is: " + sum);
+                        }
+                        }
+                    </code-block>
+                    </tab>
+                    </tabs>
+                </li>
+            </list>
+        </step>
+        </procedure>
+
+    </chapter>
+    <chapter title="Include block from another folder" id="include-block-from-another-folder">
+        <include from="lib.topic" element-id="code-include-src"/>
+    </chapter>
+    <chapter title="Add command line prompt and highlight indentation" id="add-prompt-and-highlight-indentation">
+        <procedure>
+        <step>Add the <code>prompt</code> attribute with the desired symbol to use as a prompt.
+            The code sample is copied without a prompt.</step>
+        </procedure>
+        <p>It is useful for shell scripts and command examples.</p>
+        <compare first-title="Markup" second-title="Result">
+            <code-block lang="plain text">
+                ```shell
+                sudo tar -xzf the-package-*.tar.gz -C /opt
+                ```
+                {prompt="$"}
+            </code-block>
+
+            <code-block lang="Shell" prompt="$" >
+                sudo tar -xzf the-package-*.tar.gz -C /opt
+            </code-block>
+        </compare>
+    </chapter>
+
+<!--        <chapter title="Highlight the indentation in the code fragment">-->
+<!--            <procedure>-->
+<!--             <step>-->
+<!--                 To highlight the indentation in the code fragment, use the <code>show-white-spaces</code> attribute.-->
+<!--             </step>-->
+<!--            </procedure>-->
+<!--            <p>This is handy if the code block has a complex indentation or formatting and you need to highlight this.-->
+<!--            </p>-->
+<!--        <compare first-title="Markup" second-title="Result">-->
+<!--            <code-block lang="C">-->
+<!--                ```c-->
+<!--                public string Name-->
+<!--                {-->
+<!--                    get-->
+<!--                    set-->
+<!--                }-->
+
+<!--                public int Age-->
+<!--                {-->
+<!--                    get-->
+<!--                    set-->
+<!--                }-->
+<!--                ```-->
+<!--                {show-white-spaces="true"}-->
+<!--            </code-block>-->
+<!--            <code-block lang="C" show-white-spaces="true">-->
+<!--                public string Name-->
+<!--                {-->
+<!--                    get;-->
+<!--                    set;-->
+<!--                }-->
+
+<!--                public int Age-->
+<!--                {-->
+<!--                    get;-->
+<!--                    set;-->
+<!--                }-->
+<!--            </code-block>-->
+<!--        </compare>-->
+<!--    </chapter>-->
+</topic>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage table of contents"
+       id="Manage_table_of_contents">
+
+    <p>The table of contents provides the reader with a short presentation of what's included in the document.</p>
+    <p>In the help instance, there are two types of table of contents (shortly, TOC): left TOC in the tree and right in-page TOC.</p>
+    <p>The left TOC's structure is defined in the product's <path>.tree</path> file.
+        It determines which topics are included in the web help and how they are positioned in the web help's structure.
+    </p>
+    <p>You can link topics to the TOC, manage their order, or hide them from the TOC.</p>
+    <chapter id="toc-structure" title="TOC structure">
+        <p>
+            The TOC uses various styles to display different types of topics:
+        </p>
+        <list>
+            <li>By default, the topic names are displayed in regular font.</li>
+            <li>
+                The topics that have right-hand TOC
+                are written in italics.
+            </li>
+            <li>
+                The topics included from other instances
+                are displayed in green.
+            </li>
+            <li>The wrappers are bold and gray.</li>
+            <li>
+                The <a href="Manage_table_of_contents.topic" anchor="hide-topic-in-toc">hidden topics</a> are gray.
+            </li>
+        </list>
+        <table>
+            <tr>
+                <td>%product% TOC</td>
+                <td>Web TOC</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="topic_hierarchy_tree.png" border-effect="line" width="231" alt="Product help hierarchy in Stardust"/>
+                </td>
+                <td>
+                    <img src="topic_hierarchy_user_view.png" border-effect="line" width="245" alt="Product help hierarchy on the Web"/>
+                </td>
+            </tr>
+        </table>
+        <p>
+            In the TOC, you see the topic titles, not their IDs. By default, the base topic title is displayed. It
+            is set in the topic <path>.topic</path> file in the <code>title</code> attribute of the <code>topic</code> tag.
+            However, you may need to <a href="Changing_topic_title.topic">change the topic title</a>. You can use the
+            context menu entries to perform these actions.
+        </p>
+        <tip>
+            <p>
+                If you've switched between topics and then want to open a specific topic in the editor,
+                use <control>Synchronize TOC and Editor</control> action.
+                Select In the %product% tool window, click
+                <img src="app.general.locate.png" width="14" alt="Add"/> on the toolbar
+                or press <shortcut key="Synchronize"/>.
+            </p>
+        </tip>
+    </chapter>
+    <chapter id="manage-order" title="Manage topic order">
+        <p>
+            Configure the structure of your documentation instance in the Writerside tool window: drag-n-drop articles to change their order or hierarchy.
+        </p>
+        <p>
+            You can also edit the <code>instance_id.tree</code> file to configure the TOC.
+        </p>
+        <procedure title="Edit .tree file">
+            <step>
+                Right-click the necessary topic in the %product% tool window and select the <control>Go to TOC Element in instance-id.tree</control>.
+                <img src="go-to-element.png" alt="Edit Toc element" border-effect="line" width="305"/>
+            </step>
+            <step>In the <code>.tree</code> file, change the <code>toc-element</code> position manually or press
+                <shortcut key="Arrangement.Rule.Match.Condition.Move.Up"/> to move a line up and
+                <shortcut key="Arrangement.Rule.Match.Condition.Move.Down"/> to move a line down.
+                <img src="edit-toc-tree.gif" alt="Moving toc elements using shortcuts"
+                     preview-src="move-elements-buttons-preview.png"/>
+            </step>
+            <step>To put one topic inside another, split the <code>toc-element</code> into the opening and closing tags
+                and put another <code>toc-element</code> inside it. </step>
+            <code-block lang="XML">
+                    <![CDATA[
+                    <toc-element topic="Manage_a_documentation_project.topic">
+                        <toc-element topic="Create_a_project.topic"/>
+                    </toc-element>
+                    ]]>
+            </code-block>
+        </procedure>
+    </chapter>
+    <chapter id="link-topics-to-toc" title="Link topic files to TOC">
+            <p>
+                You may need to link existing topics to the table of contents
+                if you want to add a topic from another instance or return a topic that was removed from the TOC.
+            </p>
+            <procedure>
+                <step>
+                    <p>
+                        In the <control>TOC</control> area of the <control>%product%</control> tool window,
+                        select where you want to add the new topic and click
+                        <img src="icon_add.png" width="14" alt="Add"/>
+                        or press
+                        <shortcut key="NewElement"/>.
+                    </p>
+                </step>
+                <step>
+                    Select <control>Link Topic Files to TOC...</control>.
+                </step>
+                <step>
+                    Then select a topic to add to TOC.
+                    If there are too many of them, start typing its name and then select.
+                    It will appear in the TOC.
+                </step>
+            </procedure>
+            <p>
+                To learn more about content reuse and including existing topics, read the
+                <a href="Reuse_a_single_topic.topic"/> page.
+            </p>
+    </chapter>
+    <chapter title="Hide a topic from TOC" id="hide-topic-in-toc">
+            <p>Sometimes you need to make a topic available by a direct link only, for example,
+            if the functionality is not yet available for all users.</p>
+            <tip>
+                <p>
+                    A hidden topic is included in the build, published on the production website, and is accessible by a direct link, but it is not displayed
+                    in the table of contents.
+                </p>
+            </tip>
+        <procedure style="choices">
+                <step>
+                    Right-click the necessary topic in the %product% tool window and select <control>Hide in production
+                    output</control>.
+                </step>
+                <step>In the <code>.tree</code> file, add the <code>hidden="true"</code> attribute to the <code>toc-element</code> manually.
+                </step>
+                <code-block lang="XML">
+                    <![CDATA[
+                    <toc-element topic="Getting_Started.topic" hidden="true"/>
+                    ]]>
+                </code-block>
+        </procedure>
+    </chapter>
+    <chapter id="wrapper-topic" title="Make a wrapper for a few topics">
+        <p>
+            Wrappers are top-level TOC elements that don't have any content.
+            Use them if you don't want to write any introduction, but just group a few topics in a logical section.
+            By clicking on such an item, the entire section expands
+            showing its content.
+        </p>
+        <note>
+            <p>We recommend using <a href="Section_starting_page.topic">section starting pages</a>
+                instead as pages without content affect your search positions.</p>
+        </note>
+
+        <include from="Turn_an_existing_MD_files_into_a_project.topic" element-id="make-a-wrapper"/>
+
+        <p>
+            As wrappers don't hold any content, they cannot take attributes like
+            <code>accepts-web-file-names</code>.
+        </p>
+    </chapter>
+</topic>

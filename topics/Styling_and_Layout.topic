@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Customize the look"
+       id="Styling_and_Layout">
+
+    <p>With %product% you get a modern web help with a fixed layout, adapted for mobile devices,
+        and with dark mode support.</p>
+    <p>You can customize your documentation and adapt it to your taste or brand:
+        change skins, define accent color, and change the site logo.</p>
+    <chapter title="Customize your documentation look">
+    <procedure>
+        <step>
+            <p>
+            Go to the <control>Project</control> tool window.
+            </p>
+            <p>
+                Navigate to the <path>/cfg</path> directory and select the <path>buildprofiles.xml</path> file.
+            </p>
+        </step>
+        <step>
+            <p>In the <code>color-preset</code> element specify the preset type:</p>
+                <list>
+                    <li>
+                        <control>Vivid</control>: this preset has the most usage of a primary color.
+                    </li>
+                    <li>
+                        <control>Contrast</control> (default): an intermediate version, it has a few contrast elements, like the header, drop-down menus, and pop-ups.
+                    </li>
+                    <li>
+                        <control>Soft</control>: this preset has a minimal touch of primary color.
+                    </li>
+                </list>
+        </step>
+        <step>
+            <p>In the <code>primary-color</code> element define the accent color from the following:</p>
+        </step>
+        <img src="primary-colors.png" width="800" alt="Primary colors"/>
+
+        <p>The primary color is an accentual color applied to the UI components, such as a focused item in the table of contents,
+            an active tab, or a button. The default one is <control>Frozen</control>.
+        </p>
+        <p>The preview will be updated with the selected color.</p>
+        <img src="change-color.gif" alt="Accent color change in preview" preview-src="color-change-preview.png"/>
+    </procedure>
+    </chapter>
+    <chapter title="Change the site logo">
+        <tip>
+        <p>Logo image requirements are:</p>
+        <list>
+            <li>SVG or PNG formats are accepted. We recommend using SVG for better quality on Retina and 4K displays.</li>
+            <li>The height-to-width aspect ratio must be from 1.2 to 0.24. We recommend using square images.</li>
+            <li>Image height should be more than 48px.</li>
+        </list>
+        </tip>
+        <p>To add a logo into the help website header:</p>
+    <procedure>
+        <step>Put the logo image into the /images directory in your project.</step>
+        <step>
+            <p>
+                Go to the <control>Project</control> tool window.
+            </p>
+            <p>
+                Navigate to the <path>/cfg</path> directory and select the <path>buildprofiles.xml</path> file.
+            </p>
+        </step>
+        <step>
+            <p>In the <code>header-logo</code> element specify the logo file name.</p>
+        </step>
+    </procedure>
+    </chapter>
+    <p><include from="lib.topic" element-id="open-preview"/> to open the preview.
+    </p>
+    <p>The preview will show the docs look after you've changed them.
+        You don’t need to run a build and wait until it finishes to check if your updates look good.
+        %product% updates the preview theme on IDE theme switch.
+    </p>
+    <p>Click <img src="icon_preview-in-browser.png" width="22" alt="Open Preview in browser"/>
+        icon to check how the docs site looks in a web browser.
+    </p>
+</topic>

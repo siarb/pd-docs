@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Code snippets"
+       id="Code_blocks_semantic" help-id="1650124253574_Code_blocks">
+
+    <chapter title="Code block" id="code-block-tag">
+        <p>Use code blocks when you have to showcase multiple lines of code. For example:</p>
+        <list>
+            <li>
+                A configuration example
+            </li>
+            <li>
+                A code construct example
+            </li>
+            <li>
+                A command line usage example
+            </li>
+            <li>
+                An API call example
+            </li>
+        </list>
+        <p>In semantic markup, use the <code>&lt;code-block&gt;</code> tag.</p>
+        <p>In Markdown place triple backticks <code>```</code> before and after the code block.</p>
+        <p>It will be highlighted according to the language you specify
+            and the user will be able to copy it by clicking <img src="copy-code-block.svg" alt="code-block Copy button icon"/> icon.</p>
+        <p>The code block can include links, the syntax is <code>[[[alt text|URL]]]</code>.
+            For example, to refer to an article or an external specification.</p>
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="Semantic markup">
+                <code-block lang="XML">
+                    <![CDATA[
+                     <code-block lang="language">
+                     a code snippet
+                     </code-block>
+                     ]]>
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="Markdown">
+                <code-block lang="plain text">
+                    ```language
+                    a code snippet
+                    ```
+                    {attributes go here}
+                </code-block>
+            </tab>
+        </tabs>
+        <p>Enhance the code block using the following attributes:</p>
+        <deflist id="code-block-reference">
+            <def title="lang" filter="semantic">
+                <p>Specify the programming or markup language.
+                    In Markdown, place it after the opening <code>```</code>.</p>
+            </def>
+            <def title="collapsible" id="code-block-collapsible">
+                <p>Use it to make the code block collapsible.
+                    It is useful when your code example is long and you don't want a reader to scroll down.
+                </p>
+            </def>
+            <def title="default-state=[collapsed|expanded]">
+                <p>If you've set <code>collapsible="true"</code>, select the default state. By default, it is collapsed.</p>
+                <tabs>
+                    <tab title="collapsed">
+                        <code-block collapsible="true" default-state="collapsed" lang="Java">
+                            public static void main(String[] args) {
+                            System.out.println("Hi!")
+                            }
+                        </code-block>
+                    </tab>
+                    <tab title="expanded">
+                        <code-block collapsible="true" default-state="expanded" lang="Java">
+                            public static void main(String[] args) {
+                            System.out.println("Hi!")
+                            }
+                        </code-block>
+                    </tab>
+                </tabs>
+            </def>
+            <def title="collapsed-title">
+                <p>Specify the title to display it, when the block is collapsed.</p>
+            </def>
+            <def title="collapsed-title-line-number">
+                <p>Specify the line to use as the title, when the block is collapsed.</p>
+            </def>
+            <def title="src">
+                <p>Use it to include a code snippet from the repository.</p>
+                <p>The source file must be located under the directory you've specified in the <code>snippets</code> attribute of the <code>project.ihp</code> file.</p>
+            </def>
+            <def title="include-lines" id="include-lines">
+                <p>Specify the range or the comma-separated list of lines that you need to include.</p>
+            </def>
+            <def title="include-symbol" id="include-symbol">
+                <p>Specify the code construction, like class or method name to include.
+                    The attribute value is a dot-separated path to the construction, for example, MyClass.Myfunction.</p>
+            </def>
+<!--            <def title="show-white-spaces">-->
+<!--                <p>Whether to mark an indentation with dots or not.</p>-->
+<!--            </def>-->
+            <def title="prompt">
+                <p>Use to specify the prompt symbol to display at the beginning of each line of code.
+                    The code sample is copied without a prompt.</p>
+            </def>
+            <def title="ignore-vars">
+                <p>If set to <code>true</code> — %-variables will be escaped, which means nothing will be rendered instead of them.</p></def>
+            <def title="validate=[true|false]">
+                <p>Set true to validate the code in a snippet.</p>
+                <note>It works only for the <a href="https://www.jetbrains.com/help/idea/discover-intellij-idea.html#IntelliJ-IDEA-supported-languages">
+                    IntelliJ IDEA Community Edition supported languages</a>.
+                    For languages supported by third-party plugins this setting won't work.</note>
+            </def>
+            <def title="noinject">
+                <p>Specify if you do not want to validate the code block content as injected XML.</p>
+            </def>
+            <def title="disable-links">
+                <p>If you use links like <code>[[[alt text|URL]]]</code> inside a code block, you can also disable them using this setting. So this markup won't be considered a link.</p>
+            </def>
+        </deflist>
+    </chapter>
+    <chapter title="Inline code" id="inline-code">
+        <p>Use inline code when you need to wrap a short fragment of code in text,
+            for example, to highlight a name of a variable, a method, a function, or a terminal command.</p>
+        <p>In semantic markup, to format some text as code wrap it with a <code>&lt;code&gt;</code> tag. It doesn't have any additional attributes.</p>
+        <p>In Markdown, enclose it in backticks (`). </p>
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="Semantic markup">
+                <code-block lang="XML">
+                    <!--@formatter:off-->
+                    <![CDATA[
+                         To output a line on the screen use
+                         <code>echo "Hello world!"</code>.
+                        ]]>
+                    <!--@formatter:on-->
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="Markdown">
+                <code-block lang="plain text">
+                    To output a line on the screen use
+                    `echo "Hello world!"`.
+                </code-block>
+            </tab>
+            <tab title="Result">
+                To output a line on the screen use <code>echo "Hello world!"</code>.
+            </tab>
+        </tabs>
+    </chapter>
+    <chapter title="Compare two code blocks" id="compare-two-code-blocks">
+    <p>To display two code snippets next to each other, use <code>&lt;compare&gt;</code> tag.</p>
+        <p>Put exactly two code snippets (both Markdown and semantic markup is accepted) inside.</p>
+        <p>The <code>compare</code> element has the following attributes:</p>
+        <deflist>
+        <def title="style">
+            <p><code>[left-right|top-bottom]</code> Select the arrangement of the code snippets.</p>
+        </def>
+        <def title="first-title">
+            <p>Specify the first block title. By default, Before.</p>
+        </def>
+            <def title="second-title">
+                <p>Specify the second block title. By default, After.</p>
+        </def>
+        </deflist>
+        <tabs>
+            <tab title="Default">
+                <compare>
+                    <code-block
+                          lang="Java">
+                        public static void main(String[] args) {
+                        System.out.println("Hi!")
+                        }
+                    </code-block>
+                    <code-block
+                          lang="Kotlin">
+                        <![CDATA[
+                            @JvmStatic fun main(args: Array<String>) {
+                                println("Hi!")
+                            }
+                            ]]>
+                    </code-block>
+                </compare>
+            </tab>
+            <tab title="Custom titles" group-key="java">
+                <compare first-title="Before custom title" second-title="After custom title">
+                    <code-block
+                          lang="Java">
+                        public static void main(String[] args) {
+                        System.out.println("Hi!")
+                        }
+                    </code-block>
+                    <code-block
+                          lang="Kotlin">
+                        <![CDATA[
+                            @JvmStatic fun main(args: Array<String>) {
+                                println("Hi!")
+                            }
+                            ]]>
+                    </code-block>
+                </compare>
+            </tab>
+        </tabs>
+    </chapter>
+</topic>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Use multiple cursors to edit markup"
+       id="Multiple_cursors">
+    <chapter title="Change the width for a few images using multiple carets" id="change-width-with-multicarets">
+        <p>From this tutorial, you will learn to edit a few markup elements simultaneously using multiple carets.</p>
+        <note>Markup elements must be formatted and structured in the same way to benefit from this feature.</note>
+        <p>Let's assume you've agreed with colleagues and added an image size that displays optimally on all platforms into a style guide.
+            Now you need to change it for many images, which may be time-consuming.</p>
+        <p>In the example below, we have images for various documentation instances.</p>
+    </chapter>
+    <chapter title="Select multiple occurrences and edit them" id="select-multiple-edit">
+        <procedure>
+            <step>
+                Press <shortcut key="Find"/> or select <ui-path>Edit | Find | Find</ui-path>. In the search pane at the top,
+                type <emphasis>img</emphasis>.
+            </step>
+            <step>Press <shortcut key="SelectAllOccurrences"/> or or click
+                <control>Select All Occurrences</control>
+                <img style="inline" src="CheckMulticaret.png" alt="Select All Occurrences"/> on the toolbar.
+            </step>
+            <step>Edit the <emphasis>width</emphasis> attribute in a few places.
+                <img src="Multiple_cursors.png" animated="true" alt="Multiple carets"/></step>
+        </procedure>
+    </chapter>
+        <p>
+            We've edited a few image elements simultaneously using multiple carets in this tutorial.
+        </p>
+        <p>
+        This may also be useful when you need to add or change any attribute in all markup elements in the document.
+        For example, change the border type for an image or video or the table style for a few tables in a reference.
+        </p>
+    <p>There are more ways to add and use multiple carets, read about them in the
+        <a href="https://www.jetbrains.com/help/idea/multicursor.html">IntellijIDEA help.</a></p>
+</topic>
+

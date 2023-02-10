@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Tutorial: Turn existing MD files into a documentation project"
+       id="Turn_an_existing_MD_files_into_a_project">
+
+    <p>
+        From this tutorial, you will learn how to turn a bunch of existing Markdown files
+        that you already have locally into a documentation project.
+    </p>
+    <p>We will not only import but put them into a meaningful hierarchy
+        and add a few custom bits into basic Markdown syntax.</p>
+    <chapter title="Add a documentation instance into an existing project">
+        <p>Open an existing project, for example, where your source code is located.</p>
+        <procedure>
+            <include from="lib.topic" element-id="add_docs_to_dev_project"/>
+        </procedure>
+    </chapter>
+    <chapter title="Put .md files into a project" id="import-md-files">
+        <include from="lib.topic" element-id="import-md-files"/>
+    </chapter>
+    <chapter title="Change the topic's hierarchy" id="change-the-topic-hierarchy">
+        <p>Now our newly added topics are placed flat, so let's put them into a hierarchy:
+            make one of the pages a section and another one a wrapper for other pages.</p>
+        <procedure>
+            <p>To transform a topic into a section that groups a few topics under:</p>
+            <step>Right-click the topic title and select <control>Edit Toc Element</control>.</step>
+            <step>Remove <code>/</code> self-closing element and make a separate closing tag for this topic tree record.
+            </step>
+            <step>Place other topics that relate to this section inside this topic.
+                <compare>
+                    <code-block lang="xml">
+                        <![CDATA[
+                <toc-element topic="Getting_started.md"/>
+                <toc-element topic="Installation.md"/>
+                <toc-element topic="Configuration.md"/>
+                ]]>
+                    </code-block>
+                    <code-block lang="xml">
+                        <![CDATA[
+                <toc-element topic="Getting_started.md">
+                    <toc-element topic="Installation.md"/>
+                    <toc-element topic="Configuration.md"/>
+                </toc-element>
+                ]]>
+                    </code-block>
+                </compare>
+            </step>
+        </procedure>
+        <procedure id="make-a-wrapper">
+            <p>To make a wrapper that groups a few topics under, but has no content in it:</p>
+<!--            <step>In the %product% tool window, click <img src="icon_add.png" width="14" alt="Add"/>-->
+<!--                or press <shortcut key="NewElement"/>. Select <control>TOC Title Only...</control>.</step>-->
+            <step>Go to the instance's <code>.tree</code> file.</step>
+            <step>Create an element with a <code>toc-title</code> but without a <code>topic</code> attribute.</step>
+            <step>Place other topics that relate to this section inside this element.</step>
+            <code-block lang="xml">
+                <![CDATA[
+                <toc-element toc-title="Getting started">
+                    <toc-element topic="Installation.md"/>
+                    <toc-element topic="Configuration.md"/>
+                </toc-element>
+                ]]>
+            </code-block>
+        </procedure>
+    </chapter>
+    <chapter title="Enhance code blocks with semantic markup elements"
+             id="enhance-code-blocks">
+        <p>We imported some pure Markdown topics, now we can make them more sophisticated using semantic markup.
+            In this tutorial, we will touch up the code blocks.</p>
+        <procedure>
+        <step>In the %product% tool window, click the topic title in the tree and find the code block.</step>
+        <step>To make the large code block collapsible,
+            add the <code>collapsible="true"</code> attribute to the code block.</step>
+            <step>By default it will be collapsed, to make it expand add <code>default-state="collapsed"</code> attribute.</step>
+        <step>(Optional) By default, when a block is collapsed, the first line is displayed, to override it with another title,
+            add <code>collapsed-title="Title to display when a block is collapsed"</code>.</step>
+        <p>The markup should look something like this:</p>
+        <step><p>(Optional) By default, the first line of the code snippet is used as a title.</p>
+        <p>Change it by adding the <code>collapsed-title</code> attribute with a custom value or add the <code>collapsed-title-line-number</code>
+        attribute to specify the line to use as the title.</p>
+            <code-block noinject="true">
+                ```
+                ...your code block...
+                ```
+                {collapsible="true" default-state="expanded" collapsed-title="Title to display when a block is collapsed"}
+            </code-block>
+            <p>So the code block will look like this:</p>
+            <img src="code-block-animated.gif" alt="A code block improved with the ability to collapse-expand it"
+                 border-effect="line" preview-src="code-block-enhanced.png"/>
+        </step>
+        </procedure>
+   <p>Check what other attributes you can apply to the code block in <a href="Code_blocks_semantic.topic"/>.
+   </p>
+    </chapter>
+    <p>In this tutorial, we have imported some <code>.md</code> files, improved the hierarchy, and enhanced the code blocks.</p>
+    <p>On  top of that, you can use any other semantic elements, like <a href="Tabs.topic">tabs</a>, <a href="Definition_lists.topic">definition lists</a>,
+        or <a href="Admonition-blocks.topic">admonition blocks</a> (tips, notes, and warnings).</p>
+</topic>

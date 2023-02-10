@@ -1,0 +1,32 @@
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="How_to_combine_SML_with_Markdown.md"
+       title="How to combine SML with Markdown">
+    <p>Start writing here.</p>
+    <chapter id="markdown" title="Markdown">
+        <p>This topic is written in Markdown with a bit of semantic markup mix and match.</p>
+        <chapter id="chapter-2" title="Chapter 2">
+            <p>Some text. Some more text.
+                The description doesn't appear there
+            </p>
+        </chapter>
+        <chapter id="chapter-3" title="Chapter 3">
+            <p>Some text.</p>
+            <code default-state="expanded" style="block" collapsible="true"><![CDATA[
+...your code block...
+]]></code>
+            <code default-state="expanded" collapsed-title="Vault config example" style="block" lang="yaml"
+                  collapsible="true"><![CDATA[
+vault:
+  token: example_token
+  address: http://127.0.0.1:8200
+pipelines:
+  k8s_kafka_example:
+    input:
+      type: file
+      filename_pattern: vault(secret/prod/file_settings, filename_pattern)
+    output:
+      type: devnull
+]]></code>
+        </chapter>
+    </chapter>
+</topic>

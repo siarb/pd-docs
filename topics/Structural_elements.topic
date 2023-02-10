@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Structural elements"
+       id="Structural_elements" >
+
+    <p>
+        Use structural elements to organize the content into a hierarchy of chapters, subchapters, and procedures. This helps readers to navigate a long document.
+    </p>
+    <p>
+        There are chapters, procedures, paragraphs, TL;DR blocks, and admonition blocks (tips, notes, and warnings).
+    </p>
+
+    <chapter title="Chapter" id="chapter-block">
+        <p>Use chapters to split a long subject into smaller chunks of content.</p>
+        <p>
+            In semantic markup, define chapters with the <code>&lt;chapter&gt;</code> element.
+            In Markdown, define chapters with headings.
+        </p>
+
+        <chapter title="Chapter's title" collapsible="true" id="unique-id">
+            <p>The content.</p>
+            <chapter title="Nested chapter's title" id="yet-another-unique-id">
+                <p>The content.</p>
+            </chapter>
+        </chapter>
+
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="Semantic markup">
+                <code-block lang="XML">
+                    <![CDATA[
+                     <chapter title="Chapter's title" collapsible="true" id="unique-id">
+                     <p>The content.</p>
+                         <chapter title="Nested chapter's title" id="yet-another-unique-id">
+                               <p>The content.</p>
+                         </chapter>
+                     </chapter>
+                     ]]>
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="Markdown">
+                <code-block lang="plain text">
+                    <![CDATA[
+                    ## Chapter's title {collapsible="true" id="unique-id"}
+
+                    The content.
+
+                    ### {title="Nested chapter's title" id="yet-another-unique-id"}
+                    <title>The title that overrides Nested chapter's title</title>
+
+                    The content.
+                    ]]>
+                </code-block>
+            </tab>
+        </tabs>
+        <p>By default, an in-topic table of contents will be generated from chapter's titles and displayed on the right.
+            You can change it using a <a anchor="in-page-nav"><code>show-structure-for</code></a>
+            <if instance="pd"><code>show-structure-for</code></if>
+            attribute.</p>
+        <p>You can nest chapters to create subchapters.
+            The topic title is the first-level header (H1), every top-level chapter is H2, subchapters are H3, and so on.
+        </p>
+
+        <p>Chapters have the following attributes:</p>
+                <deflist id="chapter-attributes">
+                    <def title="title" filter="semantic">
+                        <p>This attribute is required, because every chapter must have a heading.
+                            You can also define or override the title with the chapter's child element <code>&lt;title&gt;</code>.
+                            In Markdown, every chapter must have a heading, define it after #, in a title attribute, or using a semantic <code>&lt;title&gt;</code> element.</p>
+                    </def>
+                    <def title="id">
+                        <p>Specify a unique identifier to use as an anchor and generate a meaningful URL to it.
+                        </p>
+                    </def>
+                    <def title="collapsible" id="chapter-collapsible">
+                        <p>Make the chapter collapsible.
+                        </p>
+                    </def>
+                    <def title="default-state=[collapsed|expanded]">
+                        <p>Specify the default state for the collapsible block.
+                            By default it is collapsed.
+                        </p>
+                    </def>
+                    <def title="caps=[title|sentence|upper|lower|aswritten]">
+                        <p>Specify in which case to display title.</p>
+                    </def>
+                </deflist>
+    </chapter>
+    <chapter title="Procedure" id="procedure-block">
+        <p>
+            Use the <code>&lt;procedure&gt;</code> element to describe the instructions for performing a specific task.
+            Usually, procedures are represented by a sequence of actions: wrap each step of a procedure with the <code>&lt;step&gt;</code> tag.
+            Some procedures may require just one step.</p>
+        <p>
+        In some cases, a procedure describes several alternative steps for performing a task instead of a sequence.
+            Use the tag for describing a sequence of steps you need to follow to perform a task.</p>
+        <p>
+            Wrap each step with the <code>&lt;step&gt;</code> tag.
+        </p>
+        <p>Unlike generic ordered and unordered lists, procedures stand out visually to make it easier for readers to find instructions related to the subject
+            as they skim over an article, which is likely what they are looking for.
+        </p>
+        <p>The <code>&lt;procedure&gt;</code> element has the following attributes:</p>
+        <deflist>
+            <def title="title">
+                <p>
+                    Specify a title for the procedure. You can leave it empty if the parent element (topic or chapter) already has a title that describes the task.
+                    By default, procedure titles are not displayed in the topic TOC unless you <a anchor="in-page-nav">configure this for the topic</a>.
+                </p>
+            </def>
+            <def title="id">
+                <p>Specify a unique identifier to use as an anchor and generate a meaningful URL to it.</p>
+            </def>
+            <def title="style=[steps, choices]">
+                <p>Specify the type of procedure.
+                    Most procedures are a sequence of steps defined by the default <code>style="steps"</code> attribute that renders the steps as an ordered list.
+                    Sometimes, however, the steps are alternative ways of performing a task, in which case set <code>style="choices"</code> to render the steps as an unordered list with bullet points.
+                </p>
+                <tabs>
+                    <tab title="steps">
+                        <procedure title="A procedure with numbered steps">
+                            <step>Step 1.</step>
+                            <step>Step 2.</step>
+                            <step>Step 3.</step>
+                        </procedure>
+                    </tab>
+
+                    <tab title="choices">
+                        <procedure title="A procedure with choices" style="choices">
+                            <step>Option 1.</step>
+                            <step>Option 2.</step>
+                            <step>Option 3.</step>
+                        </procedure>
+                    </tab>
+
+                </tabs>
+            </def>
+            <def title="collapsible" id="procedure-collapsible">
+                <p>Make the procedure collapsible.
+                </p>
+            </def>
+            <def title="default-state=[collapsed|expanded]">
+                <p>Specify the default state for the collapsible block. By default, it is collapsed.
+                </p>
+            </def>
+            <def title="caps=[title|sentence|upper|lower|aswritten]">
+                <p>Specify in which case to display title: title, sentence, upper, lower, or as written.</p>
+            </def>
+        </deflist>
+        <procedure title="Convert a list to a procedure">
+            <step>
+                With the caret on a list element, press <shortcut key="ShowIntentionActions"/> and select <control>Convert list element to procedure</control>.
+            </step>
+        </procedure>
+        <p>
+            This action converts an ordered list into a procedure with a sequence of steps and an unordered list into a procedure with choices.
+        </p>
+    </chapter>
+
+    <chapter title="In-page navigation" id="in-page-nav">
+        <p>You can use the right in-page TOC to display chapters' and procedures' titles.</p>
+        <p>By default, only chapter titles are displayed. You can change it using the attributes described below.</p>
+        <procedure title="Change the in-page TOC structure" id="change-structure" style="choices">
+            <step>
+                <p>
+                    Inside the <code>topic</code> element, add the <code>show-structure</code> element with the <code>for</code> attribute.
+                    As the attribute value, use the names of the structure elements which must go to the TOC.
+                    If there are a few separate them by a comma.
+                </p>
+                <code-block lang="XML">
+                    <![CDATA[
+                <topic>
+                <show-structure for="chapter,procedure"/>
+                ]]>
+                </code-block>
+            </step>
+            <step><p>Define the TOC maximal depth using <code>depth</code> attribute of the <code>show-structure</code> element.</p>
+                <code-block lang="XML">
+                    <![CDATA[
+                <topic>
+                <show-structure depth="2"/>
+                ]]>
+                </code-block>
+            </step>
+        </procedure>
+    </chapter>
+</topic>

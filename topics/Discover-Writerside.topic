@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="Discover Writerside" id="Discover-Writerside">
+    <section-starting-page>
+        <description>These topics will help you get started with Writerside.</description>
+        <spotlight>
+            <a href="About_Writerside.topic" type="start" summary="Learn how to get started with Writerside in a few steps."/>
+            <a href="Project_structure.topic" type="library" summary="Get to know what documentation project looks like."/>
+        </spotlight>
+        <primary><title>Write and preview documents</title>
+            <a href="Semantic-Markup.topic" summary="Use semantic markup for structured authoring and more complex elements or inject it into the Markdown topics or write in Markdown to stay light and easy to contribute."/>
+            <a href="Intention-actions.topic" summary="Intention actions help you to author documentation quicker, suggesting ways to optimize its structure and markup."/>
+            <a href="Use-live-templates-for-markup-elements.topic" summary="Add frequently used markup fragments quicker with built-in live templates"/>
+        </primary>
+        <secondary><title>Manage topics and reuse content</title>
+            <a href="Add_a_topic.topic" summary="Explore all options to create topics in Writerside."/>
+            <a href="Manage_table_of_contents.topic" summary="Learn how to manage table of contents."/>
+            <a href="Reuse_a_content_in_another_topic.topic" summary="Master the content reuse and single-sourcing."/>
+            <a href="Reuse_multiple_topics_at_once.topic" summary="Learn how to reuse a table of content section."/>
+        </secondary>
+        <misc>
+            <cards><title>Test and publish</title>
+                <a href="Local_build.topic" summary="Learn how to make a local build."/>
+            </cards>
+        </misc>
+    </section-starting-page>
+</topic>

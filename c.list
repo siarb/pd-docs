@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE categories
+        SYSTEM "https://resources.jetbrains.com/stardust/categories.dtd">
+<categories>
+    <category id="ext" name="External Resources" order="2"/>
+    <category id="how-to" name="How-to" order="3"/>
+    <category id="see_also" name="More on topics" order="1"/>
+</categories>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="Writerside-code-of-conduct"
+       title="Code of Conduct and guidelines for %product% Slack">
+    <p>
+        JetBrains %product% Slack aims to be an inclusive space that is committed to providing a friendly, safe and welcoming environment for all,
+        regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
+        For this to be the case, it is vital that we all follow a basic set of guidelines and most importantly adhere to the code of conduct.</p>
+    <p>As such, please make sure you read this Code of Conduct and Basic Usage Guidelines in its entirety.
+        This isn't your regular License Agreement that you should scroll through and agree blindly.
+        It's here for a reason and also contains practical information.
+    </p>
+        <chapter title="How to behave" id="how-to">
+            <list>
+                <li>
+                    Participate in an authentic and active way.
+                    In doing so, you contribute to the health and longevity of this community.
+                </li>
+                <li>
+                    Exercise consideration, respect and empathy in your speech and actions.
+                    Remember, we have all been through different stages of learning when adopting technologies.
+                </li>
+                <li>
+                    Refrain from demeaning, discriminatory, or harassing behavior and speech.
+                </li>
+                <li>
+                    Disagreements on things are fine, argumentative behavior or trolling are not.
+                </li>
+            </list>
+        </chapter>
+
+        <chapter title="How not to behave" id="how-not-to">
+            <list>
+                <li>
+                    Do not perform threats of violence or use violent language directed against another person.
+                </li>
+                <li>
+                    Do not make jokes of sexist, racist, homophobic, transphobic, ableist, or otherwise discriminatory nature, or use language of this nature.
+                </li>
+                <li>
+                    Do not post or display sexually explicit or violent material.
+                </li>
+                <li>
+                    Do not post or threaten to post other people's personally identifying information ("doxing").
+                </li>
+                <li>
+                    Do not make personal insults, particularly those related to gender, sexual orientation, race, religion, or disability.
+                </li>
+                <li>
+                    Do not engage in sexual attention. This includes, sexualized comments or jokes and sexual advances.
+                </li>
+                <li>
+                    Do not advocate for, or encourage, any of the above behavior.
+                </li>
+            </list>
+        </chapter>
+
+        <chapter title="How to report issues" id="issues">
+            <p>
+                If someone is acting inappropriately or violating this Code of Conduct in any shape or form,
+                and they are not receptive to your feedback or you prefer not to confront them,
+                please get in touch with one of the Administrators.
+                The main Administrators are Anna Gasparyan (<code>@anna.gasparyan</code>) and Alexandra Maximova (<code>@alexandra.maximova</code>)
+            </p>
+        </chapter>
+
+        <chapter title="Basic Usage Guidelines" id="guidelines">
+            <p>
+                The influx of messages per day and the numerous channels can lead to a lot of noise and little value in the long run.
+                If we all follow a set of guidelines, it can help make things more useful and bearable for everyone.
+            </p>
+            <list>
+                <li>
+                    Remember this is a Slack team for JetBrains %product%. If you have generic questions that are about a technology
+                    (which may or may not be used with JetBrains %product%), maybe it’s better to use another forum, such as
+                    <a href="https://stackoverflow.com">StackOverflow</a>.
+                </li>
+                <li>
+                    For bug reports, we recommend submitting an issue in
+                    <a href="https://youtrack.jetbrains.com/issues/WRS">YouTrack</a>.
+                    Questions about using JetBrains %product% and its configuration are welcome both in Slack and YouTrack.
+                    You can ask and share whatever bothers you, and we'll see if something can be done about it.
+                </li>
+                <li>
+                    Find the right channel to ask your question.
+                    There are channels for pretty much every topic. For a list of several primary channels, see
+                    <a anchor="channels">below</a>.
+                </li>
+                <li>
+                    When you ask a question, be patient. Don't repeat it. Or at least not immediately.
+                </li>
+                <li>
+                    Use English whenever you ask or answer a question.
+                </li>
+                <li>
+                    Do not ping or mention someone directly to get your questions answered,
+                    especially project owners, whether the project is JetBrains %product% or other,
+                    unless they specifically indicate that you can.
+                </li>
+                <li>
+                    Don't split messages into multiple ones. Ask it all in a single message.
+                </li>
+                <li>
+                    Use code blocks. Don't paste code as plain text.
+                    If the code you are pasting is longer than a few lines, use <control>Code or text snippet</control>
+                    available from
+                    <control>+</control>
+                    menu next to message input. Only first few lines will be displayed to all users and people interested
+                    in the code can expand your code to look into details.
+                </li>
+                <li>
+                    While it's polite to say “Hi” or “I have a question” before asking something,
+                    it doesn't scale and leads to noise. You can say hello in the same message you ask
+                    the question if you like.
+                </li>
+                <li>
+                    Using threads is not required, but do take into account that it does allow people to more easily follow conversations, especially those jumping in late.
+                </li>
+                <li>
+                    Use reactions to show gratitude as opposed to a message. It reduces the noise and gets the message across.
+                </li>
+                <li>
+                    Don't use reactions to tell people they're in the wrong place or asking the wrong question.
+                    If they're on the wrong channel, point them to the right one.
+                    If their question is badly worded, help them correct it. Have empathy.
+                </li>
+                <li>
+                    Take into account cultural differences.
+                    As they say, what the British say isn't what the British mean.
+                    Remember this both as the receiver and producer of messages.
+                </li>
+                <li>
+                    Don't create integrations with Slack.
+                    Given this is running on the free tier, the number is limited and thus it won’t be approved.
+                </li>
+                <li>
+                    <code>@channel</code>, <code>@here</code> and other forms of notifications are disabled,
+                    even if you own a channel (unfortunately Slack doesn't allow fine-grained permissions).
+                </li>
+                <li>
+                    Use the <code>#general</code> channel if you're unsure about how to do something.
+                </li>
+            </list>
+        </chapter>
+
+    <chapter title="Resolving Issues" id="resolve-issues">
+       <p>
+           We want to keep our Slack conversations friendly and lively, however, in cases where someone does not follow our recommendations,
+           or where we deem a reported issue to be in contradiction to this code of conduct,
+           we reserve the rights to take action and remove such an individual or their comments from our Slack channel.
+       </p>
+    </chapter>
+
+        <chapter title="Common channels" id="channels">
+            <p>
+                This is a list of some of the most popular channels as well as a sample of the types of channels available.
+            </p>
+            <list>
+                <li>
+                    <code>#general</code>. Everything related to %product% – feedback, questions, feature requests, and so on.
+                </li>
+                <li>
+                    <code>#jetbrains-writerside</code>. Product news, announcements, release notes, and related discussions.
+
+                </li>
+                <li>
+                    <code>#getting-started</code>. How to set up Writerside and how to start using it.
+                    If you are new to our product, it's better to ask your questions here than in the <code>#general</code> channel.
+                </li>
+            </list>
+        </chapter>
+
+        <chapter title="Copyright" id="copyright">
+            <p>
+                This Code of Conduct is distributed under a
+                <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike license</a>.
+                Portions of text are derived from the <a href="http://citizencodeofconduct.org/">Citizen Code of Conduct</a>.
+            </p>
+        </chapter>
+
+    </topic>

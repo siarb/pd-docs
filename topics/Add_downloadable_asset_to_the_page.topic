@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Add a downloadable asset to the page"
+       id="Add_downloadable_asset_to_the_page" help-id="Add_downloadable_asset_ti_the_page">
+
+    <p>If you need to provide a user with a template they need to download and fill or give them an openAPI specification file,
+        you can add a downloadable asset to the page.</p>
+    <procedure>
+        <step>Place an asset to the <path>/resources</path> directory in the projects' root.</step>
+        <step>Define a resource name in <path>r.list</path>.
+        <code-block lang="xml">
+            <![CDATA[
+            <resources>
+                <resource id="category-tree" file="category-tree.csv"/>
+                <resource id="product-upload-template" file="template.xls"/>
+            </resources>
+            ]]>
+        </code-block>
+        </step>
+        <step>Add a link to it using the following markup.
+            <code-block lang="xml">
+                <![CDATA[
+                Download <res resource-id="id">
+                 ]]>
+            </code-block>
+        </step>
+    </procedure>
+</topic>

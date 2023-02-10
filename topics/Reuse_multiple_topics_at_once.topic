@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Reuse multiple topics at once"
+       id="Reuse_multiple_topics_at_once">
+
+    <p>
+        You can reuse multiple topics at once from a table of contents (TOC).
+        For example, if the installation and setup are applicable for multiple help instances.
+    </p>
+    <chapter title="Make a table of contents section reusable" id="make-section-reusable">
+        <p>
+            You can reuse any part of the TOC by assigning an ID to a <code>&lt;toc-element&gt;</code> or a <code>&lt;snippet&gt;</code> and then including this element elsewhere.
+            However, it is recommended to put reusable pieces of the TOC into a dedicated library instance.
+        </p>
+<!--        <p>-->
+<!--            Then have a procedure titled Create a TOC library instance, explain how-->
+<!--            it's a special type of instance that you don't build but only store reusable TOC pieces,-->
+<!--            and show the preferred way of wrapping something with a <code>&lt;snippet&gt;</code>
+                element in one tab or just assigning-->
+<!--            an id to a <code>&lt;toc-element&gt;</code> with subelements in another tab.-->
+<!--            The tabs can be Group TOC elements with a snippet and Group under one TOC element-->
+<!--        </p>-->
+        <p><emphasis>TOC library instance</emphasis> is a special type of an instance that is used to store
+            reusable TOC fragments, but don't build.</p>
+        <procedure title="Create a TOC library instance">
+        <include from="lib.topic" element-id="create-library"/>
+        <step>
+            <p>Group TOC elements, there are two ways to do this:</p>
+            <tabs>
+                <tab title="Group with a snippet">
+                    <p>Wrap them with a <code>&lt;snippet&gt;</code> element and assign a unique <code>id</code>.</p>
+                    <code-block lang="XML" noinject="true">
+                        <![CDATA[
+                        <snippet id="installation-guide">
+                           <toc-element topic="Install.topic"/>
+                           <toc-element topic="Setup.topic" toc-title="Initial setup"/>
+                           <toc-element topic="Update.topic"/>
+                           <toc-element topic="Uninstall.topic"/>
+                        </snippet>
+                        ]]>
+                    </code-block>
+                </tab>
+                <tab title="Group under one TOC element">
+                    <p>
+                        Create a <code>&lt;toc-element&gt;</code> that groups a few toc-elements under it and
+                        assign a unique <code>id</code> attribute to it.
+                        It can be an ordinary topic that contains content or a <a href="Manage_table_of_contents.topic" anchor="wrapper-topic">wrapper topic</a>.
+                    </p>
+                    <p>You can do this using drag and drop or by editing a <path>.tree</path> file.
+                    </p>
+                    <code-block lang="XML" noinject="true">
+                        <![CDATA[
+                        <toc-element toc-title="Installation_guide.topic" id="installation-guide">
+                               <toc-element topic="Install.topic"/>
+                               <toc-element topic="Setup.topic" toc-title="Initial setup"/>
+                               <toc-element topic="Update.topic"/>
+                               <toc-element topic="Uninstall.topic"/>
+                        </toc-element>
+                        ]]>
+                    </code-block>
+                </tab>
+            </tabs>
+        </step>
+    </procedure>
+    </chapter>
+    <chapter title="Reuse a group of topics" id="reuse-group-of-topics">
+        <p>You can reuse a group of topics either by reusing a <code>toc-element</code> or a <code>snippet</code>
+            element by an ID.</p>
+    <procedure>
+        <step>Add the <code>include</code> tag to a target tree.</step>
+        <step>In the <code>from</code> attribute specify an ID of a <code>toc-element</code> or a <code>snippet</code> element.
+            In this case, it is <emphasis>toc_chunks</emphasis>.</step>
+        <step> In the <code>element-id</code> attribute specify the element <code>id</code>.
+        </step>
+    </procedure>
+        <tabs group="reuse-toc">
+            <tab title="Instance/library tree" group-key=".tree">
+                <code-block lang="XML" noinject="true">
+                    <![CDATA[
+                <toc-element toc-title="Installation_guide.topic" id="installation-guide">
+                       <toc-element topic="Install.topic"/>
+                       <toc-element topic="Setup.topic" toc-title="Initial setup"/>
+                       <toc-element topic="Update.topic"/>
+                       <toc-element topic="Uninstall.topic"/>
+                </toc-element>
+                ]]>
+                </code-block>
+            </tab>
+            <tab title="Target tree" group-key="target-tree">
+                <code-block lang="XML" noinject="true">
+                    <![CDATA[
+                    <include from="toc_chunks" element-id="installation-guide"/>
+                    ]]>
+                </code-block>
+            </tab>
+            <tab title="Web TOC" group-key="result">
+                <img src="web-help-tree.png" border-effect="line" width="231" alt="Product help hierarchy on the Web"/>
+            </tab>
+        </tabs>
+        <tabs group="reuse-toc">
+            <tab title="Instance/library tree" group-key=".tree">
+                <code-block lang="XML" noinject="true">
+                  <![CDATA[
+                        <snippet id="installation-guide">
+                           <toc-element topic="Install.topic"/>
+                           <toc-element topic="Setup.topic" toc-title="Initial setup"/>
+                           <toc-element topic="Update.topic"/>
+                           <toc-element topic="Uninstall.topic"/>
+                        </snippet>
+                        ]]>
+                </code-block>
+            </tab>
+            <tab title="Target tree" group-key="target-tree">
+                <code-block lang="XML" noinject="true">
+                    <![CDATA[
+                    <include from="toc_chunks" element-id="installation-guide"/>
+                    ]]>
+                </code-block>
+            </tab>
+            <tab title="Web TOC" group-key="result">
+                <img src="writerside-tree-snippet.png" border-effect="line" width="231" alt="Product help hierarchy on the Web"/>
+            </tab>
+        </tabs>
+    </chapter>
+</topic>

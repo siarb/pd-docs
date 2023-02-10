@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Column selection"
+       id="Column_selection">
+
+    <p>IntelliJ IDEA supports the column selection mode which can be handy while working with Markdown tables.</p>
+    <!--Add a link here from the Markdown-XML mixing topic-->
+    <chapter title="Use column selection to manage tables" id="column-selection">
+        <procedure>
+            <step>
+                Enable the column selection mode: press <shortcut from-keymap-of="ij" key="EditorToggleColumnMode"/>
+                or select <ui-path>Edit | Column Selection Mode</ui-path>.
+            </step>
+            <step>
+                Select the whole column using a cursor or select one cell and then use <shortcut key="EditorUpWithSelection"/>
+                and <shortcut key="EditorDownWithSelection"/> to select others.
+            </step>
+            <step>
+                Copy the selection.
+            </step>
+            <step>
+                Step to the end of the first row and paste.
+                <img src="Column_selection.png" animated="true" alt="Column selection"/>
+            </step>
+        </procedure>
+        <p>Now you have a copy of the table column and can edit its content. In the same way, you can delete the column.</p>
+        <note>This mode affects only the current tab, not the whole editor.
+            So if you will close or reload it, the mode gets back to normal.</note>
+    </chapter>
+    <chapter title="Use multiple carets with column selection" id="column-selection-multiple-carets">
+        <p>
+
+        </p>
+        <procedure>
+            <step>Step on the row.</step>
+            <step>
+                Use <shortcut key="EditorUpWithSelection"/> and <shortcut key="EditorDownWithSelection"/>
+                or drag the cursor and move it up and down to place carets to each row.
+            </step>
+            <step>
+                Edit a few values.
+            </step>
+            <step>Switch the column selection off or reload the tab.</step>
+        </procedure>
+    </chapter>
+</topic>

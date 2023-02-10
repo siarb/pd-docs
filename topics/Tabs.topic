@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Tabs"
+       id="Tabs">
+
+    <p>To create switchable sections of content,
+        for example, code samples in a different language or the same content for different platforms,
+        use a <code>&lt;tabs&gt;</code> tag.</p>
+    <p>It has the following attribute:</p>
+    <deflist>
+        <def title="group">
+            Specify a few tab groups to switch them simultaneously.
+        </def>
+    </deflist>
+    <p>The <code>&lt;tab&gt;</code> element goes inside a <code>&lt;tabs&gt;</code> tag and has the following attributes:</p>
+    <deflist>
+        <def title="id">
+            <p>Specify a unique identifier to use as an anchor and generate a meaningful URL for it.
+                Otherwise, it will get an auto-generated one.
+            </p>
+            <tip>
+                <p>You can address a user to a particular tab by adding referring an id in an anchor.
+                    So when a user opens this link, the particular tab will be active.</p>
+            </tip>
+        </def>
+        <def title="title">
+            <p><format color="Red">required</format> Specify the tab title.</p>
+        </def>
+        <def title="group-key">
+            Assign this key to the tabs in different groups that must be synced.
+        </def>
+    </deflist>
+    <p>Below is a synchronously switched tabs example.</p>
+    <tabs group="platforms">
+        <tab title="Installation on Windows" group-key="win">
+            <p>This is for Windows.</p>
+        </tab>
+        <tab title="Installation on macOS" id="macos" group-key="mac">
+            <p>This is for MacOS.</p>
+        </tab>
+    </tabs>
+
+    <tabs  group="platforms">
+        <tab title="Windows package management" group-key="win">
+            <p>This is for Windows.</p>
+        </tab>
+        <tab title="macOS package management" group-key="mac">
+            <p>This is for MacOS.</p>
+        </tab>
+    </tabs>
+    <tip><p>If you need to switch larger sections, use the <a href="Switchable_content.topic"><code>switcher-key</code></a> instead of tabs.</p></tip>
+</topic>

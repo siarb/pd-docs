@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Preview a topic"
+       id="Preview_a_topic">
+
+    <procedure title="Open a preview">
+        <step>In the %product% tool window, open the topic file in the editor.</step>
+        <step><include from="lib.topic" element-id="open-preview"/>.</step>
+        <step>The preview area will appear to the right and also it will stay as a tab so it is always on hand.</step>
+        <p>The preview updates automatically as you type.</p>
+    </procedure>
+    <p>You can do the following in the preview mode:</p>
+    <list>
+        <li>Change the preview area size using the icon. Pull in left to see the in-page toc.</li>
+        <li>Open the preview in a browser to check how the topic will look in the web.
+        Switch between light-dark mode and between topics to check. </li>
+        <li>Copy the preview link to share with the users in the same local network.</li>
+    </list>
+    <tip>The local video files preview works only for certain codecs,
+        however they still will be built and correctly displayed in the web help instance.
+        In preview we will display a stub.</tip>
+
+    <p>The preview will be updated depending on the selected IDE theme,
+        for example, for <control>Darcula</control> theme it will be dark, for <control>IntelliJ Light</control> — light.</p>
+</topic>

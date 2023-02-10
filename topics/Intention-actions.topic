@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       id="Intention-actions"
+       title="Use intention actions">
+
+    <p>
+        As you write and edit the document, %product% analyzes its structure and markup,
+        and provides ways to optimize it.
+        These are not tests or inspections, they are not intended to detect problems, but make your work easier.
+    </p>
+    <p>
+        When an action is available, an IDE displays a yellow bulb icon
+        <img src="app.actions.intentionBulb.png" alt="yellow bulb icon"/> in the editor next to the
+        current line or markup element. By clicking this icon, you can view <emphasis>intention actions</emphasis> available
+        in the current context.
+    </p>
+    <p>Intention actions cover a wide range of situations from converting one element
+        into another or even the whole article from Markdown to XML to moving elements between topics.</p>
+<!--    <p>-->
+<!--        A red bulb with an exclamation mark <img src="app.actions.quickfixBulb.png" alt="the Quick-fix icon"/>-->
+<!--        indicates that %product% has detected a problem, and prompts you to select an associated fix-->
+<!--        — <emphasis>a quick-fix</emphasis>. Quick-fixes and intention actions together are called-->
+<!--        <emphasis>context actions</emphasis>.-->
+<!--    </p>-->
+    <p>
+        To apply the intention action, click the bulb icon or press <shortcut key="ShowIntentionActions"/> to open the list of suggestions
+        and select an action from the list.
+    </p>
+    <p>To view the full list of available %product% intention actions,
+        open <ui-path>Settings/Preferences and select Editor | Intentions</ui-path>. Find the <control>Writerside</control> intentions group.</p>
+    <img src="intention_actions_settings.png" width="460" alt="Settings of intention actions"/>
+    <p>For each intention action, you can see a description and an example.
+        To disable an intention, clear the checkbox next to it.</p>
+    <p>The full list of intention actions:</p>
+    <deflist>
+        <def title="Create id for element">
+            <p>Creates an id for the block element from the title or if element
+                doesn't require title (like a paragraph) from the first sentence.
+            </p>
+            <p><b>Triggers on:</b> any block element.</p>
+        </def>
+        <def title="Convert <list> to <procedure>">
+            <p>Replaces a list with a procedure.
+                If the list was numbered, list items turn into steps, if bulleted — into choices.
+            </p>
+            <p><b>Triggers on:</b> a list. </p>
+        </def>
+        <def title="Convert <procedure> to <chapter>">
+            <p>Converts a procedure with a title to a chapter with the same title. Steps become paragraphs.</p>
+            <p><b>Triggers on:</b> a procedure element. </p>
+        </def>
+        <def title="Convert animated image to video">
+            <p>Converts .gif animations to .mp4 video files and renames all usages.</p>
+            <p><b>Triggers on:</b> an img element with .gif in src attribute. </p>
+        </def>
+        <def title="Convert lines to numbered list">
+            <p>Creates a numbered list of the lines selected in the editor.</p>
+            <p><b>Triggers on:</b> any element or dangling lines in the editor. </p>
+        </def>
+        <def title="Convert lines to bulleted list">
+            <p>Creates a bulleted list of the lines selected in the editor.</p>
+            <p><b>Triggers on:</b> any element or dangling lines in the editor. </p>
+        </def>
+        <def title="Convert lines to table">
+            <p>Creates a table of the lines selected in the editor.</p>
+            <p><b>Triggers on:</b> any element or dangling lines in the editor. </p>
+        </def>
+        <def title="Convert this article to XML format">
+            <p>Converts the contents of a Markdown file to Writerside XML markup.</p>
+            <p><b>Triggers on:</b> any element or dangling lines in the editor. </p>
+        </def>
+        <def title="Create a copy of this article in XML format">
+            <p>Converts the contents of a Markdown file to a new Writerside XML topic file.</p>
+            <p><b>Triggers on:</b> any element or dangling lines in the editor. </p>
+        </def>
+        <def title="Escape XML syntax character at caret">
+            <p>Escapes an XML character at caret.</p>
+            <p><b>Triggers on:</b> any XML special character ar caret. </p>
+        </def>
+        <def title="Escape XML syntax characters inside all descendants of this tag">
+            <p>Escapes all special XML characters inside the tag at caret,
+                including markup that belongs to child tags.</p>
+            <p><b>Triggers on:</b> any XML element at caret.</p>
+        </def>
+        <def title="Escape XML syntax characters inside text of this tag">
+            <p>Escapes all special XML characters in the text of the tag at caret.
+                Markup that belongs to a child tag is not affected.</p>
+            <p><b>Triggers on:</b> any XML element at caret.</p>
+        </def>
+        <def title="Include element to current instance">
+            <p>Adds a filter to include the element under
+                the caret to the current instance.</p>
+            <p><b>Triggers on:</b> any element not included in the current instance.</p>
+        </def>
+        <def title="Exclude element from the current instance">
+            <p>Filters an element out of the current instance using <code>instance="!current_instance"</code> tag.
+            </p>
+            <p><b>Triggers on:</b> any element. </p>
+        </def>
+        <def title="Invert filter">
+            <p>Inverts the filters for an element.</p>
+            <p><b>Triggers on:</b> any element containing filters. </p>
+        </def>
+        <def title="Move element to another topic">
+            <p>Moves the selected elements to another topic.
+                When you apply an action, the list where you need to select a destination topic appears.
+                The element will be added to the bottom of the selected topic.</p>
+            <p><b>Triggers on:</b> any selected element. </p>
+        </def>
+        <def title="Override default topic title for link">
+            <p>Expands the <code>a</code> tag and adds the topic's title as the link text.</p>
+            <p><b>Triggers on:</b> a link element. </p>
+        </def>
+        <def title="Remove link title and use the default one">
+            <p>Makes the <code>a</code> tag self-closing and removes the custom link text.</p>
+            <p><b>Triggers on:</b> a link element. </p>
+        </def>
+        <def title="Replace all delimiters with underscores">
+            <p>Replaces all delimiters (spaces, hyphens, periods, and so on) to underscores.
+                This is useful for element IDs as it makes it easier to highlight the ID with a double-click.</p>
+            <p><b>Triggers on:</b> any element.</p>
+        </def>
+        <def title="Sort filter values and remove duplicates">
+            <p>Sorts <code>instance</code> and <code>filter</code> attribute's values alphabetically and removes duplicates.</p>
+            <p><b>Triggers on:</b> any element containing more than one filter. </p>
+        </def>
+        <def title="Wrap code element content with CDATA">
+            <p>Wraps all content of the code-block element in a CDATA section so that it won't be recognized as XML markup.
+                Remove it with the <a href="Intention-actions.topic" anchor="unwrap-inner-code-elements">Unwrap inner code elements intention</a>.</p>
+            <p><b>Triggers on:</b> a code-block element. </p>
+        </def>
+        <def title="Wrap element with snippet" id="wrap-in-a-snippet">
+            <p>Wraps the current element with the snippet element and moves the element's ID to the snippet.
+                Now you can move this snippet in a library topic or leave as is to reuse it from here.</p>
+            <p><b>Triggers on:</b> any element. </p>
+        </def>
+        <def title="Unwrap inner code elements" id="unwrap-inner-code-elements">
+            <p>Removes XML tags inside a code-block element.</p>
+            <p><b>Triggers on:</b> a code-block element. </p>
+        </def>
+        <def title="Extract accepted-web-file-names">
+            <p>Extracts the content of <code>accepts-web-file-names</code> attribute and creates a rule in redirection-rules.xml.
+                If you already have a few topics to redirect from,
+                it may be handy to move it into the redirection rule and reference it by rule id.
+            </p>
+            <p><b>Triggers on:</b> <code>toc-element</code> with <code>accepts-web-file-names</code> attribute.</p>
+        </def>
+        <def title="Remove toc-element from instance">
+            <p>Removes the toc-element tag, creates a new redirection rule for all accepted redirects of the removed topic,
+                and filters out all links to the topic from the current product.
+            </p>
+            <p><b>Triggers on:</b> a toc-element. </p>
+        </def>
+        <def title="Sort categories according to their order">
+            <p>Sorts categories for <a href="Links_and_references.topic" anchor="see-also">seealso section</a> depending on their order attribute values.
+            </p>
+            <p><b>Triggers on:</b> <code>c.list</code> file.</p>
+        </def>
+    </deflist>
+
+
+</topic>

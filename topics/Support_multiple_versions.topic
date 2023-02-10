@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Support multiple versions"
+       id="Support_multiple_versions">
+
+    <p>If you need to maintain documentation for different product versions,
+        %product% supports having multiple versions of your help.</p>
+    <procedure title="Add multiple versions">
+        <step>Add a new git branch, preferably with the same name as the version.</step>
+        <step>Open <path>project.ihp</path> file.</step>
+        <step>In the <code>instance</code> element, add the <code>version</code> attribute with the version number.
+        <code-block lang="xml">
+            <![CDATA[
+            <instance src="ab.tree" version="2.0" web-path="/your-help"/>
+            ]]>
+        </code-block>
+        </step>
+        <step>Do the same for another version branch to have at least two versions.</step>
+    </procedure>
+    <p>This version is then displayed in the header next to the instance name and in the URL.</p>
+    <p>To have a version selector in the header, add the following to the <code>buildprofiles.xml</code>.</p>
+    <code-block>
+        <![CDATA[
+        <config-versions-switcher>Link to help-versions.json</config-versions-switcher>
+        ]]>
+    </code-block>
+    <p>Host the <path>help-versions.json</path> file that describes all versions of the product,
+        web paths to them, and which one is current.</p>
+    <code-block>
+        [
+            {"version":"1.0","url":"/docs/1.0/","isCurrent":false},
+            {"version":"2.0","url":"/docs/2.0","isCurrent":true}
+        ]
+    </code-block>
+    <p>Host it by publicly available URL, for example, on GitHub.</p>
+<!--    <p>Current help version has a URL without a version number: <code>example</code> .
+    Previous versions are available by URLs with version numbers.-->
+    <p>Helps for previous versions have a banner redirecting to the corresponding article
+        in the help for the current version.</p>
+<!--    By default they are also hidden from search engines.</p>-->
+</topic>

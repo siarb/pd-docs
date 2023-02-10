@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Make part of the reused content differ"
+       id="Make_part_of_the_content_differ">
+    <p>
+        To make the content differ in different includes, you can use variables and filters.
+    </p>
+    <chapter title="Refer to the instance name">
+    <procedure style="choices">
+        <step>
+            <p>Use the <code interpolate-variables="false">%instance%</code> variable in the warning content to refer to the instance name:</p>
+            <code-block ignore-vars="true" lang="XML" noinject="true">
+                <![CDATA[
+                <snippet id="generic_warning">
+                    <warning>This version of %instance% support ended on January 14, 2021.
+                        Download the latest version.</warning>
+                </snippet>
+                ]]>
+                </code-block>
+        </step>
+    </procedure>
+    </chapter>
+    <chapter title="Use a variable with the version number">
+    <procedure>
+        <step> Declare the variable inside the snippet you want to reuse.
+            <code-block ignore-vars="true" noinject="true">
+                <![CDATA[
+                <snippet id="generic_warning">
+                <warning>This version of %instance% support ended on January 14, 2021.
+                Download the %latest% version.</warning>
+                </snippet>
+                ]]>
+            </code-block>
+        </step>
+        <step>In the target topic use the <code>var</code> tag and specify the <code>name</code> and <code>value</code> attributes.
+        <code style="block" lang="xml" noinject="true">
+            <![CDATA[
+            <include from="warning_libraries.topic"
+            target="generic_warning">
+            <var name="latest" value="1.7"/>
+            ]]>
+        </code>
+        </step>
+    </procedure>
+    </chapter>
+    <chapter title="Display warning for all instances except one">
+    <procedure>
+        <p>You can specify the instance to which an element should or should not display.</p>
+        <step>
+            Add the <code>instance</code> attribute to the <code>warning</code> tag, use ! symbol and specify the ids of the instances
+            where this warning should not be displayed.
+            <code-block lang="xml">
+                <![CDATA[
+                <warning instance="!sd">This version of product support ended on January 14, 2021.
+                    Download the latest version.</warning>
+            ]]>
+            </code-block>
+        </step>
+        <step>You can add the <code>if</code> tag to select a specific fragment of content.
+            <code-block lang="xml" noinject="true">
+                <![CDATA[
+                <warning instance="!sd"><p>This version of product support ended on January 14, 2022.</p>
+                    <p if instance="ac">Download the latest version <a href="link1">here</a>.</p>
+                    <a if instance="!ac">Download the latest version <a href="link2">here</a>.</p>
+                </warning>
+                ]]>
+            </code-block>
+        </step>
+    </procedure>
+    </chapter>
+    <p>For more information about <a href="Variables.topic">variables</a> and <a href="Conditional_content.topic">filters</a>, refer to the specified sections.</p>
+</topic>
+

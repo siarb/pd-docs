@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Writing modes"
+       id="Writing_modes">
+
+    <p>%instance% is designed to cut out any possible distractions,
+        so you can focus on writing, and then write some more.
+        This is why the editor itself is so clean that you can't find a button here;
+        and the sidebars will step down too: you can fold them when writing, and they'll fade out when you keep writing.</p>
+
+</topic>

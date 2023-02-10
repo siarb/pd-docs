@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Getting started"
+       id="Plugin-developers-default">
+    <web-file-name>getting-started.html</web-file-name>
+    <show-structure for="procedure,chapter"/>
+
+    <include from="About_Writerside.topic" element-id="intro"/>
+
+    <chapter title="Install %product%" id="install">
+        <procedure>
+            <step>
+                If you are not using a JetBrains IDE,
+                <a href="https://www.jetbrains.com/idea/download/#section=mac">download</a> IntelliJ IDEA
+                (the free Community Edition is enough).
+            </step>
+
+            <step><a href="https://plugins.jetbrains.com/plugin/20158-writerside/versions">Download</a> %product%.</step>
+
+            <step>
+                <p>
+                    In the IDE settings, open <control>Plugins</control>,
+                    click the gear button on the top,
+                    then click <control>Install Plugin from Disk</control>
+                    and select the downloaded <path>.zip</path> archive.
+                </p>
+                <img src="preferences_install_plugin_from_disk.png" alt="Install Plugin from Disk" width="706" border-effect="line"/>
+            </step>
+        </procedure>
+    </chapter>
+
+    <chapter title="Create a documentation project" id="set-up-new-project">
+        <include from="Manage_project.topic" element-id="about_project"/>
+
+        <procedure title="Create a new documentation project" id="create_new_project">
+            <step>
+                <p>
+                    From the main menu, choose <control>File | New | Project</control>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    In the <control>New Project</control> dialog, select <control>Writerside</control>
+                    on the left and click <control>Next</control>.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Specify project name and location and click <control>Finish</control>.
+                </p>
+            </step>
+        </procedure>
+        <procedure title="Add documentation to an existing project">
+            <include from="lib.topic" element-id="add_docs_to_dev_project"/>
+        </procedure>
+        <p>
+            As a result, %product% adds a help <emphasis>instance</emphasis> to the <control>Writerside</control> tool window:
+        </p>
+        <img src="first_instance.png" alt="first_instance" width="706"/>
+        <p>
+            Now you can add your first <emphasis>topic</emphasis> to start writing content.
+        </p>
+    </chapter>
+
+    <chapter title="Create topics" id="create_topics">
+        <procedure title="Create topic from scratch" id="topic_from_scratch">
+            <step>
+                <p>
+                    In the lower part of the <control>Writerside</control> tool window, click
+                    <img src="icon_add.png" width="16" alt="Add"/> on the  toolbar and choose
+                    <control>Empty MD Topic</control> or <control>Empty SML Topic</control> for semantic markup.
+                </p>
+                <p>
+                    See <a href="Topics.topic" anchor="topic_formats"/> for an explanation of the supported topics types
+                    and tips on which format to choose.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Specify topic title and the file name.
+                </p>
+            </step>
+        </procedure>
+        <procedure title="Create topic from template" id="topic_from_template">
+            <p>
+                %product% comes with built-in templates for different types of content that contain some
+                boilerplate structure to give you something to get started with.
+            </p>
+            <step>
+                <p>
+                    In the lower part of the <control>Writerside</control> tool window, click
+                    <img src="icon_add.png" width="16" alt="Add"/> on the  toolbar and choose
+                    <control>Topic from Template</control> and choose document type.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Specify topic title and the file name.
+                </p>
+            </step>
+        </procedure>
+        <p>
+            Learn more from <a href="Add_a_topic.topic"/>
+        </p>
+    </chapter>
+
+    <chapter title="Preview a topic" id="preview_topic">
+        <p>
+            %product% lets you preview the content of a topic without building your project.
+        </p>
+        <procedure>
+            <step>
+                <p>
+                    To open the <control>Preview</control> pane, right-click a topic in the TOC view and choose
+                    <control>Preview Topic</control> or click <control>Writerside Preview</control> on the tool window bar
+                    on the right:
+                </p>
+                <img src="right_stripe.png" alt="right stripe" width="131" border-effect="line"/>
+            </step>
+            <p>
+                The Preview pane will open with your content rendered  exactly the way it will look on the web:
+            </p>
+            <img src="preview_pane.png" alt="preview pane" width="706"/>
+        </procedure>
+    </chapter>
+
+    <chapter title="Configure Table of Contents" id="configure_TOC">
+        <p>
+            Configure the structure of your documentation instance in the <control>Writerside tool window</control>:
+            drag-n-drop articles to change their order or hierarchy.
+        </p>
+        <p>
+            You can also edit the &lt;instance_name&gt; file to configure the TOC.
+        </p>
+    </chapter>
+
+    <chapter title="Build" id="build">
+        <p>
+            Writerside allows you to build documentation locally. To do that, select the instance you want to build,
+            right-click it and choose <control>Generate Website</control>
+        </p>
+        <img src="build_locally.png" alt="generate_website" width="460"/>
+        <p>
+            If you have a CI/CD and want to use it to build documentation, drop us a message at writerside@jetbrains.com,
+            and we will provide you with a Docker image and instructions for your CI/CD.
+        </p>
+    </chapter>
+
+    <chapter title="Feedback and support" id="feedback_support">
+        <chapter title="Report an issue" id="report_issues">
+            <p>
+                Please report any issues, usability improvements, or feature requests to our
+                <a href="https://youtrack.jetbrains.com/newIssue?project=WRS">YouTrack project</a>
+                (you will need to register)
+            </p>
+        </chapter>
+        <chapter title="Get support and share feedback" id="support_feedback">
+            <p>
+                You are welcome to join our
+                <a href="https://join.slack.com/t/writerside/shared_invite/zt-1hnvxnl0z-Nc6RWXTppRI2Oc566vumYw">public Slack workspace</a>.
+                Before you do, please read our <a href="Writerside-code-of-conduct.topic"/>.
+                We assume that you’ve read and acknowledged it before joining.
+            </p>
+            <p>
+                You can also always send an email to writerside@jetbrains.com.
+
+            </p>
+        </chapter>
+    </chapter>
+    <seealso>
+        <category ref="how-to">
+            <a href="Project_structure.topic"/>
+            <a href="Topics.topic"/>
+            <a href="Add_a_topic.topic"/>
+            <a href="Manage_table_of_contents.topic"/>
+            <a href="Semantic-Markup.topic"/>
+        </category>
+    </seealso>
+</topic>

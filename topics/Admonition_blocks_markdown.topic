@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Tip, note, and warning"
+       id="Admonition_blocks_markdown">
+
+    <include from="Structural_elements.topic" element-id="admonitions"/>
+    <p>By default, the quote markup is rendered as a tip.
+        But you can alter it using the <code>style</code>
+        attribute placed in the curly brackets after the block.</p>
+    <tabs>
+        <tab title="tip">
+            <table>
+                <tr>
+                    <td>Markup</td>
+                    <td>Result</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block>
+                            > This is
+                            > a tip
+                        </code-block>
+                    </td>
+                    <td>
+                        <tip>
+                            <p>
+                                This is a tip.
+                            </p>
+                        </tip>
+                    </td>
+                </tr>
+            </table>
+        </tab>
+        <tab title="note">
+            <table>
+                <tr>
+                    <td>Markup</td>
+                    <td>Result</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block>
+                            > Just FYI.
+                            >
+                            {style="note"}
+                        </code-block>
+                    </td>
+                    <td>
+                        <note>
+                            <p>
+                                Just FYI.
+                            </p>
+                        </note>
+                    </td>
+                </tr>
+            </table>
+        </tab>
+        <tab title="warning">
+            <table>
+                <tr>
+                    <td>Markup</td>
+                    <td>Result</td>
+                </tr>
+                <tr>
+                    <td>
+                        <code-block>
+                            > You shall
+                            > not pass
+                            >
+                            {style="warning"}
+                        </code-block>
+                    </td>
+                    <td>
+                        <warning>
+                            <p>
+                                You shall not pass.
+                            </p>
+                        </warning>
+                    </td>
+                </tr>
+            </table>
+        </tab>
+    </tabs>
+</topic>

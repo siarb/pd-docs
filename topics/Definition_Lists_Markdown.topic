@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Definition lists"
+       id="Definition_Lists_Markdown">
+
+    <p>To create definition lists, for example, to specify terms and their definitions, use the following markup.
+        Specify the term on the first line. On the next line, type a colon followed by a space and the definition.</p>
+    <p>It also accepts multiline definitions and lists, including nested ones.</p>
+    <tabs>
+        <tab title="Markup">
+            <code-block lang="plain text">
+                # Attributes go below
+                {style="narrow" sorted="asc"}
+                First Term
+                : This is the definition of the first term.
+
+                Second Term
+                : This is the definition of the second term.
+            </code-block>
+        </tab>
+        <tab title="Result">
+            <deflist style="narrow" sorted="asc">
+                <def title="First Term">
+                    This is the definition of the first term.
+                </def>
+                <def title="Second Term">
+                    This is the definition of the second term.
+                </def>
+            </deflist>
+        </tab>
+    </tabs>
+    <p>Enhance the deflist by placing the following attributes in the curly brackets before the block:</p>
+    <include from="Definition_lists.topic" element-id="deflist-attributes" use-filter="!semantic"/>
+</topic>

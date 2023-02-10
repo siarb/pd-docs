@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="Admonition blocks" id="Admonition-blocks">
+
+        <p id="admonitions">Tip, note, and warning are formatted text blocks used to highlight important information, warn users, or provide tips.
+            They are colored and have an icon to the left according to the block type.
+        </p>
+        <p>You can use text, lists, and visual elements inside them.</p>
+
+        <p>In Markdown, the quote markup is rendered as a tip by default.
+            But you can alter it using the <code>style</code>
+            attribute placed in the curly brackets after the block.</p>
+
+    <chapter title="Tip" id="tip">
+        <p>Use <code>&lt;tip&gt;</code> blocks to provide optional information or give an advice.</p>
+        <tip>
+            <p>
+                A piece of advice.
+            </p>
+        </tip>
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="Semantic markup">
+                <code-block lang="XML">
+                    <![CDATA[
+                                <tip>
+                                    <p>
+                                        A piece of advice.
+                                    </p>
+                                </tip>
+                                ]]>
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="Markdown">
+                <code-block>
+                    > A piece
+                    > of advice
+                </code-block>
+            </tab>
+        </tabs>
+
+    </chapter>
+    <chapter title="Note" id="note">
+        <p>Use a <code>&lt;note&gt;</code> for important information that you want to highlight.</p>
+        <note>
+        <p>
+            Just FYI.
+        </p>
+        </note>
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="Semantic markup">
+                <code-block lang="XML">
+                    <![CDATA[
+                                <note>
+                                    <p>
+                                        Just FYI.
+                                    </p>
+                                </note>
+                                ]]>
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="Markdown">
+                <code-block>
+                    > Just FYI.
+                    >
+                    {style="note"}
+                </code-block>
+            </tab>
+        </tabs>
+    </chapter>
+    <chapter title="Warning" id="warning">
+        <p>
+            Use a <code>&lt;warning&gt;</code> for critical information.
+        </p>
+        <warning>
+            <p>
+                You shall not pass.
+            </p>
+        </warning>
+        <tabs group="markup">
+            <tab title="Semantic markup" group-key="Semantic markup">
+                <code-block lang="XML">
+                    <![CDATA[
+                                <warning>
+                                    <p>
+                                        You shall not pass.
+                                    </p>
+                                </warning>
+                                ]]>
+                </code-block>
+            </tab>
+            <tab title="Markdown" group-key="Markdown">
+                <code-block>
+                    > You shall
+                    > not pass
+                    >
+                    {style="warning"}
+                </code-block>
+            </tab>
+        </tabs>
+    </chapter>
+</topic>

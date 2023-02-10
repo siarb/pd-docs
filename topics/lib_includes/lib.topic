@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="lib"
+       id="lib"
+       is-library="true">
+
+    <snippet id="manage-scopes-2">
+        <chapter title="Manage scopes">
+            <p> Sometimes in the results, you can see many links, but most of them are for other instances.
+                You can apply <control>Find usages</control> action only to specific instances by limiting scopes.</p>
+            <procedure>
+                <step>
+                    Press <shortcut key="FindUsages"/> to open the <control>Find Usages</control> dialog.
+                </step>
+                <step>Click <img style="inline" src="icon_gearPlain.png" alt="Settings icon"/> on the toolbar.</step>
+                <step>
+                    In the <control>Scope</control> field, select a scope for your search.
+                    <img src="Find_usages_scopes.png" alt="Find usages"/>
+                </step>
+                <step>
+                    You can limit scope only to topics and libraries included in the current or not in the current instance.
+                </step>
+            </procedure>
+        </chapter>
+    </snippet>
+
+    <snippet id="import-md-files">
+        <procedure>
+            <step>Copy your existing <path>.md</path> files into the project's <path>/topics</path> folder.</step>
+            <step>A top-level heading (#) will be considered a topic's title. Do not use it more than once per topic.</step>
+            <step>In the %product% tool window, click <img src="icon_add.png" width="14" alt="Add"/>
+                or press <shortcut key="NewElement"/>.</step>
+            <step>Select <control>Link Topic Files to TOC...</control>, choose file you want to add to the tree.
+            </step>
+            <step>If you have images in your <path>.md</path> files, open the <control>Project</control> view and put them into the <path>/images</path> folder.</step>
+        </procedure>
+    </snippet>
+
+    <snippet id="create-a-section">
+    <procedure title="Create switchable content">
+        <step>
+            <p>
+                Add the <code>switcher-key</code> attribute to the elements that should appear
+                when the user selects a certain switcher on top of the page.
+            </p>
+            <note><p>We do not support using an <code>if</code> element with the <code>switcher-key</code>,
+                because there is no way to wrap multiple elements and switch them in the output.</p></note>
+        </step>
+        <step>
+            <p>
+                (Optional) Add the <code>switcher-label</code> attribute to the <code>topic</code> tag
+                if there is an entity that sections describe. For example, operating system, programming language,
+                technology and so on.
+            </p>
+        </step>
+    </procedure>
+    </snippet>
+
+    <snippet id="install-plugin">
+
+    </snippet>
+
+    <snippet id="download-plugin">
+        <procedure>
+            <step>
+                <p>Go to the plugin page at plugins.jetbrains.com.</p>
+            </step>
+            <step>
+                <p>Click <control>Get</control> and download a ZIP archive.</p>
+            </step>
+            <step>
+                Open <ui-path>Settings/Preferences | Plugins</ui-path>.
+            </step>
+            <step>
+                Click <img src="icon_gearPlain.png" alt="Settings" width="16"/> button in the top-right corner and then select <control>Install Plugin from Disk…</control>.
+            </step>
+            <step>
+                Select the archive and click OK.
+            </step>
+        </procedure>
+    </snippet>
+
+    <snippet id="create-instance">
+        <procedure>
+            <step>In the %product% tool window, click
+                <img src="icon_add.png" width="16" alt="Add"/>
+                or press
+                <shortcut key="NewElement"/> and choose <control>New Instance</control>.
+                <img src="create-new-module.png" width="480" alt="Create instance toolbar" border-effect="line" filter="mod"/>
+            </step>
+            <step><p>Specify instance name. Instance ID will be filled with its first letter, you can override it.</p>
+            <note>
+                We recommend using a meaningful ID that resembles the instance name.
+                This ID will be used in the project’s configuration files, when filtering reusable pieces of content,
+                and it will also be the name of the <code>.tree</code> file.
+            </note>
+            </step>
+            <step>(Optional) Specify a <code>web path</code> an instance help will be available by and <code>version</code> if you plan to maintain a few versions.</step>
+            <step>(Optional) Deselect the <control>Allow search engine indexing</control> option if you don't want your content indexed by external search engines.
+                <img src="create-instance-2.png" width="480" alt="Fill the form for a new instance" border-effect="rounded"/>
+            </step>
+            <step>Click OK.</step>
+            <p>A new instance will appear in the toolbar with the ID in parentheses,
+                a new record in a <path>project.ihp</path> file will appear, and a new <path>.tree</path> file will be created. </p>
+        </procedure>
+    </snippet>
+
+    <snippet id="create-library">
+        <step>In the %product% tool window, click
+            <img src="icon_add.png" width="14" alt="Add"/>
+            or press
+            <shortcut key="NewElement"/>.
+            <img src="create-new-module.png" width="480" alt="Instance toolbar" border-effect="line" filter="mod"/>
+        </step>
+        <step>Select <control>New Library</control>.</step>
+        <step>Specify a library name and ID.
+            <img alt="Create a library" src="create-toc-lib.png" border-effect="rounded"/>
+        </step>
+        <step>Click OK.</step>
+    </snippet>
+
+    <snippet id="open_settings">
+        <procedure title="Change the IDE theme to check how docs look in the dark mode">
+            <step>In the <control>Settings/Preferences</control> dialog
+                (<shortcut from-keymap-of="ij" key="ShowSettings"/>), select <control>Appearance &amp; Behavior | Appearance</control>.</step>
+            <step>Select the UI theme from the <control>Theme</control> list.</step>
+        </procedure>
+    </snippet>
+
+    <snippet id="open-preview">
+        In the main menu open <ui-path>View | Tool Windows | Writerside Preview</ui-path>
+    </snippet>
+
+    <snippet id="place-redirects">
+        <procedure>
+            <step>
+                <p>
+                    Open the <path>.tree</path> and locate the <code>toc-element</code> that should
+                    serve as the new target for a removed topic or that references a file whose ID has been changed.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Add the <code>accepts-web-file-names</code> attribute to this <code>toc-element</code> and specify
+                    the HTML filename of the removed/renamed topic as its value like in the example below:
+                </p>
+                <code-block lang="XML">
+                    <![CDATA[
+                    <toc-element topic="Manage_TOC.topic" accepts-web-file-names="Old_topic.html"/>
+                    ]]>
+                </code-block>
+                <p>
+                    If you want this <code>toc-element</code> to serve as a target for several removed topics,
+                    you can add multiple HTML file names separated by commas, or manually create a redirection rule
+                    and reference it from the <path>.tree</path> file to avoid cluttering it with a long list of web file names.
+                </p>
+            </step>
+        </procedure>
+    </snippet>
+    <snippet id="code-include-src">
+        <procedure>
+            <p>To include the code example from another file in the repository:</p>
+            <step>Specify the name of the directory where you will place the code files in the <code>snippets</code> attribute of the <code>project.ihp</code> file.
+                <code-block><![CDATA[
+                 <snippets src="directoryName"/>
+            ]]></code-block>
+            </step>
+            <step>Use the <code>src</code> attribute to specify the filename.
+                <code-block><![CDATA[
+                    ```kotlin
+                    ```
+                    {src="newTest.kt"}
+            ]]></code-block>
+            </step>
+            <step><p>(Optionally) Use the <code>include-lines</code> attribute to specify
+                a line range or a comma-separated list of lines to include.</p>
+                <note>Mind that, a repository with code can be edited without notifying you, so use this feature responsibly
+                    and consider using the <code>validate="true"</code> attribute with it to ensure the code block is valid. </note>
+            </step>
+            <step><p>(Optionally) Use the <code>include-symbol</code> attribute to specify a specific code construct,
+                like, method or class, to include.</p>
+            </step>
+        </procedure>
+        <p>Check the markup examples below.</p>
+        <compare first-title="Markup" second-title="Result">
+        <code-block lang="plain text">
+                        ```kotlin
+                        ```
+                        {src="newTest.kt" include-lines="2-4"}
+                    </code-block>
+
+                    <code-block lang="kotlin" src="newTest.kt" include-lines="2-4"/>
+        </compare>
+        <compare first-title="Markup" second-title="Result">
+
+        <code-block lang="plain text">
+                        ```kotlin
+                        ```
+                        {src="newTest.kt" include-symbol="testSum"}
+                    </code-block>
+                    <code-block src="newTest.kt" lang="kotlin" include-symbol="testSum"/>
+        </compare>
+    </snippet>
+    <snippet id="select-title">
+        <p>In the <control>New Topic</control> dialog, specify the topic title and the file name (you can change the
+            title later if needed, see <a href="Changing_topic_title.topic"/>).
+        </p>
+        <p>
+            %product% uses the filename to automatically generate the <emphasis>topic ID</emphasis>, so it
+            must be unique within your project and meaningful so that you can easily reference it from other topics.
+        </p>
+    </snippet>
+    <snippet id="shortcuts-reference-by-id">
+            <step filter="how-to">Place <path>keymap.xml</path> with the following structure in the project root.
+                <code-block ignore-vars="true" lang="xml">
+                    <![CDATA[
+                <?xml version="1.0" encoding="UTF-8"?>
+                <Keymap id="instance_id">
+                    <Action id="$Copy">
+                        <Description>Copy</Description>
+                        <Shortcut layout="primary_Windows">Ctrl+C</Shortcut>
+                        <Shortcut layout="primary_macOS">Meta+C</Shortcut>
+                    </Action>
+                </Keymap>
+                ]]>
+                </code-block>
+            </step>
+            <step filter="tutorial">
+                <p>Place <path>keymap.xml</path> with the shortcuts  for actions your plugin uses in the project root.</p>
+                <code-block lang="xml">
+                    <![CDATA[
+                      <?xml version="1.0" encoding="UTF-8"?>
+                        <Keymap id="instance_id">
+                            <Action id="$Uncomment">
+                                <Description>Uncomment or remove column mapping</Description>
+                                    <Shortcut layout="primary_Win/Linux">Ctrl+B</Shortcut>
+                                    <Shortcut layout="primary_macOS">⌘+B</Shortcut>
+                            </Action>
+                            <Action id="$Generate">
+                                <Description>Generate Menu</Description>
+                                    <Shortcut layout="primary_Win/Linux">Alt+Insert</Shortcut>
+                                    <Shortcut layout="primary_macOS">⌘+N</Shortcut>
+                            </Action>
+                            <Action id="$Configure">
+                            <Description>Configure classes</Description>
+                                    <Shortcut layout="primary_Win/Linux">Alt+Enter</Shortcut>
+                                    <Shortcut layout="primary_macOS">⌥+⏎</Shortcut>
+                            </Action>
+                        </Keymap>
+                    ]]>
+                </code-block>
+            </step>
+            <step><p>Place the <path>platforms.xml</path> file in the <path>/cfg</path> directory.</p>
+                <p>In the <code>id</code> attribute of the <code>platform</code> element specify <code>primary</code> or <code>secondary</code>.</p>
+                <p>In the <code>use-keymaps</code> element specify which keymaps can user select from in the picker on top of the page.
+                    All values should start with either <code>primary_</code> or <code>secondary_</code> prefix.
+                    The prefix won't be displayed to a user.</p>
+                <p>In the <code>src</code> tag specify the keymap filename.</p>
+                <code-block filter="how-to" lang="xml" ignore-vars="true">
+                    <![CDATA[
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <platforms>
+                        <platform id="primary">
+                            <use-keymaps>
+                                primary_Windows
+                            </use-keymaps>
+                            <use-keymaps>
+                                primary_macOS
+                            </use-keymaps>
+                            <src>keymap.xml</src>
+                        </platform>
+                    </platforms>
+                ]]>
+                </code-block>
+                <code-block filter="tutorial" lang="xml" ignore-vars="true">
+                    <![CDATA[
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <platforms>
+                        <platform id="primary">
+                            <src>keymap.xml</src>
+                            <use-keymaps>
+                                primary_Win-Linux
+                            </use-keymaps>
+                            <use-keymaps>
+                                primary_macOS
+                            </use-keymaps>
+                        </platform>
+                    </platforms>
+                ]]>
+                </code-block>
+            </step>
+    </snippet>
+    <snippet id="safe-check-remove">
+        <procedure title="Check all topic usages and remove or replace links" id="check-usages">
+            <step>
+                <p>In the topic file step on the topic's id and press
+                    <shortcut key="FindUsages"/>.</p>
+                <img src="step_on_topic_id.png" width="296" alt="Topic with id selected" border-effect="line"/>
+                <p>You will see the usages of the selected topic file. Take care to
+                    remove or
+                    replace these links. If the topic is shared and you only remove it from one TOC, put links under a
+                    <a href="Conditional_content.topic">filter</a>.
+                </p>
+                <img src="topic-usages.png" width="706" alt="Usages of a topic"/>
+            </step>
+            <step>
+                If the <code>toc-element</code> has an <code>include-id</code>, repeat the search for
+                its usages and take care of them as well.
+            </step>
+        </procedure>
+    </snippet>
+
+    <snippet id="create-topic-from-template">
+        <procedure>
+            <step>
+                <p>
+                    In the TOC area of the <control>%product%</control> tool window, select the folder
+                    to which you want to add the new topic and click
+                    <img src="icon_add.png" width="14" alt="Add"/> on the toolbar
+                    or press <shortcut key="NewElement"/>.
+                </p>
+            </step>
+            <step>
+                <p>
+                Click <control>Topic from Template</control> and choose from a built-in template for different types of topics:
+                <control>How-to</control>, <control>Overview</control>, <control>Reference</control>,
+                and <control>Tutorial</control>, or <control>Section starting page</control>.
+                </p>
+                <tip>
+                    <p>
+                        You can configure your own custom templates based on the predefined ones or tailored to the types of articles
+                        you often write. <!--TODO See TBD for details-->
+                    </p>
+                </tip>
+            </step>
+            <step>
+                <include from="lib.topic" element-id="select-title"/>
+            </step>
+        </procedure>
+        <p>
+            The newly created topic will appear in the TOC view and will open in the editor.
+        </p>
+        <p>
+            Start editing the template and building content — the original template will not be affected.
+        </p>
+    </snippet>
+
+    <snippet id="generic-warning-2">
+
+    > This version support ended on January 14, 2022. Download the latest version.
+    >
+    {style="warning"}
+
+    </snippet>
+    <snippet id="specify-the-params-for-search">
+        <p>Specify the following parameters in the <path>cfg/buildprofiles.xml</path> file in your project:</p>
+    </snippet>
+    <snippet id="add_docs_to_dev_project">
+            <step>
+                <p>
+                    In the <control>Writerside</control> tool window, click <img src="icon_add.png" width="16" alt="Add"/>
+                    and choose <control>New Instance</control>:
+                </p>
+                <img src="add_new_instance.png" alt="add_new_instance" width="460" border-effect="line"/>
+            </step>
+            <step>
+                <p>
+                    Specify instance name and click <control>OK</control>.
+                </p>
+            </step>
+    </snippet>
+    <snippet id="github-actions">
+        <step>
+            Create the file <path>.github/workflows/deploy.yml</path> file in your project with the following workflow configuration:
+            <code-block lang="yaml" filter="build">
+                name: Build docs
+
+                on:
+                # To trigger the workflow once you push to the `main` branch
+                # Replace `main` with your branch’s name
+                    push:
+                        branches: ["main"]
+
+                #To run the workflow manually from the Actions tab on GitHub.
+                    workflow_dispatch:
+
+                env:
+                    PRODUCT: name_of_module/instance_id
+                    ARTIFACT: webHelpXX2-all.zip
+
+                jobs:
+                    build-job:
+                        runs-on: ubuntu-latest
+                        steps:
+                            - name: Checkout repository
+                              uses: actions/checkout@v3
+                            - name: Build Writerside docs using Docker
+                              uses: JetBrains/writerside-github-action@v2
+                            - name: Upload artifact
+                              uses: actions/upload-artifact@v3
+                              with:
+                                name: help
+                                path: artifacts/${{ env.ARTIFACT }}
+                                retention-days: 7
+            </code-block>
+            <code-block lang="yaml" filter="build-and-publish">
+                name: Build docs
+
+                on:
+                # If specified, the workflow will be triggered automatically
+                # once you push to the `main` branch.
+                # Replace `main` with your branch’s name
+                    push:
+                        branches: ["main"]
+                # Specify to run a workflow manually from the Actions tab on GitHub.
+                    workflow_dispatch:
+
+                # Gives the workflow permissions to clone the repo and create a page deployment
+                permissions:
+                    id-token: write
+                    pages: write
+
+                env:
+                    PRODUCT: name_of_module/instance_id
+                    ARTIFACT: webHelpXX2-all.zip
+
+                jobs:
+                    build-job:
+                    runs-on: ubuntu-latest
+                    steps:
+                    - name: Checkout repository
+                      uses: actions/checkout@v3
+                    - name: Build Writerside docs using Docker
+                      uses: JetBrains/writerside-github-action@v2
+                    - name: Upload artifact
+                      uses: actions/upload-artifact@v3
+                      with:
+                        name: help
+                        path: artifacts/${{ env.ARTIFACT }}
+                        retention-days: 7
+
+                deploy:
+                    environment:
+                        name: github-pages
+                        url: ${{ steps.deployment.outputs.page_url }}
+                # Requires the build-job results
+                    needs: build-job
+                    runs-on: ubuntu-latest
+                    steps:
+                        - name: Download artifact
+                          uses: actions/download-artifact@v3
+                          with:
+                            name: help
+                        - name: Unzip artifact
+                          uses: montudor/action-zip@v1
+                          with:
+                            args: unzip -qq ${{ env.ARTIFACT }} -d dir
+                        - name: Setup Pages
+                          uses: actions/configure-pages@v2
+                        - name: Upload artifact
+                          uses: actions/upload-pages-artifact@v1
+                          with:
+                            path: dir
+                        - name: Deploy to GitHub Pages
+                          id: deployment
+                          uses: actions/deploy-pages@v1
+            </code-block>
+        </step>
+        <include from="lib.topic" element-id="env-variables-ci-cd"/>
+        <step>
+            Commit the new workflow file and push it to GitHub. To find the built artifact, go to the <control>Actions</control> tab,
+            click the particular workflow run, and scroll down to the <control>Artifacts</control> section.
+        </step>
+    </snippet>
+    <snippet id="env-variables-ci-cd">
+        <step>
+            <p>Set the correct values for the following environment variables:</p>
+            <deflist style="narrow">
+                <def title="ARTIFACT">
+                    <p>The name of the produced archive is <path>webHelpXX2-all.zip</path>, where XX is the ID of the help instance in capital letters.</p>
+
+                    <p>
+                        For example, if the help instance is <emphasis>Foo Help</emphasis>, and its ID is <code>fh</code>,
+                        then set <code>ARTIFACT: webHelpFH2-all.zip</code>
+                    </p>
+                </def>
+                <def title="PRODUCT">
+                    <p>The name of the help module and help instance ID separated by a slash.</p>
+
+                    <p>
+                        When you create a new Writerside project or a help instance in an existing project,
+                        the default help module name is <code>Writerside</code>
+                        and the default instance id is <code>hi</code>. So, in this case, set
+                        <code>PRODUCT: Writerside/hi</code>.
+                    </p>
+                </def>
+            </deflist>
+        </step>
+    </snippet>
+    </topic>

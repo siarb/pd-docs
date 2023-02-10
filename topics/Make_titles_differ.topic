@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Make titles differ"
+       id="Make_titles_differ">
+
+    <p>If you use a topic in several instances help,
+        you can change topic, chapter, and procedures titles depending on the output.</p>
+    <chapter id="variables-in-title" title="Use variables to change the topic title">
+    <procedure>
+        <step>
+            <p>Add a variable in <path>v.list</path> file and specify different values for each instance.</p>
+            <code-block lang="XML">
+                <![CDATA[
+                <var name="Settings_page_name" instance="web"
+                     value="Setting up on the web"/>
+                <var name="Settings_page_name" instance="mob"
+                     value="Setting up on mobile"/>
+                ]]>
+                </code-block>
+        </step>
+        <step>Use it in the <code>title</code> attribute of the <code>topic</code> element.
+            <code-block lang="XML" ignore-vars="true">
+                <![CDATA[
+                <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/stardust/topic.v2.xsd"
+                   id="Setting_up_web" title="%Settings_page_name%">
+                ]]>
+                </code-block>
+        </step>
+    </procedure>
+    </chapter>
+
+    <chapter id="filters-in-title" title="Use filters or variables to change the chapter title">
+    <procedure style="choices">
+        <p>If you reuse a chapter or a procedure,
+            you can adjust its title using filters or variables. </p>
+        <step>
+            <p>Use the <code>instance</code> variable in the title. </p>
+            <code-block ignore-vars="true" lang="XML">
+                <![CDATA[
+                <snippet id="some-id">
+                  <chapter title="The base title">
+                    <title instance="ab">The custom title</title>
+                    <p>
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.
+                    </p>
+                </chapter>
+                </snippet>
+                ]]>
+                </code-block>
+            <p>In this case for all instances the title will be <emphasis>The base title</emphasis>, while for the <code>ab</code> instance — <emphasis>The custom title</emphasis>.</p>
+        </step>
+        <step>
+            <p>Use a custom <code>title</code> variable inside a snippet and redefine it in the include.</p>
+            <code-block ignore-vars="true" lang="XML">
+                <![CDATA[
+
+                <snippet id="id">
+                    <var name="title" value="An initial title"/>
+                    <chapter title="%title%">
+                     <p>This is a chapter.</p>
+                    </chapter>
+                </snippet>
+
+                <include from="topic-a.topic" element-id="id">
+                    <var name="title" value="A custom title"/>
+                </include>
+                ]]>
+            </code-block>
+        </step>
+        <step>
+            <p>Use the <code>filter</code> attribute in the title. </p>
+            <code-block ignore-vars="true" lang="XML">
+                <![CDATA[
+            <snippet id="connections_to_dbs">
+            <procedure>
+            <title filter="mysql">
+                Connection to MySQL
+            </title>
+            <title filter="postgres">
+                Connection to PostgreSQL
+            </title>
+            </procedure>
+            </snippet>
+                ]]>
+            </code-block>
+        </step>
+    </procedure>
+    </chapter>
+</topic>

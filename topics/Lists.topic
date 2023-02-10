@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Lists"
+       id="Lists">
+
+    <p>You can organize items into ordered and unordered lists to make a list of items, for example, menu options, supported features,
+        or numbered elements in a screenshot.
+    </p>
+    <tip>To document a sequence of actions, use a <a href="Structural_elements.topic" anchor="procedure-block">procedure</a> element.</tip>
+    <p>In Markdown to create an ordered list, add items with numbers followed by periods. To create an unordered list, add dashes (-), asterisks (*), or plus signs (+) in front of items.
+        Indent items to create a nested list.</p>
+    <code-block lang="plain text">
+        1. First item
+        2. Second item
+        3. Third item
+        4. Fourth item
+
+        - First item
+        - Second item
+        - Third item
+            - Indented item
+            - Indented item
+        - Fourth item
+    </code-block>
+    <p>If you need more capabilities, like, add sorting, start from a specific item, or in the <path>.topic</path> files,
+        use a <code>&lt;list&gt;</code> tag.</p>
+    <p>Use <code>&lt;li&gt;</code> tag to specify list items.</p>
+    <p>The list has the following attributes:</p>
+    <deflist>
+        <def title="style=[bullet|decimal|alpha-lower|none]">
+            <p>Specify the list type.</p>
+            <tabs>
+                <tab title="bullet (default)">
+                    <p>Mark list items with bullets when the order is not important.</p>
+
+                    <list style="bullet">
+                        <li>Some list item</li>
+                        <li>Another list item</li>
+                        <li>Yet another list item</li>
+                    </list>
+                </tab>
+
+                <tab title="decimal">
+                    <p>
+                        Mark list items with decimal digits (1, 2, 3, and so on)
+                        when the order or number of items is important.
+                    </p>
+
+                    <list style="decimal">
+                        <li>First list item</li>
+                        <li>Second list item</li>
+                        <li>Third list item</li>
+                    </list>
+                </tab>
+
+                <tab title="alpha-lower">
+                    <p>Mark list items with letters (a, b, c, and so on).
+                        For example, if you need another sub-level for the nested list</p>
+                    <list style="alpha-lower">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                    </list>
+                </tab>
+
+                <tab title="none">
+                    <p>Do not render any markers for list items.</p>
+
+                    <list style="none">
+                        <li>Some list item</li>
+                        <li>Another list item</li>
+                        <li>One more list item</li>
+                    </list>
+                </tab>
+            </tabs>
+        </def>
+        <def title="start">
+            Specify the starting position for a numbered list.
+        </def>
+        <def title="columns">
+            Use to render the list items in multiple columns (make a horizontal list).
+            Specify the number from 2 to 5.
+        </def>
+        <def title="sorted">
+            Specify the sorting order for alphabetical and numeral lists.
+        </def>
+        <def title="switcher-key">
+            Use to make elements switchable depending on the <a href="Switchable_content.topic">selected key</a>.
+        </def>
+    </deflist>
+</topic>

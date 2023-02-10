@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Tables"
+       id="Tables">
+
+    <p>In Markdown to add a table, use a few hyphens (---) to mark each column's header,
+        and pipes (|) to separate each column.</p>
+    <code-block>
+        | Syntax      | Description |
+        | ----------- | ----------- |
+        | Header      | Title       |
+        | Paragraph   | Text        |
+    </code-block>
+    <p>You can format the text within Markdown tables. For example, you can add links, inline code, emphasis.
+        You can't use headings, lists, or images.</p>
+    <p>If you need a more complex table, for example, with merged cells or with list inside a cell, use a <code>&lt;table&gt;</code> tag.
+        A table consists of <code>&lt;tr&gt;</code> elements for rows and <code>&lt;td&gt;</code> elements for cells.</p>
+    <p>The <code>&lt;table&gt;</code> has the following attributes:</p>
+    <deflist>
+    <def title="style=[header-row|header-column|both|none]">
+        <p>Define the table header appearance.
+        The header is an element used to label each column,  the text inside it is marked bold.</p>
+        <tabs group="table">
+            <tab title="header-row" group-key="row">
+                <table>
+                    <tr>
+                        <td>
+                            Heading 1
+                        </td>
+                        <td>
+                            Heading 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                    </tr>
+                </table>
+            </tab>
+            <tab title="header-column" group-key="column">
+                <table style="header-column">
+                    <tr>
+                        <td>
+                            Heading 1
+                        </td>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                        </tr>
+                    <tr>
+                        <td>
+                            Heading 2
+                        </td>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                    </tr>
+                </table>
+            </tab>
+            <tab title="both" group-key="both">
+                <table style="both">
+                    <tr>
+                        <td>
+                            Heading 1
+                        </td>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Option 1
+                        </td>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                    </tr>
+                </table>
+            </tab>
+            <tab title="none" group-key="none">
+                <table style="none">
+                    <tr>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                    </tr>
+                </table>
+            </tab>
+        </tabs>
+        <tabs group="table">
+            <tab title="header-row" group-key="row">
+                <code-block lang="XML">
+                    <![CDATA[
+                    <table>
+                        <tr>
+                            <td>
+                                Heading 1
+                            </td>
+                            <td>
+                                Heading 2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Lorem ipsum dolor sit amet.
+                            </td>
+                            <td>
+                                Consectetur adipiscing elit.
+                            </td>
+                        </tr>
+                    </table>
+                    ]]>
+                </code-block>
+            </tab>
+            <tab title="header-column" group-key="column">
+                <code-block lang="XML">
+                    <![CDATA[
+                    <table style="header-column">
+                    <tr>
+                        <td>
+                            Heading 1
+                        </td>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </tr>
+                    <tr>
+                        <td>
+                            Heading 2
+                        </td>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                    </tr>
+                </table>
+                    ]]>
+                </code-block>
+            </tab>
+            <tab title="both" group-key="both">
+                <code-block lang="XML">
+                    <![CDATA[
+                    <table style="both">
+                    <tr>
+                        <td>
+                            Heading 1
+                        </td>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Option 1
+                        </td>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                    </tr>
+                </table>
+                    ]]>
+                </code-block>
+            </tab>
+            <tab title="none" group-key="none">
+                <code-block lang="XML">
+                    <![CDATA[
+                    <table style="none">
+                    <tr>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Lorem ipsum dolor sit amet.
+                        </td>
+                        <td>
+                            Consectetur adipiscing elit.
+                        </td>
+                    </tr>
+                </table>
+                    ]]>
+                </code-block>
+            </tab>
+        </tabs>
+    </def>
+    </deflist>
+    <p>The table cell (<code>td</code> tag) has the following attributes:</p>
+    <deflist>
+        <def title="colspan">
+            Define the number of columns a cell should span.
+        </def>
+        <def title="rowspan">
+            Specify the number of rows a cell should span.
+        </def>
+        <def title="sorted">
+            <p><code>[asc|none|desc]</code> Sort the column data.</p>
+        </def>
+        <def title="width">
+            Set the column width in pixels or percent.
+        </def>
+    </deflist>
+</topic>

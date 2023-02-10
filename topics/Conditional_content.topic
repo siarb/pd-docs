@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Conditional content"
+       id="Conditional_content">
+
+    <p>Conditional content means you can include or exclude content depending on certain conditions. For example:</p>
+        <list style="bullet">
+            <li>Audience level</li>
+            <li>Product</li>
+            <li>Version</li>
+            <li>Platform or operation system</li>
+            <li>Output type</li>
+        </list>
+    <p>
+    In %product%, you can use filters to specify whether a specific element, like a paragraph, a code snippet,
+        or a screenshot should or should not be included in a particular version of the documentation.
+        All elements without the <code>filter</code> attribute are included implicitly.
+    </p>
+    <procedure title="Filter by instance" id="filter-by-instance">
+        <step>
+            <p>
+                If you want to filter the content by the instance,
+                add the <code>instance</code> attribute to the tag and specify the instance IDs where the content should be displayed.
+                To exclude the element from a particular instance help, add <code>!</code> with an instance ID.
+                You can add the <code>if</code> tag to select specific portions of content that do not match tags.
+            </p>
+            <code-block lang="XML">
+                    <!--@formatter:off-->
+                    <![CDATA[
+                        <p>
+                            Place the caret at the desired symbol and press
+                            <shortcut key="GoTo"/>.
+                        </p>
+                        <p product="ab,cd">
+                            Alternatively, keeping
+                            <for product="!ab">
+                                <shortcut>Ctrl</shortcut>
+                                (<shortcut>⌘</shortcut> for macOS)
+                            </for>
+                            <for product="cd">
+                                <shortcut>⌘</shortcut>
+                            </for>
+                            pressed, hover your mouse pointer
+                            over the symbol.
+                        </p>
+                        ]]>
+                    <!--@formatter:on-->
+            </code-block>
+        </step>
+    </procedure>
+
+    <procedure title="Filter by custom conditions" id="filter-by-content">
+        <p>You can filter the content by other custom conditions.</p>
+        <p>For example, if you have content that is only relevant to
+            macOS users, you could set a filter with the OS name.</p>
+        <p>
+        Then include the content if you are publishing a Mac user
+            guide or exclude it if you are publishing a Windows user guide.
+        </p>
+
+        <step>
+            Add the <code>filter</code> attribute with
+            the value <code>macos</code> to the content elements to filter the whole element.
+            <code-block lang="XML" noinject="true">
+                        <![CDATA[
+                <procedure title="Setting up" id="settings">
+                    <step filter="macos">Step one</step>
+                    <step filter="win">Step two</step>
+                </procedure>
+                ]]>
+            </code-block>
+        </step>
+        <step>Or wrap the content fragment to the <code>if</code> element to filter a part of the content.
+            <code-block lang="XML" noinject="true">
+                <![CDATA[
+                <li>
+                    Start typing to filter results.
+                    <if filter="mac">
+                        If necessary, press
+                        <shortcut>⌘+F</shortcut>
+                        to clear the filtering.
+                    </if>
+                    <if filter="win">
+                        If necessary, press
+                        <shortcut>Ctrl+F</shortcut>
+                        to clear the filtering.
+                    </if>
+                </li>
+                ]]>
+            </code-block>
+        </step>
+    </procedure>
+    <procedure title="Filter reusable content" id="filter-in-reuse">
+        <step>
+            <p>To include only certain parts of the original topic, use the <code>include</code> tag with
+                the <code>use-filter</code> attribute in your topic.</p>
+            <code-block lang="xml"><![CDATA[
+                <include from="lib_settings.xml" element-id="prerequisites" use-filter="macos">
+                ]]>
+            </code-block>
+        </step>
+        <step>
+            Or add the <code>include</code> element to
+            the <path>.tree</path> file of your product with the <code>use-filter</code> attribute.
+            <code-block lang="xml"> <![CDATA[
+                <include from = "toc_chunks"
+                         target = "settings"
+                         use-filter = "linux"/>
+                ]]>
+            </code-block>
+        </step>
+    </procedure>
+</topic>

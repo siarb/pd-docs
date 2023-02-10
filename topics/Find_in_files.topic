@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Find and replace an element in files"
+       id="Find_in_files">
+
+    <p>Sometimes an interface or solution you describe changes, and
+        you need to rename some feature, field, or button through the whole help instance.</p>
+    <p>You can search for a specific string within a project, apply scopes to limit the search area, and exclude items from the search
+        using <control>Find in Files</control> function.</p>
+    <chapter title="Find the string usages in the project" id="find-option">
+        <procedure>
+        <step>
+            From the main menu, select
+            <ui-path>Edit | Find | Find in Files</ui-path> or press
+            <shortcut from-keymap-of="ij" key="FindInPath"/>
+        </step>
+            <step>
+            Type what you search for.
+        </step>
+            <step>
+                To limit the scope on the <control>Scope</control> tab, in the list select
+                either Only topics included in the current product, Only topics not included in the current product,
+                or Only topics included in the current product and libraries.
+                <img src="Find_in_files_scopes.png" alt="Find in files with scopes"/>
+            </step>
+        </procedure>
+    </chapter>
+    <chapter title="Replace the string usages in a project" id="replace-option">
+        <procedure>
+            <step>In the editor, highlight the string
+                you want to find and replace.</step>
+            <step>Press <shortcut key="ReplaceInPath"/>
+                to open the <control>Replace in Path</control> dialog. The highlighted line will appear in the top field.</step>
+            <step>In the bottom field, type what you want to replace it for.</step>
+            <step>Click <control>Replace</control> button
+                to make replacements one by one, or <control>Replace all</control> to replace all found items.</step>
+            <step>To exclude some items, click <img src="preserveCaseHover.png" alt="the Preserve Case icon"/>
+               an icon with two A letters located in
+                the bottom field.</step>
+        </procedure>
+    </chapter>
+    <p>Check more ways to search through the project
+        in <a href="https://www.jetbrains.com/help/idea/finding-and-replacing-text-in-project.html">IntelliJ IDEA help</a>.</p>
+    <!--Give a reference to the custom delete refactoring article when we will have it-->
+</topic>

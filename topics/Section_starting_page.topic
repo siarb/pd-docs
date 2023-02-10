@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Starting pages"
+       id="Section_starting_page">
+
+    <p>
+        Starting pages can be used to create an overview of the section or the whole help instance and navigate a user through it.
+        You can group multiple topics dedicated to a specific subject under such page.</p>
+    <p>
+        They provide design and markup for highlighting the most useful and popular topics of a section or instance.
+    </p>
+    <p>Also, they are a better alternative to <a href="Manage_table_of_contents.topic" anchor="make-a-wrapper">wrapper</a>
+        topics since they are not empty which is good for SEO.</p>
+    <tip>
+        <p>
+           To make a page starting for the whole instance, right click the topic's title in the TOC area of the %product% tool window
+            and select <control>Set as Starting Page</control>.
+            It will appear in the <code>start-page</code> attribute of the instances' <path>.tree</path> file.
+        </p>
+    </tip>
+
+    <p>
+        For consistency reasons, starting pages have a fixed layout. For predefined groups, you can change the
+        amount of cards and their content. You can also add custom card and link groups and adjust their width.
+    </p>
+
+    <procedure title="Create a starting page" id="create-starting-page">
+        <step>
+            <p>
+                To create an empty starting page, <a href="Add_a_topic.topic">create a topic</a> and add
+                the <code>section-starting-page</code> tag as a child of the <code>topic</code> tag.
+            </p>
+            <note>
+                <p>If the <code>section-starting-page</code> tag is present on a page, all other content elements are ignored.</p>
+                <p>All links on a starting page must either point to topics with a summary or have the <a href="Links_and_references.topic" anchor="summary-attr">summary</a> attribute.</p>
+            </note>
+        </step>
+        <step>
+            <p>
+                To create a starting page already filled with all the possible elements, which you can then remove or edit as you want,
+                <a href="Add_a_topic.topic" anchor="create-from-template">start creating a topic from a template</a> and select <control>Section starting page</control> template type.
+            </p>
+        </step>
+    </procedure>
+
+    <chapter title="Starting page structure" id="structure">
+        <p>
+            The <code>section-starting-page</code> content structure can look like this:
+        </p>
+
+        <code-block lang="XML" collapsible="true">
+            <![CDATA[
+            <section-starting-page>
+            <title>Section starting page title</title>
+            <description>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                condimentum feugiat sagittis.
+            </description>
+
+            <spotlight>
+                <a href="Topic1.topic"
+                   description="Sed condimentum feugiat sagittis" type="start"/>
+                   <a href="Topic2.topic"
+                   description="Sed condimentum feugiat sagittis" type="search"/>
+                ...
+            </spotlight>
+
+            <primary>
+                <title>Main group</title>
+                <a href="Topic.topic"
+                   description="Sed condimentum feugiat sagittis"/>
+                ...
+            </primary>
+
+            <secondary>
+                <title>Highlighted group</title>
+                <a href="Topic.topic"
+                   description="Sed condimentum feugiat sagittis"/>
+                ...
+            </secondary>
+
+            <misc>
+                <cards>
+                    <title>Custom cards</title>
+                    <a href="Topic.topic"
+                       description="Sed condimentum feugiat sagittis"/>
+                    ...
+                </cards>
+
+                <links display="wide">
+                    <group>
+                        <title>Custom links</title>
+                        <a href="Topic.topic"
+                           description="Sed condimentum feugiat sagittis"/>
+                        ...
+                    </group>
+                    ...
+                </links>
+            </misc>
+        </section-starting-page>
+        ]]>
+        </code-block>
+        <p><code>primary</code> and <code>secondary</code> groups are mandatory,
+            <code>spotlight</code> and <code>misc</code> are optional.
+            <code>spotlight</code> must contain exactly two links with icons. </p>
+        <p>Since on starting pages a certain structure is expected, we provide you a template containing all the elements, so
+            you can <a href="Add_a_topic.topic" anchor="create-from-template">create a starting page from template</a>, add links to topics and remove everything you don't need.</p>
+    </chapter>
+
+    <chapter title="Groups" id="groups">
+        <p>
+            Links on a starting page have to be divided into groups.
+        </p>
+
+        <p id="spotlight">
+            Use the <code>spotlight</code> tag to highlight the most useful and popular topics of a section.
+            The <code>type</code> attribute defines the card's icon.
+        </p>
+
+        <p id="mandatory-groups">
+            Place other important topics in the <code>primary</code> and <code>secondary</code> groups.
+            These groups are mandatory.
+        </p>
+
+        <p id="misc">
+            If necessary, use the <code>custom-groups</code> section. Follow the procedure below to create a group.
+        </p>
+
+        <procedure title="Add a group" id="add-custom-group">
+            <step>
+                <p>
+                    Under the <code>misc</code> tag, add either <code>cards</code> (to have a few square cards) or <code>links</code> tag (to have a group of links).
+                </p>
+            </step>
+            <step>
+                <p>
+                    Add the <code>title</code> tag or attribute.
+                </p>
+            </step>
+            <step>
+                <p>
+                    Add <a href="Links_and_references.topic" id="a">links</a>
+                    to the group.
+                </p>
+            </step>
+            <step id="display">
+                <p>
+                    (Optional) Change the columns' width.
+                </p>
+                <p>
+                    Add the <code>display</code> attribute and change its value.
+                    By default, there are three columns with a <code>normal</code> display type.
+                    If you need two columns, set the value to <code>wide</code>.
+                </p>
+            </step>
+            <step id="group">
+                <p>
+                    (Optional) If you used <code>links</code> tag,
+                    wrap each link set with the <code>group</code> tag and add a title for each of them.
+                </p>
+            </step>
+        </procedure>
+    </chapter>
+
+</topic>

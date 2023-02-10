@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Inline formatting"
+       id="Inline_formatting">
+    <p>In %product% you can format the text elements by indicating the text style (<code>format</code>)
+        or meaning (<code>control</code>, <code>ui-path</code>, <code>path</code>, <code>shortcut</code>).</p>
+    <chapter title="control" id="control">
+        <p>
+            Use the <code>control</code> tag to refer to UI elements such as buttons, dialogs, checkboxes, and so on.
+        </p>
+
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <![CDATA[
+                        <p>
+                            If the Welcome screen opens, click
+                            <control>
+                                Check out from Version Control
+                            </control>,
+                            then select <control>Git</control>.
+                        </p>
+                        ]]>
+                    </code-block>
+                </td>
+                <td>
+                    <p>
+                        If the Welcome screen opens, click
+                        <control>
+                            Check out from Version Control
+                        </control>,
+                        then select <control>Git</control>.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </chapter>
+
+    <chapter title="emphasis" id="emphasis">
+        <p>
+            Use the <code>emphasis</code> tag when introducing new terms or to draw the user's attention to some words or
+            phrases.
+        </p>
+
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <![CDATA[
+                        <p>
+                            A Writerside
+                            <emphasis>project</emphasis>
+                            consists of a set of documentation topics
+                            and configuration files that define the
+                            project and preview settings, glossaries,
+                            and the documentation structure.
+                        </p>
+                        ]]>
+                    </code-block>
+                </td>
+                <td>
+                    <p>
+                        A Writerside <emphasis>project</emphasis> consists of a set of documentation topics and
+                        configuration files that define the project and preview settings, glossaries, and the
+                        documentation structure.
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </chapter>
+
+    <chapter title="ui-path" id="ui-path">
+        <p>Use the <code>ui-path</code> tag to specify a path to a menu option.
+        </p>
+
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off-->
+                        <![CDATA[
+                        Go to <ui-path>Settings/Preferences | Tools | Writerside</ui-path>.
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    Go to <ui-path>Settings/Preferences | Tools | Writerside</ui-path>.
+                </td>
+            </tr>
+        </table>
+    </chapter>
+
+    <chapter title="path" id="path">
+        <p>
+            Use the <code>path</code> tag for paths to directories and files on your computer or file extensions.
+        </p>
+
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off-->
+                        <![CDATA[
+                        The list of categories is stored
+                        in the <path>c.list</path> file
+                        within the module directory.
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    The list of categories is stored in the <path>c.list</path> file within the module directory.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <![CDATA[
+                        The TOC is stored in the product's
+                        <path>.tree</path> file.
+                        ]]>
+                    </code-block>
+                </td>
+                <td>
+                    The TOC is stored in the product's <path>.tree</path> file.
+                </td>
+            </tr>
+        </table>
+    </chapter>
+    <chapter title="shortcut" id="shortcut">
+    <p>
+        Use the <code>control</code> tag to specify a keyboard shortcut.
+        You can reference the shortcuts by key or specify them directly.
+    </p>
+        <procedure title="Use shortcuts from the configuration file">
+        <include from="lib.topic" element-id="shortcuts-reference-by-id" use-filter="how-to,empty"/>
+        </procedure>
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off--><![CDATA[
+                        <shortcut>Ctrl+C</shortcut>
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    Use <shortcut>Ctrl+C</shortcut> to copy the file.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off--><![CDATA[
+                        <shortcut key="$Copy"/>
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    Use <shortcut key="$Copy"/> to copy the file.
+                </td>
+            </tr>
+        </table>
+    </chapter>
+    <chapter title="format" id="format">
+        <p>Use a <code>format</code> tag to specify the text's visual appearance, like style or color.</p>
+        <p>It has the following attributes:</p>
+        <deflist>
+        <def title="style">
+            <p><code>[bold, italic, strikethrough, underline, superscript, subscript]</code> Specify the text style.</p>
+        </def>
+        <def title="color">
+            <p>Specify the text color name — start typing the color name and select the suitable one from the list.</p>
+        </def>
+        </deflist>
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <!--@formatter:off-->
+                        <![CDATA[
+                        <format style="bold" color="RosyBrown">Hello, world!</format>
+                        ]]>
+                        <!--@formatter:on-->
+                    </code-block>
+                </td>
+                <td>
+                    <format style="bold" color="RosyBrown">Hello, world!</format>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block lang="XML">
+                        <![CDATA[
+                        <format style="subscript" color="Red">Hello, world!</format>
+                        ]]>
+                    </code-block>
+                </td>
+                <td>
+                    <format style="subscript" color="Red">Hello, world!</format>
+                </td>
+            </tr>
+        </table>
+    </chapter>
+</topic>

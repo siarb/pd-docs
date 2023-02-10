@@ -1,0 +1,95 @@
+# "en" in the file name specifies the natural language to be checked, so you can use other ISO codes, e.g. "ru" or "de"
+
+# A subset of "vale" linter syntax is supported: "existence", "substitution" and "sequence" rule types.
+# See https://docs.errata.ai/vale/styles#extension-points for more details.
+
+extends: existence # check for unwanted words or phrases
+message: Don't use '%s' # a message to display in the inspection tooltip when a matching fragment is found
+ignorecase: true
+scope: text.properties # check only in texts (values) in *.properties files
+raw:
+  - please # check single words
+  - or phrases
+  - 'some phrases need to be quoted, e.g. if they contain semicolons or start with quotes/apostrophes'
+---
+extends: substitution
+message: Consider using '%s' instead of '%s'
+# level: warning
+link: https://helpserver.labs.jb.gg/help/stardust/1.0/usage-dictionary.html
+ignorecase: true
+nonword: false
+swap:
+  check[ -]box: checkbox # keys are the regular expressions to find, values are the replacements
+  right-click menu: context menu # you can write the pattern (e.g. "right-click menu") in comments to see how it works
+  click on: click # click on, nothing happens
+  add[ ]?on: add-on # addon is here
+  etc\.: and so on # etc
+  e\.g\.: for example
+  i\.e\.: that is
+  auto[ ]?detection: auto-detection
+  auto[ ]?import: auto-import
+  auto[ ]?insertion: auto-insertion
+  auto[ ]?hide: auto-hide
+  auto[ ]?stash: auto-stash
+  break point: breakpoint
+  bug[ -]fix: bugfix
+  catalogue: catalog  # catalogue is...
+  change[ -]list: changelist  # change-list
+  datum: data  # datum
+  data base: database   # data base
+  dialog(?:ue| box): dialog # dialog box or dialogue that is the question
+  double[ ]?click: double-click
+  double[ ]?check: double-check # double check
+  drag[ -]and[ -]drop: drag
+  text box: field
+  file[ -]name\b: filename # file name is not correct
+  file[ -]names: filenames # file names is not correct
+  filetype: file type
+  hot[ -]fix: hotfix
+  hot[-]?swap: hot swap
+  in-line: inline
+  drop-down (?:list\b|box\b)|list box\b: list   # list box neither
+  drop-down (?:lists\b|boxes\b)|list boxes\b: lists   # list boxes are not correct
+  log-in: login
+  on the menu: from the menu
+  on the main menu: from the main menu
+  on the context menu: from the context menu
+  menu bar: menu
+  name[ -]space: namespace
+  PC: computer
+  plug-in: plugin
+  pop-up: popup
+  depress|punch|strike: press
+  radio button: option
+  rightclick: right-click
+  run-time: runtime
+  shortcut key: shortcut
+  stack[-]?trace: stack trace
+  toolwindow: tool window
+  tool bar: toolbar
+  tool box: toolbox
+  tool tip: tooltip
+  user name: username
+  webpage: web page
+  so doing: in doing so
+  quick[ ]?fix\b: quick-fix # quick fixes allow you to use quick fix in your
+  quick[ ]?fixes: quick-fixes # quick fixes allow you to use quick fix in your
+  place the cursor|position the cursor: position the caret
+  caret (?:on|in): caret at
+  and higher|and above: and later
+  or higher|or above: or later
+  indices: indexes # Interesting — that is very is not correct
+  left gutter: gutter
+  right gutter: scrollbar
+  included into: included in
+  include into: include in
+  —: – # how to make this — work?
+
+---
+extends: substitution
+message: To indicate multiplication, use ×, not the letter x.
+link: https://jetbrains.slack.com/archives/GU54GRQH3/p1649232964837339
+ignorecase: true
+nonword: true
+swap:
+  (?<=[1-9][0-9]*)x(?=[1-9]+): × # 1024x768 replace it with ×

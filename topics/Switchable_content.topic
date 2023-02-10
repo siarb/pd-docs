@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Switchable content"
+       id="Switchable_content">
+
+    <p>
+        To add larger pieces of switchable content to the page, use <code>switcher-key</code> tag.
+        This is an alternative to <a href="Tabs.topic"/>.
+    </p>
+
+    <p>
+        For example, if a feature's description is different for Windows and macOS, you need to provide it for
+        each platform individually in the topic, or if in general documentation is the same,
+        but you need to provide examples in different languages or frameworks.
+    </p>
+
+    <include from="lib.topic" element-id="create-a-section"/>
+
+    <p>
+        Use the switcher at the top of the page to switch chapters in the example below:
+    </p>
+    <img src="sections-switcher.png" width="206" alt="Section switcher"/>
+
+    <table>
+        <tr>
+            <td>Markup</td>
+            <td>Result</td>
+        </tr>
+        <tr>
+            <td>
+                <code-block lang="XML">
+                    <!--@formatter:off-->
+                    <![CDATA[
+                    <chapter title="Section One"
+                             switcher-key="Section One">
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit,
+                        sed do eiusmod tempor
+                        incididunt ut labore et
+                        dolore magna aliqua.
+                    </chapter>
+
+                    <chapter title="Section Two"
+                             switcher-key="Section Two">
+                        Ut enim ad minim veniam,
+                        quis nostrud exercitation
+                        ullamco laboris nisi ut
+                        aliquip ex ea commodo
+                        consequat.
+                    </chapter>
+                    ]]>
+                    <!--@formatter:on-->
+                </code-block>
+            </td>
+            <td>
+                <chapter title="Section One" switcher-key="Section One" hide-from-structure="true">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore
+                    magna aliqua.
+                </chapter>
+
+                <chapter title="Section Two" switcher-key="Section Two" hide-from-structure="true">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                </chapter>
+            </td>
+        </tr>
+    </table>
+
+</topic>

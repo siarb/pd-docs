@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="TL;DR blocks" id="TL-DR-blocks">
+
+    <chapter title="TL;DR" id="tldr">
+        <p>
+            Use the <code>&lt;tldr&gt;</code> tag to introduce important facts or prerequisites about the feature you describe. Place it as
+            the first element of a topic and wrap each fact with the <code>&lt;p&gt;</code> tag.
+        </p>
+
+        <p>There can be only one <code>&lt;tldr&gt;</code> element per page.</p>
+
+        <p>
+            Use <code>&lt;tldr&gt;</code> only for introducing small amounts of information. We don' recommend using more than three elements
+            inside of it.
+        </p>
+
+        <tabs>
+            <tab title="Markup">
+                <code-block lang="XML">
+                    <![CDATA[
+                <tldr>
+                    <p>
+                        Shortcut: <shortcut>Ctrl+Space</shortcut>
+                    </p>
+                    <p>
+                        Configure: <ui-path>Settings / Preferences | Editor | Code Completion</ui-path>
+                    </p>
+                </tldr>
+                ]]>
+                </code-block>
+            </tab>
+            <tab title="Result">
+                <img src="microformat_example.png" alt="Microformat on the page" width="467"/>
+            </tab>
+        </tabs>
+    </chapter>
+</topic>

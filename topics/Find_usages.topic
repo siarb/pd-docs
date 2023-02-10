@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Find usages"
+       id="Find_usages">
+    <p>When you write or edit documents, you might want to change some element, for example,
+        a topic, or even delete it.</p>
+    <p>Before applying such changes, a good practice is to check whether this topic or snippet
+        is referenced or included in other documents.</p>
+    <chapter title="Find usages" id="find-topic-usages">
+        <procedure>
+             <step>
+                   Step on the id in the <code>topic</code> or <code>snippet</code> element.
+             </step>
+            <step>
+             Right-click and select the <control>Find usages</control> option or press <shortcut key="FindUsages"/>.
+            </step>
+            <step>Check the results in the <control>Find</control> tool window.
+                The results will be grouped into Include, Topic, Topic link, and Toc element tree areas.
+                In the <control>Topic link</control> area see all references to a specific topic.
+                In the <control>Toc element</control> area see how a topic is used in a Table of contents.
+                In <control>Include</control> area see where a topic is included.
+            <img src="Find_tool_window.png" alt="Find tools window"/></step>
+            <step>Select an item to display in the <control>Preview</control> area to the right.
+                Here you can check a specific usage or edit it.</step>
+            <step>If too many results are found, click <img src="icon_gearPlain.png" alt="Settings icon" width="16"/>
+                on the toolbar in the <control>Find</control> tool window to <a href="Find_usages.topic" id="manage-scopes">manage scopes</a>.</step>
+    </procedure>
+        <note>If a topic is included in more than one other, consider moving it into the snippets library.</note>
+    </chapter>
+    <!--Need a separate article about scopes to lead from here.-->
+    <chapter title="Manage scopes" id="limit-scopes">
+        <p> Sometimes in the results, you can see many links, but most of them are for other instances.
+            You can apply <control>Find usages</control> action only to specific instances by limiting scopes.</p>
+        <procedure>
+            <step>
+                Press <shortcut key="FindUsages"/> to open the <control>Find Usages</control> dialog.
+            </step>
+            <step>Click <img style="inline" src="icon_gearPlain.png" width="16" alt="Settings icon"/> on the toolbar.</step>
+            <step>
+                In the <control>Scope</control> field, select a scope for your search.
+                <img src="Find_usages_scopes.png" alt="Find usages"/>
+            </step>
+            <step>
+                You can limit scope only to topics and libraries included in the current or not in the current instance.
+            </step>
+        </procedure>
+    </chapter>
+</topic>
+
+<!--Another way, you might need to check whether a specific markup element is used and how many times.-->

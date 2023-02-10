@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Markdown Markup"
+       id="Markdown_markup">
+
+    <p>%product% uses the <a href="https://spec.commonmark.org/0.30/"><code>CommonMark Markdown specification</code></a>
+        with the <a href="https://github.com/vsch/flexmark-java"><code>flexmark</code></a> as a processor.</p>
+
+    <p>We support all text formatting options (bold, emphasis, inline code), as well as images, links, tables, code blocks, lists, and headings.</p>
+    <p>You might be interested in taking a look at <a href="https://commonmark.org/help/">the CommonMark quick reference</a>.</p>
+    <p>In addition to the standard CommonMark syntax, %product% supports extending markup elements using custom attributes or <a href="Semantic-Markup.topic">inject semantic markup blocks</a> into Markdown.</p>
+    <p>This section highlights some of the special Markdown features you can use in your docs.</p>
+    <p>Also, you may use the IntelliJ IDEs bundled <a href="https://plugins.jetbrains.com/plugin/7793-markdown/docs">Markdown plugin</a> features, as: </p>
+    <list>
+        <li>Insert actions by pressing <shortcut key="Generate"/> (for images, tables, and links);</li>
+        <li>Drag and drop for images and internal links;</li>
+        <li>Live Table edit;</li>
+        <li>Formatting actions in the floating toolbar.</li>
+    </list>
+</topic>

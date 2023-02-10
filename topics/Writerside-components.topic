@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       title="Writerside components" id="Writerside-components">
+
+    <p>
+        When you install %product% as a plugin, you get all the components necessary for authoring and building a help instance locally.
+        These components include the following:
+    </p>
+
+    <list>
+        <li>The IDE plugin for authoring your documentation.</li>
+        <li>The builder to compile your documentation into an HTML help instance.</li>
+        <li>The frontend application for rendering your help instance in the browser.</li>
+    </list>
+
+    <p>
+        The latter two are also available as independent <emphasis>redistributable</emphasis> components
+        for publishing your documentation on a production web site.
+        These are scripts for building you help instance in a CI/CD pipeline
+        and for rendering the help instance on your readers' web browsers.
+    </p>
+</topic>

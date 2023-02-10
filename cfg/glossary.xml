@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE terms SYSTEM "https://resources.jetbrains.com/stardust/glossary.dtd">
+<terms>
+    <term name="TOC">Table of Contents, defines topics to be included in product help build.</term>
+    <term name="GUI">Graphical User Interface</term>
+    <term name="tooltip">Tooltips display text definition when users hover over it.
+    </term>
+</terms>

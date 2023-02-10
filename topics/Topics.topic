@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Manage topics"
+       id="Topics">
+
+    <p>
+        In %product%, content is organized in <emphasis>topic</emphasis> files.
+    </p>
+    <p>
+        Topic files are stored in the <path>/topics</path> directory of your doc project or module.
+    </p>
+    <p>
+        The same topic can be used in several instances. For example, if you create content that's applicable
+        to multiple documentation outputs, you can author it once and <a href="Single_sourcing.topic">reuse it</a> in different contexts.
+    </p>
+
+    <chapter title="Topic formats" id="topic_formats">
+        <p>
+            %product% supports two topic types:
+        </p>
+        <list style="bullet">
+            <li>
+                <code>.md</code> files: you can use these to author docs in Markdown. If you need to use elements
+                that are not supported by the basic Markdown syntax, you can extend it with semantic attributes or
+                inject entire semantic elements.
+            </li>
+            <li>
+                <code>.topic</code> files: you can use these to author docs using the semantic markup that contains
+                elements for various types of content.
+            </li>
+        </list>
+        <p>
+            You don't have to stick to any of these formats and can have a mix of both file types in your project. See <a href="Semantic-Markup.topic"/> for details.
+        </p>
+        <chapter title="How do I decide which format to use?" collapsible="true">
+            <deflist>
+                <def title=".topic">
+                    <p>
+                        If you are used to structured XML-based authoring and already know that your content needs to have
+                        complex elements such as tabs, collapsible content blocks, complex tables with merged cells, definition
+                        lists and the like, you may choose to use <code>.topic</code> files.
+                    </p>
+                    <p>
+                        This also makes sense if you have a team of professional technical writers and no one else contributes
+                        to documentation.
+                    </p>
+                </def>
+                <def title=".md">
+                    <p>
+                        If you are just starting to write content around your product and want to stay light, you can stick to
+                        <code>.md</code> files. You can inject semantic attributes whenever you need to enrich Markdown, or inject
+                        entire semantic elements as your content grows and becomes more complex. %product% provides completion and
+                        validation for such injections, so you don't need to learn the markup.
+                    </p>
+                    <p>
+                        Note that you don't need to do any migration or change files format from <code>.md</code>
+                        to <code>.topic</code> even if at some point you end up with more semantic markup than Markdown in your files.
+                    </p>
+                    <p>
+                        It also makes sense to choose <code>.md</code> as your primary format if you have multiple contributors to
+                        your documentation inside your product team, or need to accept external pull requests.
+                    </p>
+                </def>
+            </deflist>
+        </chapter>
+    </chapter>
+
+    <seealso>
+        <category ref="see_also">
+            <a href="Add_a_topic.topic"/>
+            <a href="Manage_table_of_contents.topic" anchor="link-topics-to-toc"/>
+            <a href="Changing_topic_title.topic"/>
+            <a href="Delete_a_topic.topic"/>
+        </category>
+    </seealso>
+</topic>

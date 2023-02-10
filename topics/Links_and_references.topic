@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/html-entities.dtd">
+
+<topic xsi:noNamespaceSchemaLocation="https://helpserver.labs.jb.gg/help/schemas/mvp/topic.v2.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       title="Links and references"
+       id="Links_and_references">
+    
+    <chapter title="Semantic link" id="link">
+        <p>In semantic markup, to create a link to another topic, to an anchor inside a topic, or the external resource,
+            use <code>&lt;a&gt;</code>.</p>
+        <p>The link text may contain text with inline formatting, shortcuts, UI paths, controls, and images.</p>
+    <deflist>
+        <def title="href">
+            Specify the topic ID for internal reference or the page URL for external.
+        </def>
+        <def title="anchor" id="a-anchor">
+            <p>Refer to a specific element ID or anchor element on the page.</p>
+            <warning><p>Do not use a snippet id to reference an anchor, the link will be broken.</p></warning>
+        </def>
+        <def title="nullable">
+           <p><code>[true|false]</code> By default, we check that links are valid and lead to either topic, anchor, or an existing external resource.
+            If <code>true</code>, the link won't be validated and will be considered plain text.</p>
+        </def>
+        <def title="switcher-key">
+            Use to make elements switchable depending on the selected key.
+        </def>
+        <def title="summary" id="summary-attr">
+            Specify a summary to display when hovering over a link.
+        </def>
+        <def title="caps=[title,sentence,upper,lower]">
+            <p>Specify how to display title: title case, sentence case, all upper letters, all lower letters, or as written.</p>
+        </def>
+        <def title="target-switcher-key">
+            Specify which topic variant to open first when you point to the topic with sections.
+        </def>
+    </deflist>
+    <p>If no text is specified for an internal link, we will display the topic title instead.
+        For external, we will display an address.</p>
+    </chapter>
+    <chapter title="Markdown links">
+        <p>In Markdown to create a link use the following markup: <code id="md-link-anchor">[link text](external URL, topic filename, or custom element id.)</code>.</p>
+        <p>You can refer to any elements with custom IDs by specifying a standard link with a number sign (#) followed by the custom ID.
+        </p>
+        <table>
+            <tr>
+                <td>Markup</td>
+                <td>Result</td>
+            </tr>
+            <tr>
+                <td>
+                    <code-block>
+                        Here is [the link to anchor](#md-link-anchor)
+                    </code-block>
+                </td>
+                <td>
+                    Here is <a anchor="md-link-anchor">the link to an anchor</a>.
+                </td>
+            </tr>
+        </table>
+        <p>To specify the link summary, use the following markup: <code>[Link text](Topic.md "The target topic summary")</code>.
+        </p>
+        <chapter title="Reference-style links in Markdown">
+            <p>%product% allows adding <emphasis>reference-style</emphasis> links, which means you can put all the links somewhere in the document,
+                for example, in the bottom, assign identifiers to them, and reference throughout the document.</p>
+            <p>
+                For example:
+            </p>
+            <code-block lang="plain text">
+                Some text with some [link][jb] and some [other link][ex].
+
+                [jb]: https://www.jetbrains.com
+                [ex]: https://example.com
+            </code-block>
+        </chapter>
+    </chapter>
+    <chapter title="See also" id="see-also">
+        <p>Use the <code>seealso</code> tag to add a section with links that may be useful for the users,
+            but cannot be included in the topic text. The <code>seealso</code> section is displayed at the bottom of the page.
+        </p>
+        <p>
+            You must use <code>category</code> tags to group links in the See also section. The list of categories is
+            stored in the <path>c.list</path> file within the module directory. The <code>order</code> attribute set
+            for each category defines its position in the list.
+        </p>
+        <p>The <code>seealso</code> element has the following attributes:</p>
+        <deflist>
+        <def title="style">
+            <p><code>[cards|links]</code> Specify the appearance of the See also section. By default, it is set to <code>links</code>.</p>
+        </def>
+        </deflist>
+        <p>
+            <path>c.list</path>
+            file:
+        </p>
+        <code-block lang="XML" collapsible="true">
+            <![CDATA[
+                    <category id="ext" name="External resources"
+                              order="1"/>
+                    <category id="tutorials" name="Tutorials"
+                              order="2"/>
+                    <category id="how-to" name="How to's"
+                              order="3"/>
+                    ]]>
+        </code-block>
+        <tabs>
+            <tab title="Cards">
+                <code-block lang="XML">
+                    <![CDATA[
+                         <seealso style="cards">
+                                <category ref="how-to">
+                                    <a href="Links.topic">Category 3. Link 1</a>
+                                    <a href="Links_and_references.topic">Category 3. Link 2</a>
+                                </category>
+                                <category ref="ext">
+                                    <a href="Links.topic">Category 1. Link 1</a>
+                                    <a href="Links_and_references.topic">Category 1. Link 2</a>
+                                </category>
+                         </seealso>
+                    ]]>
+                </code-block>
+            </tab>
+            <tab title="Links">
+                <code-block lang="XML">
+                    <![CDATA[
+                         <seealso style="links">
+                                <category ref="how-to">
+                                    <a href="Links.topic">Category 3. Link 1</a>
+                                    <a href="Links_and_references.topic">Category 3. Link 2</a>
+                                </category>
+                                <category ref="ext">
+                                    <a href="Links.topic">Category 1. Link 1</a>
+                                    <a href="Links_and_references.topic">Category 1. Link 2</a>
+                                </category>
+                         </seealso>
+                    ]]>
+                </code-block>
+            </tab>
+        </tabs>
+    </chapter>
+</topic>
